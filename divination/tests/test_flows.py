@@ -33,3 +33,12 @@ def test_staticflow_setup():
     assert s.label == "test"
     assert len(s) == 3
     assert s.sum() == 6
+
+
+@pytest.mark.parametrize(
+    "projected_period, projected_sum", [(10, 1.5), (1, 1.0), (3, 1.5)]
+)
+def test_static_discounting_projections(projected_period, projected_sum):
+    d = StaticFlow([0.5, 0.5, 0.5], label="test")
+    results = d.project(projected_period)
+    assert results.sum() == projected_sum

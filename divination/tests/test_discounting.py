@@ -34,3 +34,12 @@ def test_static_discounting_setup():
     assert d.label == "test"
     assert len(d) == 3
     assert d.sum() == 1 + 0.95 + 0.5
+
+
+@pytest.mark.parametrize(
+    "projected_period, projected_sum", [(10, 1.5), (1, 1.0), (3, 1.5)]
+)
+def test_static_discounting_projections(projected_period, projected_sum):
+    d = StaticDiscountFactors([0.5, 0.5, 0.5], label="test")
+    results = d.project(projected_period)
+    assert results.sum() == projected_sum
