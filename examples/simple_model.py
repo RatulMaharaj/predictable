@@ -31,10 +31,20 @@ exp = dv.StaticFlow(
 )
 model.add_component(exp)
 
-# define relationships between variables somehow?
+# Add discounting
+disc = dv.DiscountFactors(interest_rate=0.05, label="discounting")
+model.add_component(disc)
+
+# TODO: define relationships between variables somehow?
+# Allow the creation of derived cashflow vectors using labels
+# (premium - cover - expense ) * discounting
 
 # Project cashflows over term
 results = model.project(term=10)
 
 # Results get returned as a pandas dataframe
 print(results)
+
+# TODO: How this 'model.py' will be applied to modelpoints is still TBD
+# TODO: Inputs to many of the cashflow vectors would need to come from the data
+# TODO: This example can be thought off as applying to a single policy
