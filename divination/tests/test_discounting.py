@@ -17,21 +17,20 @@ def test_discounting_setup():
     d = DiscountFactors(interest_rate=0.05, label="test")
 
     assert d.label == "test"
-    assert d.data == [1]
-    assert d.length == 1
+    assert len(d) == 1
     assert d.interest_rate == 0.05
 
 
 def test_discounting_projection():
     d = DiscountFactors(interest_rate=0.05, label="test")
+    assert len(d) == 1
     results = d.project(1)
     assert [round(i, 6) for i in results] == [1, 0.952381]
-    assert d.length == 2
+    assert len(results) == 2
 
 
 def test_static_discounting_setup():
-    d = StaticDiscountFactors([1, 0.95, 0.5], label="test")
-
+    d = StaticDiscountFactors(input_array=[1, 0.95, 0.5], label="test")
     assert d.label == "test"
-    assert d.data == [1, 0.95, 0.5]
-    assert d.length == 3
+    assert len(d) == 3
+    assert d.sum() == 1 + 0.95 + 0.5

@@ -9,7 +9,7 @@ def test_model_components():
 
 def test_add_model_component():
     m = Model()
-    m.add_component(StaticFlow(label="test", data=[1, 2, 3]))
+    m.add_component(StaticFlow(label="test", input_array=[1, 2, 3]))
     assert len(m.components) == 1
 
 

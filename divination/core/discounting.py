@@ -1,50 +1,71 @@
+import numpy as np
+from numpy.typing import ArrayLike
+
+from .base import BaseFlow
+
+
 def i_to_v(i: float) -> float:
-    """Convert interest rate i to discount factor v = 1 / (1 + i).
-
-    Keyword arguments:
-    i -- interest rate
-    Return: v, discount factor
-    """
-
+    """Convert interest rate i to discount factor v = 1 / (1 + i)."""
     return 1 / (1 + i)
 
 
-class StaticDiscountFactors:
-    def __init__(self, data: list, label: str = "discount_factor"):
-        self.label = label
-        self.data = data
-        self.length = len(data)
+# TODO: A lot of the class setup logic is being repeated
+# TODO: We should create a BaseFlow class for other Flows to inherit from
+class StaticDiscountFactors(np.ndarray):
+    def __new__(cls, input_array: ArrayLike, label: str = None):
+        # Input array is an already formed ndarray instance
+        # We first cast to be our class type
+        obj = np.asarray(input_array).view(cls)
+        # add new attributes to the created instance
+        obj.label = label
+        # Finally, we must return the newly created object:
+        return obj
 
-    def __str__(self):
-        return f"{self.data}"
+    def __array_finalize__(self, obj):
+        if obj is None:
+            return
+        self.label = getattr(obj, "label", None)
 
     def project(self, term: int):
-        if self.length == term:
-            return self.data
-        elif self.length < term:
-            return self.data + (term - self.length + 1) * [0]
-        elif self.length > term:
-            return self.data[: term + 1]
+        if len(self) == term:
+            return self
+        elif len(self) < term:
+            return np.append(self, (term - len(self) + 1) * [0])
+        elif len(self) > term:
+            return self[: term + 1]
 
 
-class DiscountFactors:
-    def __init__(
-        self,
+class DiscountFactors(BaseFlow):
+    def __new__(
+        cls,
         interest_rate: float,
+        input_array: ArrayLike = [1],
         formula=lambda i: i,
-        label: str = "discount_factor",
+        label: str = None,
     ):
-        self.label = label
-        self.interest_rate = interest_rate
-        self.formula = formula
-        self.data = [1]
-        self.length = len(self.data)
+        # Input array is an already formed ndarray instance
+        obj = np.asarray(input_array).view(cls)
+        # add new attributes to the created instance
+        obj.interest_rate = interest_rate
+        obj.formula = formula
+        obj.label = label
+        # Finally, we must return the newly created object:
+        return obj
 
-    def __str__(self):
-        return f"{self.data}"
+    def __array_finalize__(self, obj):
+        if obj is None:
+            return
+        self.interest_rate = getattr(obj, "interest_rate", None)
+        self.formula = getattr(obj, "formula", lambda i: i)
+        self.label = getattr(obj, "label", None)
 
     def project(self, term):
+        results = self
         for n in range(1, term + 1):
-            self.data.append(i_to_v(self.formula(self.interest_rate)) ** n)
-        self.length = len(self.data)
-        return self.data
+            results = np.append(
+                results, i_to_v(self.formula(self.interest_rate)) ** n
+            )
+        return StaticDiscountFactors(
+            input_array=results,
+            label=self.label,
+        )

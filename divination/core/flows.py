@@ -1,44 +1,73 @@
+import numpy as np
+from numpy.typing import ArrayLike
+
 from .precision import get_precision
 
 
-class StaticFlow:
-    def __init__(self, label: str, data: list):
-        self.label = label
-        self.data = data
-        self.length = len(data)
+class StaticFlow(np.ndarray):
+    def __new__(cls, input_array: ArrayLike, label: str = None):
+        # Input array is an already formed ndarray instance
+        # We first cast to be our class type
+        obj = np.asarray(input_array).view(cls)
+        # add new attributes to the created instance
+        obj.label = label
+        # Finally, we must return the newly created object:
+        return obj
 
-    def __str__(self):
-        return f"{self.data}"
+    def __array_finalize__(self, obj):
+        if obj is None:
+            return
+        self.label = getattr(obj, "label", None)
 
     def project(self, term: int):
-        if self.length == term:
-            return self.data
-        elif self.length < term:
-            return self.data + (term - self.length + 1) * [0]
-        elif self.length > term:
-            return self.data[: term + 1]
+        if len(self) == term:
+            return self
+        elif len(self) < term:
+            return np.append(self, (term - len(self) + 1) * [0])
+        elif len(self) > term:
+            return self[: term + 1]
 
 
-class CashFlow:
-    def __init__(
-        self, label: str, initial_data: list, formula=lambda previous: previous
+class CashFlow(np.ndarray):
+    def __new__(
+        cls,
+        input_array: ArrayLike,
+        formula=lambda previous: previous,
+        label: str = None,
     ):
-        self.label = label
-        self.formula = formula
-        self.initial_data = initial_data
-        self.data = initial_data
-        self.length = len(initial_data)
+        # Input array is an already formed ndarray instance
+        obj = np.asarray(input_array).view(cls)
+        # add new attributes to the created instance
+        obj.label = label
+        obj.formula = formula
+        # Finally, we must return the newly created object:
+        if len(input_array) > 1:
+            raise ValueError(
+                "Use StaticFlow instead if you wish to pre-populate cashflows.",
+                input_array,
+            )
+        return obj
 
-    def __str__(self):
-        return f"{self.data}"
+    def __array_finalize__(self, obj):
+        if obj is None:
+            return
+        self.label = getattr(obj, "label", None)
+        self.formula = getattr(obj, "formula", lambda x: x)
 
     def project(self, term):
+        results = self
         for _ in range(0, term):
-            self.data.append(
+            results = np.append(
+                results,
                 round(
-                    self.formula(self.data[-1]),
+                    self.formula(results[-1]),
                     get_precision(),
-                )
+                ),
             )
-        self.length = len(self.data)
-        return self.data
+        return StaticFlow(input_array=results, label=self.label)
+
+
+class Derived(np.ndarray):
+    def __init__(self, label: str, relationship: str):
+        super().__init__(label=label, input_array=[])
+        self.relationship = relationship
