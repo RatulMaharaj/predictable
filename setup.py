@@ -22,7 +22,7 @@ setuptools.setup(
     ],
     package_dir={"divination": "divination"},
     packages=["divination"],
-    python_requires=">=3.10",
+    python_requires=">=3.8",
     install_requires=["pandas", "numpy"],
     tests_require=["pytest"],
     include_package_data=True,
