@@ -20,7 +20,9 @@ class StaticFlow:
 
 
 class CashFlow:
-    def __init__(self, label: str, initial_data: list, formula=lambda x: x):
+    def __init__(
+        self, label: str, initial_data: list, formula=lambda previous: previous
+    ):
         self.label = label
         self.formula = formula
         self.initial_data = initial_data

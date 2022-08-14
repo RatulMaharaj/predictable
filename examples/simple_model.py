@@ -9,9 +9,10 @@ model = dv.Model()
 rounding = dv.set_precision(4)
 
 # Add a premium component
+# The 'formula' can be used to adjust the values of the cashflows over time
 prem = dv.CashFlow(
     label="premium",
-    formula=lambda x: x * 1.05,
+    formula=lambda prev: prev * 1.05,
     initial_data=[100],
 )
 model.add_component(prem)
