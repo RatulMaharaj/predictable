@@ -23,9 +23,11 @@ class StaticFlow(np.ndarray):
         if len(self) == term:
             return self
         elif len(self) < term:
-            return np.append(self, (term - len(self) + 1) * [0])
+            results = np.append(self, (term - len(self) + 1) * [0])
+            return StaticFlow(input_array=results, label=self.label)
         elif len(self) > term:
-            return self[: term + 1]
+            results = self[: term + 1]
+            return StaticFlow(input_array=results, label=self.label)
 
 
 class CashFlow(np.ndarray):
