@@ -1,7 +1,7 @@
-# Divination
+# Divinate
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![pytest](https://github.com/RatulMaharaj/divination/actions/workflows/pytest.yaml/badge.svg?branch=main)](https://github.com/RatulMaharaj/divination/actions/workflows/pytest.yaml)
+[![pytest](https://github.com/RatulMaharaj/divinate/actions/workflows/pytest.yaml/badge.svg?branch=main)](https://github.com/RatulMaharaj/divinate/actions/workflows/pytest.yaml)
 
 ## What is it?
 
@@ -10,7 +10,7 @@ A framework for Actuarial modelling.
 ## Installation
 
 ```sh
-pip install divination # Not yet available
+pip install divinate # Not yet available
 ```
 
 ## Quick start example
@@ -19,7 +19,7 @@ A `model.py` file will be used to house the modelling logic which will be applie
 
 ```python
 # import the library
-from divination import CashFlow, DiscountFactors, Model, StaticFlow
+from divinate import CashFlow, DiscountFactors, Model, StaticFlow
 
 # Create new model instance
 model = Model()
@@ -65,7 +65,7 @@ print(df)
 
 ## License
 
-[MIT](https://github.com/RatulMaharaj/divination/blob/main/LICENSE)
+[MIT](https://github.com/RatulMaharaj/divinate/blob/main/LICENSE)
 
 ## Documentation
 
@@ -78,8 +78,8 @@ The following steps can be followed to set up a development environment.
 1. Clone the project:
 
 ```sh
-git clone https://github.com/RatulMaharaj/divination.git
-cd divination
+git clone https://github.com/RatulMaharaj/divinate.git
+cd divinate
 ```
 
 2. Create a virtual environment and activate it using:
@@ -110,7 +110,7 @@ pre-commit install
 
 ### Testing
 
-The tests for this project can be found in the `divination/tests` directory. Tests will run after every commit (locally) and on every push (using github actions) but can also be run manually using:
+The tests for this project can be found in the `divinate/tests` directory. Tests will run after every commit (locally) and on every push (using github actions) but can also be run manually using:
 
 ```sh
 pytest

@@ -1,5 +1,5 @@
 import pytest
-from divination.core.discounting import (
+from divinate.core.discounting import (
     DiscountFactors,
     StaticDiscountFactors,
     i_to_v,

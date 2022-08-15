@@ -1,6 +1,6 @@
 # `pip install -e .` to install the library
 # import the library
-from divination import CashFlow, DiscountFactors, Model, StaticFlow
+from divinate import CashFlow, DiscountFactors, Model, StaticFlow
 
 # Create new model instance
 model = Model()

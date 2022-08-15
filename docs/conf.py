@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "Divination"
+project = "Divinate"
 copyright = "2022, Ratul Maharaj"
 author = "Ratul Maharaj"
 release = "0.0.0"
