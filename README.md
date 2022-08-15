@@ -10,7 +10,7 @@ A framework for Actuarial modelling.
 ## Installation
 
 ```sh
-pip install divinate # Not yet available
+pip install divinate
 ```
 
 ## Quick start example
