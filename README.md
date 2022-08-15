@@ -5,7 +5,7 @@
 
 ## What is it?
 
-A framework for Actuarial modelling.
+A framework for actuarial modelling.
 
 ## Installation
 

@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.1.2",
     author="Ratul Maharaj",
     author_email="ratulmaharaj@gmail.com",
-    description="A framework for Actuarial modelling.",
+    description="A framework for actuarial modelling.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/RatulMaharaj/divinate",
