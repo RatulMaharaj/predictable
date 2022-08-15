@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="divination",
-    version="0.0.0",
+    version="0.1.0",
     author="Ratul Maharaj",
     author_email="ratulmaharaj@gmail.com",
     description="A framework for Actuarial modelling.",
