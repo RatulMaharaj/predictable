@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="divinate",
-    version="0.1.1",
+    version="0.1.2",
     author="Ratul Maharaj",
     author_email="ratulmaharaj@gmail.com",
     description="A framework for Actuarial modelling.",
@@ -21,7 +21,10 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     package_dir={"divinate": "divinate"},
-    packages=["divinate"],
+    packages=[
+        "divinate",
+        "divinate.core",
+    ],
     python_requires=">=3.8",
     install_requires=["pandas", "numpy"],
     tests_require=["pytest"],
