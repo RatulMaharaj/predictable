@@ -2,7 +2,8 @@ PRECISION = 2
 
 
 def set_precision(p: int):
-    """Determine the number of decimal places used in rounding.
+    """
+    Determine the number of decimal places used in rounding.
 
     Keyword arguments:
     p -- int, number of decimal places
@@ -17,7 +18,8 @@ def set_precision(p: int):
 
 
 def get_precision():
-    """Get the current number of decimals used in rounding.
+    """
+    Get the current number of decimals used in rounding.
 
     Return: global PRECISION
     """

@@ -1,0 +1,4 @@
+﻿divinate
+========
+
+.. automodule:: divinate

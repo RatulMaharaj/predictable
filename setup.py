@@ -3,9 +3,12 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+with open(".version", "r") as f:
+    version = f.read()
+
 setuptools.setup(
     name="divinate",
-    version="0.1.2",
+    version=version,
     author="Ratul Maharaj",
     author_email="ratulmaharaj@gmail.com",
     description="A framework for actuarial modelling.",
