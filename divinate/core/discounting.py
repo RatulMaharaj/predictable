@@ -5,7 +5,14 @@ from .base import BaseFlow
 
 
 def i_to_v(i: float) -> float:
-    """Convert interest rate i to discount factor v = 1 / (1 + i)."""
+    """Convert interest rate i to discount factor
+    where discount factor = 1 / (1 + interest rate)
+
+    :param i: Interest rate
+    :type i: float
+    :return: Discount factor
+    :rtype: float
+    """
     return 1 / (1 + i)
 
 
@@ -27,6 +34,13 @@ class StaticDiscountFactors(np.ndarray):
         self.label = getattr(obj, "label", None)
 
     def project(self, term: int):
+        """This method is used to handle the projection logic for the component.
+
+        :param term: Term over which to project
+        :type term: int
+        :return: StaticDiscountFactors object containing projected values
+        :rtype: StaticDiscountFactors
+        """
         if len(self) == term:
             return self
         elif len(self) < term:
@@ -61,7 +75,14 @@ class DiscountFactors(BaseFlow):
         self.formula = getattr(obj, "formula", lambda i: i)
         self.label = getattr(obj, "label", None)
 
-    def project(self, term):
+    def project(self, term: int):
+        """This method is used to handle the projection logic for the component.
+
+        :param term: Term over which to project
+        :type term: int
+        :return: StaticDiscountFactors object containing projected values
+        :rtype: StaticDiscountFactors
+        """
         results = self
         for n in range(1, term + 1):
             results = np.append(

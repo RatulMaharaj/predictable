@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![pytest](https://github.com/RatulMaharaj/divinate/actions/workflows/pytest.yaml/badge.svg?branch=main)](https://github.com/RatulMaharaj/divinate/actions/workflows/pytest.yaml)
+[![Documentation Status](https://readthedocs.org/projects/divinate/badge/?version=latest)](https://divinate.readthedocs.io/en/latest/?badge=latest)
 
 ## What is it?
 
@@ -69,7 +70,7 @@ print(df)
 
 ## Documentation
 
-This project is documented using sphinx and the full documentation can be found at **TBD**.
+This project is documented using sphinx and the full documentation can be found at [divinate.readthedocs.io](https://divinate.readthedocs.io/en/latest/).
 
 ## Development & Contibutions
 

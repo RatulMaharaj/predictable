@@ -5,6 +5,8 @@ from .precision import get_precision
 
 
 class StaticFlow(np.ndarray):
+    """Static cashflow object created from an Array-Like object. Subclasses numpy.ndarray"""
+
     def __new__(cls, input_array: ArrayLike, label: str = None):
         # Input array is an already formed ndarray instance
         # We first cast to be our class type
@@ -20,6 +22,13 @@ class StaticFlow(np.ndarray):
         self.label = getattr(obj, "label", None)
 
     def project(self, term: int):
+        """This method is used to handle the projection logic for the component.
+
+        :param term: Term over which to project
+        :type term: int
+        :return: StaticFlow object containing projected values
+        :rtype: StaticFlow
+        """
         if len(self) == term:
             return self
         elif len(self) < term:
@@ -31,6 +40,8 @@ class StaticFlow(np.ndarray):
 
 
 class CashFlow(np.ndarray):
+    """CashFlow object created from an Array-Like object. Subclasses numpy.ndarray"""
+
     def __new__(
         cls,
         input_array: ArrayLike,
@@ -56,7 +67,14 @@ class CashFlow(np.ndarray):
         self.label = getattr(obj, "label", None)
         self.formula = getattr(obj, "formula", lambda x: x)
 
-    def project(self, term):
+    def project(self, term: int):
+        """This method is used to handle the projection logic for the component.
+
+        :param term: Term over which to project
+        :type term: int
+        :return: StaticFlow object containing projected values
+        :rtype: StaticFlow
+        """
         results = self
         for _ in range(0, term):
             results = np.append(
@@ -67,9 +85,3 @@ class CashFlow(np.ndarray):
                 ),
             )
         return StaticFlow(input_array=results, label=self.label)
-
-
-class Derived(np.ndarray):
-    def __init__(self, label: str, relationship: str):
-        super().__init__(label=label, input_array=[])
-        self.relationship = relationship

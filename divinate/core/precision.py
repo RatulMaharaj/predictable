@@ -2,13 +2,15 @@ PRECISION = 2
 
 
 def set_precision(p: int):
-    """
-    Determine the number of decimal places used in rounding.
+    """Determine the number of decimal places used in rounding.
 
-    Keyword arguments:
-    p -- int, number of decimal places
-    Return: global PRECISION
+    :param p: Number of decimal places to round to, default is 2.
+    :type p: int
+    :raises ValueError: When attempting to set negative precision.
+    :return: global PRECISION
+    :rtype: int
     """
+
     if int(p) > 0:
         global PRECISION
         PRECISION = int(p)
@@ -18,10 +20,10 @@ def set_precision(p: int):
 
 
 def get_precision():
-    """
-    Get the current number of decimals used in rounding.
+    """Get the current number of decimals used in rounding.
 
-    Return: global PRECISION
+    :return: global PRECISION
+    :rtype: int
     """
 
     return PRECISION
