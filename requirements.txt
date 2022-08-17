@@ -1,1 +1,10 @@
+flake8==5.0.4
+furo==2022.6.21
+myst-parser==0.18.0
 pandas==1.4.3
+numpy==1.23.2
+pre-commit==2.20.0
+pytest==7.1.2
+sphinx-autobuild==2021.3.14
+sphinx-copybutton==0.5.0
+sphinxext-opengraph==0.6.3

@@ -1,0 +1,5 @@
+[flake8]
+ignore = F841, F401
+exclude = .git, __pycache__, dist
+max-complexity = 10
+max-line-length = 100

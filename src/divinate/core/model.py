@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from pandas import DataFrame
 
 from .flows import CashFlow
@@ -17,6 +18,9 @@ class Model:
         :type component: CashFlow
         """
         self.components[component.label] = component
+
+    def add_modelpoint_schema(self, schema: dataclass):
+        pass
 
     def project(self, term: int) -> DataFrame:
         """This method is used to invoke the project method in each of the associated components.

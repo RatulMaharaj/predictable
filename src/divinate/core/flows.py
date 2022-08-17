@@ -67,7 +67,7 @@ class CashFlow(np.ndarray):
         self.label = getattr(obj, "label", None)
         self.formula = getattr(obj, "formula", lambda x: x)
 
-    def project(self, term: int):
+    def project(self, term: int) -> StaticFlow:
         """This method is used to handle the projection logic for the component.
 
         :param term: Term over which to project

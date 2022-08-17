@@ -1,23 +1,33 @@
 [build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
+requires = ["hatchling>=1.8.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "divinate"
+description = "A framework for actuarial modelling."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+authors = [{ name = "Ratul Maharaj", email = "ratulmaharaj@gmail.com" }]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
 ]
-build-backend = "setuptools.build_meta"
+dependencies = ["numpy", "pandas"]
+dynamic = ["version"]
+keywords = ["actuarial", "modelling", "financial services", "pandas", "numpy"]
+
+[project.urls]
+"Bug Tracker" = "https://github.com/RatulMaharaj/divinate/issues"
+homepage = "https://github.com/RatulMaharaj/divinate"
+documentation = "https://divinate.readthedocs.io"
+
+[tool.hatch.version]
+path = "src/divinate/__init__.py"
+
 
 [tool.black]
 line-length = 79
-include = '\.pyi?$'
-exclude = '''
-/(
-    \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''
+include = "\\.pyi?$"
+exclude = "/(\n    \\.git\n  | \\.hg\n  | \\.mypy_cache\n  | \\.tox\n  | \\.venv\n  | _build\n  | buck-out\n  | build\n  | dist\n)/\n"

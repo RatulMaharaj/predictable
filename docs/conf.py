@@ -5,19 +5,18 @@
 
 import os
 import sys
+import divinate as dv
 
 sys.path.insert(0, os.path.abspath(".."))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-with open("../.version", "r") as f:
-    version = f.read()
 
 project = "Divinate"
 copyright = "2022, Ratul Maharaj"
 author = "Ratul Maharaj"
-release = version
+release = dv.__version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
