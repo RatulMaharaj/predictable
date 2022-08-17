@@ -1,6 +1,5 @@
-from divinate.core.flows import StaticFlow
-from divinate.core.model import Model
 from pandas import DataFrame
+from src.divinate import Model, StaticFlow
 
 
 def test_model_components():

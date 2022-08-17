@@ -1,5 +1,5 @@
 import pytest
-from divinate.core.precision import PRECISION, get_precision, set_precision
+from src.divinate import PRECISION, get_precision, set_precision
 
 
 def test_get_precision():

@@ -1,5 +1,5 @@
 import pytest
-from divinate import CashFlow, StaticFlow
+from src.divinate import CashFlow, StaticFlow
 
 
 def test_cashflow_setup():

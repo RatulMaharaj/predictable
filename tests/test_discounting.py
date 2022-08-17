@@ -1,5 +1,5 @@
 import pytest
-from divinate import DiscountFactors, StaticDiscountFactors, i_to_v
+from src.divinate import DiscountFactors, StaticDiscountFactors, i_to_v
 
 
 @pytest.mark.parametrize(

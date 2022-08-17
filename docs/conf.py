@@ -3,20 +3,28 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import datetime
 import os
+import subprocess
 import sys
-import divinate as dv
 
-sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, os.path.abspath("../src"))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+year = datetime.datetime.now().year
 
 project = "Divinate"
-copyright = "2022, Ratul Maharaj"
+copyright = f"{year}, Ratul Maharaj"
 author = "Ratul Maharaj"
-release = dv.__version__
+release = (
+    subprocess.run(
+        ["git", "describe", "--tags", "--abbrev=0"], capture_output=True
+    )
+    .stdout.decode("utf-8")
+    .replace("\n", "")
+)
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
