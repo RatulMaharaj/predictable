@@ -1,4 +1,11 @@
 repos:
+  - repo: local
+    hooks:
+      - id: pipchill
+        name: Update requirements
+        entry: bash -c 'pip-chill --no-chill > requirements.txt'
+        language: system
+
   - repo: https://github.com/ambv/black
     rev: 22.6.0
     hooks:
