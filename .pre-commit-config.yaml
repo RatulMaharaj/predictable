@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: pipchill
         name: Update requirements
-        entry: bash -c 'pip-chill --no-chill > requirements.txt'
+        entry: bash -c 'pip-chill --no-chill | grep -v "divinate" > requirements.txt'
         language: system
 
   - repo: https://github.com/ambv/black
