@@ -6,7 +6,6 @@ class StaticRiskRates(np.ndarray):
     """Static cashflow object created from an Array-Like object. Subclasses numpy.ndarray"""
 
     def __new__(cls, input_array: ArrayLike, label: str = None):
-        # Input array is an already formed ndarray instance
         # We first cast to be our class type
         obj = np.asarray(input_array).view(cls)
         # add new attributes to the created instance
