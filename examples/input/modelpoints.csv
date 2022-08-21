@@ -1,3 +1,2 @@
 policy_number,age,gender,smoker_status,premium,cover,expenses
 001,23,M,NS,100,1000000,10
-002,27,F,S,200,1500000,20

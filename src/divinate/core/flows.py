@@ -1,5 +1,6 @@
 import numpy as np
 from numpy.typing import ArrayLike
+from pandas import DataFrame
 
 from .precision import get_precision
 
@@ -20,7 +21,7 @@ class StaticFlow(np.ndarray):
             return
         self.label = getattr(obj, "label", None)
 
-    def project(self, term: int):
+    def project(self, term: int, results: DataFrame):
         """This method is used to handle the projection logic for the component.
 
         :param term: Term over which to project
@@ -66,7 +67,7 @@ class CashFlow(np.ndarray):
         self.label = getattr(obj, "label", None)
         self.formula = getattr(obj, "formula", lambda x: x)
 
-    def project(self, term: int) -> StaticFlow:
+    def project(self, term: int, results: DataFrame) -> StaticFlow:
         """This method is used to handle the projection logic for the component.
 
         :param term: Term over which to project

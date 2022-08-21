@@ -1,5 +1,6 @@
 import numpy as np
 from numpy.typing import ArrayLike
+from pandas import DataFrame
 
 
 class StaticRatingFactor(np.ndarray):
@@ -19,7 +20,7 @@ class StaticRatingFactor(np.ndarray):
             return
         self.label = getattr(obj, "label", None)
 
-    def project(self, term: int):
+    def project(self, term: int, results: DataFrame):
         """This method is used to handle the projection logic for the component.
 
         :param term: Term over which to project
@@ -65,7 +66,7 @@ class RatingFactor(np.ndarray):
         self.label = getattr(obj, "label", None)
         self.formula = getattr(obj, "formula", lambda x: x)
 
-    def project(self, term: int) -> StaticRatingFactor:
+    def project(self, term: int, results: DataFrame) -> StaticRatingFactor:
         """This method is used to handle the projection logic for the component.
 
         :param term: Term over which to project

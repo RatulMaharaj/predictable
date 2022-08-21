@@ -1,5 +1,8 @@
 import numpy as np
 from numpy.typing import ArrayLike
+from pandas import DataFrame
+
+from .flows import StaticFlow
 
 
 def i_to_v(i: float) -> float:
@@ -14,41 +17,7 @@ def i_to_v(i: float) -> float:
     return 1 / (1 + i)
 
 
-# TODO: A lot of the class setup logic is being repeated
-# TODO: We should create a BaseFlow class for other Flows to inherit from
-class StaticDiscountFactors(np.ndarray):
-    def __new__(cls, input_array: ArrayLike, label: str = None):
-        # Input array is an already formed ndarray instance
-        # We first cast to be our class type
-        obj = np.asarray(input_array).view(cls)
-        # add new attributes to the created instance
-        obj.label = label
-        # Finally, we must return the newly created object:
-        return obj
-
-    def __array_finalize__(self, obj):
-        if obj is None:
-            return
-        self.label = getattr(obj, "label", None)
-
-    def project(self, term: int):
-        """This method is used to handle the projection logic for the component.
-
-        :param term: Term over which to project
-        :type term: int
-        :return: StaticDiscountFactors object containing projected values
-        :rtype: StaticDiscountFactors
-        """
-        if len(self) == term:
-            return self
-        elif len(self) < term:
-            results = np.append(self, (term - len(self) + 1) * [0])
-            return StaticDiscountFactors(input_array=results, label=self.label)
-        elif len(self) > term:
-            results = self[: term + 1]
-            return StaticDiscountFactors(input_array=results, label=self.label)
-
-
+# The TableLookup component can be used instead instead
 class DiscountFactors(np.ndarray):
     def __new__(
         cls,
@@ -73,7 +42,7 @@ class DiscountFactors(np.ndarray):
         self.formula = getattr(obj, "formula", lambda i: i)
         self.label = getattr(obj, "label", None)
 
-    def project(self, term: int) -> StaticDiscountFactors:
+    def project(self, term: int, results: DataFrame) -> StaticFlow:
         """This method is used to handle the projection logic for the component.
 
         :param term: Term over which to project
@@ -86,7 +55,7 @@ class DiscountFactors(np.ndarray):
             results = np.append(
                 results, i_to_v(self.formula(self.interest_rate)) ** n
             )
-        return StaticDiscountFactors(
+        return StaticFlow(
             input_array=results,
             label=self.label,
         )

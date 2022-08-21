@@ -1,5 +1,5 @@
 import pytest
-from src.divinate import RunSetting, dataclass
+from src.divinate import RunConfig, dataclass
 
 
 def test_create_run_settings():
@@ -11,7 +11,7 @@ def test_create_run_settings():
         pass
 
     with pytest.raises(FileNotFoundError):
-        RunSetting(
+        RunConfig(
             handler,
             ModelPoint,
             modelpoint_file="/path/to/file/that/does/not/exist.csv",

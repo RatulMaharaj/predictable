@@ -1,4 +1,5 @@
 import pytest
+from pandas import DataFrame
 from src.divinate import CashFlow, StaticFlow
 
 
@@ -11,7 +12,7 @@ def test_cashflow_setup():
 
 def test_cashflow_projection():
     c = CashFlow(input_array=[100], label="test")
-    results = c.project(term=10)
+    results = c.project(term=10, results=DataFrame())
     assert len(results) == 10 + 1
 
 
@@ -24,7 +25,7 @@ def test_cashflow_projection():
 )
 def test_cashflow_formula_projection(input_value, formula, output_value):
     c = CashFlow(label="test", input_array=[input_value], formula=formula)
-    results = c.project(term=1)
+    results = c.project(term=1, results=DataFrame())
     assert results[-1] == output_value
 
 
@@ -40,5 +41,5 @@ def test_staticflow_setup():
 )
 def test_static_discounting_projections(projected_period, projected_sum):
     d = StaticFlow([0.5, 0.5, 0.5], label="test")
-    results = d.project(projected_period)
+    results = d.project(projected_period, results=DataFrame())
     assert results.sum() == projected_sum
