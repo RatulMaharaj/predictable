@@ -5,6 +5,10 @@ import divinate as dv
 
 
 def handler(modelpoint, **kwargs):
+    # NOTE: **kwargs used to access info from RunConfig e.g.
+    # NOTE: `table_location` can be used in TableLookup components
+    # NOTE: `results_location` can be used to store results on a modelpoint level
+
     # Create new model instance
     model = dv.Model()
 
@@ -57,44 +61,21 @@ def handler(modelpoint, **kwargs):
     df = model.project(term=33 - modelpoint.age)
 
     # Perform linear combination style manipulations
-    # Discounting the components
     components = ["premium", "cover", "expense"]
     for component in components:
-        df[f"EV_{component}"] = (
-            df[component] * df["V"] * df["qx"] * df["lapse"]
+        # NOTE: The logic here is just for illustration purposes
+        df[f"EPV_{component}"] = (
+            df[component] * df["V"] * df["qx"] * (1 - df["lapse"])
         )
 
     # Define reserving relationship
-    df["Reserve"] = df["EV_cover"] + df["EV_expense"] - df["EV_premium"]
+    df["EPV_BEL"] = df["EPV_cover"] + df["EPV_expense"] - df["EPV_premium"]
 
-    # Results get returned as a pandas dataframe
+    df_out = df[["EPV_premium", "EPV_cover", "EPV_expense", "EPV_BEL"]].sum()
 
-    # epv = df[["EV_premium", "EV_cover", "EV_expense", "Reserve"]].sum()
-    # print(epv)
-    return df
+    # create an index
+    df_out["policy_number"] = modelpoint.policy_number
 
-
-if __name__ == "__main__":
-    # Define input data format
-    @dv.dataclass
-    class ModelPoint:
-        policy_number: str
-        age: int
-        gender: str
-        smoker_status: str
-        premium: float
-        cover: float
-        expenses: float
-
-    # Test modelpoint
-    modelpoint = ModelPoint(
-        policy_number="001",
-        age=23,
-        gender="M",
-        smoker_status="NS",
-        premium=100.00,
-        cover=1_000_000.00,
-        expenses=10,
-    )
-
-    print(handler(modelpoint))
+    # TODO: Consider allowing a results dataclass to be specified
+    # TODO: Still deciding return format i.e. dict or pandas object
+    return df_out.to_dict()

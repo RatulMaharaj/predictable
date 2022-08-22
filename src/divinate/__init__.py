@@ -12,4 +12,4 @@ from .core.precision import PRECISION, get_precision, set_precision
 from .core.rating_factors import RatingFactor, StaticRatingFactor
 
 # Engine imports
-from .engine.run_settings import RunConfig
+from .engine.run import RunConfig

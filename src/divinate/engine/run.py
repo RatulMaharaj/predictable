@@ -3,6 +3,8 @@ from csv import DictReader
 from pathlib import Path
 from typing import Union
 
+import pandas as pd
+
 
 # TODO: Extend to be able to work with various input formats
 class RunConfig:
@@ -50,21 +52,38 @@ class RunConfig:
             run_setting.run()
 
     def run(self):
-        # handle data reading
+        # Handle data reading
         if self.modelpoint_file is not None:
             data = DictReader(open(self.modelpoint_file, "r"))
-            # loop over rows and convert into a pydantic datclass
-            # the data definition is provided by the user
 
+            # Define output location
+            output_file = self.results_location / f"{self.label}_results.csv"
+
+            # Delete results if already exists
+            if os.path.exists(output_file):
+                os.remove(output_file)
+
+            # Loop over rows and convert into a pydantic datclass
+            # The data definition is provided by the user
             for row in data:
                 modelpoint = self.modelpoint_definition(**row)
+
                 result = self.handler(
-                    modelpoint, table_location=self.table_location
+                    modelpoint,
+                    modelpoint_definition=self.modelpoint_definition,
+                    modelpoint_file=self.modelpoint_file,
+                    table_location=self.table_location,
+                    result_location=self.results_location,
+                    runconfig_label=self.label,
                 )
 
-                # output the results to provided location
-                if self.results_location is not None:
-                    pass
+                # Convert dict to df
+                result = pd.DataFrame.from_dict([result])
 
-                # for now just print results to screen
-                print(result)
+                if self.results_location is not None:
+                    result.to_csv(
+                        output_file,
+                        mode="a",
+                        index=False,
+                        header=not os.path.exists(output_file),
+                    )
