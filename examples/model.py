@@ -1,7 +1,7 @@
 # `pip install -e .` to install the library in development
 # import the library
 
-import divinate as dv
+import predictable as dv
 
 
 def handler(modelpoint, **kwargs):
@@ -72,6 +72,8 @@ def handler(modelpoint, **kwargs):
     df["EPV_BEL"] = df["EPV_cover"] + df["EPV_expense"] - df["EPV_premium"]
 
     df_out = df[["EPV_premium", "EPV_cover", "EPV_expense", "EPV_BEL"]].sum()
+
+    print(df)
 
     # create an index
     df_out["policy_number"] = modelpoint.policy_number

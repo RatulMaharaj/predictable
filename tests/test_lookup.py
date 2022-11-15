@@ -1,5 +1,5 @@
 import pytest
-from src.divinate import TableLookup
+from src.predictable import TableLookup
 
 
 def test_tablelookup():

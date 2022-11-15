@@ -3,44 +3,44 @@
 ## Model
 
 ```{eval-rst}
-.. autoclass:: divinate.Model
+.. autoclass:: predictable.Model
    :members:
 ```
 
 ## Cashflows
 
 ```{eval-rst}
-.. autoclass:: divinate.StaticFlow
+.. autoclass:: predictable.StaticFlow
    :members:
 ```
 
 ```{eval-rst}
-.. autoclass:: divinate.CashFlow
+.. autoclass:: predictable.CashFlow
    :members:
 ```
 
 ## Discounting
 
 ```{eval-rst}
-.. autofunction:: divinate.i_to_v
+.. autofunction:: predictable.i_to_v
 ```
 
 ```{eval-rst}
-.. autoclass:: divinate.StaticDiscountFactors
+.. autoclass:: predictable.StaticDiscountFactors
    :members:
 ```
 
 ```{eval-rst}
-.. autoclass:: divinate.DiscountFactors
+.. autoclass:: predictable.DiscountFactors
    :members:
 ```
 
 ## Precision
 
 ```{eval-rst}
-.. autofunction:: divinate.set_precision
+.. autofunction:: predictable.set_precision
 ```
 
 ```{eval-rst}
-.. autofunction:: divinate.get_precision
+.. autofunction:: predictable.get_precision
 ```

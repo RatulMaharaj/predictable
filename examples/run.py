@@ -1,4 +1,4 @@
-from divinate import RunConfig, dataclass
+from predictable import RunConfig, dataclass
 
 from model import handler
 

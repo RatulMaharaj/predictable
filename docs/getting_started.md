@@ -6,10 +6,10 @@ hide-toc: true
 
 ## Installation
 
-To use Divinate, install it using pip:
+To use Predictable, install it using pip:
 
 ```sh
-pip install divinate
+pip install predictable
 ```
 
 ## Quick start example
@@ -19,10 +19,10 @@ Create a `model.py` file which will be used to house the modelling logic which w
 Import in the library as follows:
 
 ```python
-import divinate as dv
+import predictable as dv
 ```
 
-We must first create a new instance of the `divinate.core.Model` object.
+We must first create a new instance of the `predictable.core.Model` object.
 
 ```python
 model = dv.Model()

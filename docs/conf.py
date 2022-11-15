@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.abspath("../src"))
 
 year = datetime.datetime.now().year
 
-project = "Divinate"
+project = "Predictable"
 copyright = f"{year}, Ratul Maharaj"
 author = "Ratul Maharaj"
 release = (
@@ -44,10 +44,10 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_title = "Divinate"
+html_title = "Predictable"
 html_theme = "furo"
 html_theme_options = {
-    "source_repository": "https://github.com/RatulMaharaj/divinate/",
+    "source_repository": "https://github.com/RatulMaharaj/predictable/",
     "source_branch": "main",
     "source_directory": "docs/",
 }

@@ -2,9 +2,9 @@
 hide-toc: true
 ---
 
-# Welcome to the Divinate documentation!
+# Welcome to the Predictable documentation!
 
-Divinate is a framework for developing actuarial models in python.
+Predictable is a framework for developing actuarial models in python.
 
 ```{Important}
 This project is currently under active development and is not suitable for production use.

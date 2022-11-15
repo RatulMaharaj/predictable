@@ -1,8 +1,8 @@
-# Divinate
+# Predictable
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![pytest](https://github.com/RatulMaharaj/divinate/actions/workflows/pytest.yaml/badge.svg?branch=main)](https://github.com/RatulMaharaj/divinate/actions/workflows/pytest.yaml)
-[![Documentation Status](https://readthedocs.org/projects/divinate/badge/?version=latest)](https://divinate.readthedocs.io/en/latest/?badge=latest)
+[![pytest](https://github.com/RatulMaharaj/predictable/actions/workflows/pytest.yaml/badge.svg?branch=main)](https://github.com/RatulMaharaj/predictable/actions/workflows/pytest.yaml)
+[![Documentation Status](https://readthedocs.org/projects/predictable/badge/?version=latest)](https://predictable.readthedocs.io/en/latest/?badge=latest)
 
 ## What is it?
 
@@ -11,7 +11,7 @@ A framework for actuarial modelling.
 ## Installation
 
 ```sh
-pip install divinate
+pip install predictable
 ```
 
 ## Quick start example
@@ -20,7 +20,7 @@ A `model.py` file will be used to house the modelling logic which will be applie
 
 ```python
 # import the library
-from divinate import CashFlow, DiscountFactors, Model, StaticFlow
+from predictable import CashFlow, DiscountFactors, Model, StaticFlow
 
 # Create new model instance
 model = Model()
@@ -66,11 +66,11 @@ print(df)
 
 ## License
 
-[MIT](https://github.com/RatulMaharaj/divinate/blob/main/LICENSE)
+[MIT](https://github.com/RatulMaharaj/predictable/blob/main/LICENSE)
 
 ## Documentation
 
-This project is documented using sphinx and the full documentation can be found at [divinate.readthedocs.io](https://divinate.readthedocs.io/en/latest/).
+This project is documented using sphinx and the full documentation can be found at [predictable.readthedocs.io](https://predictable.readthedocs.io/en/latest/).
 
 ## Development & Contibutions
 
@@ -79,8 +79,8 @@ The following steps can be followed to set up a development environment.
 1. Clone the project:
 
 ```sh
-git clone https://github.com/RatulMaharaj/divinate.git
-cd divinate
+git clone https://github.com/RatulMaharaj/predictable.git
+cd predictable
 ```
 
 2. Create a virtual environment and activate it using:
@@ -111,7 +111,7 @@ pre-commit install
 
 ### Testing
 
-The tests for this project can be found in the `divinate/tests` directory. Tests will run after every commit (locally) and on every push (using github actions) but can also be run manually using:
+The tests for this project can be found in the `predictable/tests` directory. Tests will run after every commit (locally) and on every push (using github actions) but can also be run manually using:
 
 ```sh
 pytest

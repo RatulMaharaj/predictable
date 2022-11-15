@@ -1,6 +1,6 @@
 import pytest
 from pandas import DataFrame
-from src.divinate import DiscountFactors, i_to_v
+from src.predictable import DiscountFactors, i_to_v
 
 
 @pytest.mark.parametrize(

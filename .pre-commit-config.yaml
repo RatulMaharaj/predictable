@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: pipchill
         name: Update requirements
-        entry: bash -c 'pip freeze | grep -v "divinate" > requirements.txt'
+        entry: bash -c 'pip freeze | grep -v "predictable" > requirements.txt'
         language: system
 
   - repo: https://github.com/ambv/black

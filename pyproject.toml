@@ -3,7 +3,7 @@ requires = ["hatchling>=1.8.0"]
 build-backend = "hatchling.build"
 
 [project]
-name = "divinate"
+name = "predictable"
 description = "A framework for actuarial modelling."
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -19,12 +19,12 @@ dynamic = ["version"]
 keywords = ["actuarial", "modelling", "financial services", "pandas", "numpy"]
 
 [project.urls]
-"Bug Tracker" = "https://github.com/RatulMaharaj/divinate/issues"
-homepage = "https://github.com/RatulMaharaj/divinate"
-documentation = "https://divinate.readthedocs.io"
+"Bug Tracker" = "https://github.com/RatulMaharaj/predictable/issues"
+homepage = "https://github.com/RatulMaharaj/predictable"
+documentation = "https://predictable.readthedocs.io"
 
 [tool.hatch.version]
-path = "src/divinate/__init__.py"
+path = "src/predictable/__init__.py"
 
 
 [tool.black]
