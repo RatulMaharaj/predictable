@@ -28,7 +28,7 @@ repos:
     hooks:
       - id: pytest
         name: pytest
-        entry: pytest
+        entry: hatch run test
         language: system
         pass_filenames: false
         always_run: true

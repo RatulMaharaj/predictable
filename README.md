@@ -82,37 +82,30 @@ The following steps can be followed to set up a development environment.
 git clone https://github.com/RatulMaharaj/predictable.git
 cd predictable
 ```
-
-2. Create a virtual environment and activate it using:
+2. Install [hatch](https://hatch.pypa.io/latest/)
 
 ```sh
-python -m venv venv
-source venv/bin/activate # mac
-venv\Scripts\activate # windows
+pipx install hatch
 ```
 
-3. Install the project dependencies:
+3. Enter the default environment (this will activate the default virtual environment and install the project in editable mode).
 
 ```sh
-pip install -r requirements-dev.txt
-```
-
-In development mode, the package can be installed by running:
-
-```sh
-pip install -e .
-```
-
-4. Install the pre-commit hooks
-
-```sh
-pre-commit install
+hatch shell default
 ```
 
 ### Testing
 
-The tests for this project can be found in the `predictable/tests` directory. Tests will run after every commit (locally) and on every push (using github actions) but can also be run manually using:
+The tests for this project can be found in the `tests` directory. Tests will run after every commit (locally) and on every push (using github actions) but can also be run manually using:
 
 ```sh
-pytest
+hatch run test
+```
+
+### Documentation
+
+The documentation for this project can be found in the `docs` directory. The documentation is built using sphinx and can be built locally using:
+
+```sh
+hatch run docs
 ```

@@ -26,11 +26,6 @@
 ```
 
 ```{eval-rst}
-.. autoclass:: predictable.StaticDiscountFactors
-   :members:
-```
-
-```{eval-rst}
 .. autoclass:: predictable.DiscountFactors
    :members:
 ```
