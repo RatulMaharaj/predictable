@@ -64,10 +64,6 @@ df["Reserve"] = df["V_cover"] + df["V_expense"] - df["V_premium"]
 print(df)
 ```
 
-## License
-
-[MIT](https://github.com/RatulMaharaj/predictable/blob/main/LICENSE)
-
 ## Documentation
 
 This project is documented using sphinx and the full documentation can be found at [predictable.readthedocs.io](https://predictable.readthedocs.io/en/latest/).
@@ -128,3 +124,7 @@ You can then serve the documentation locally using:
 ```sh
 hatch run docs:serve
 ```
+
+## License
+
+[MIT](https://github.com/RatulMaharaj/predictable/blob/main/LICENSE)
