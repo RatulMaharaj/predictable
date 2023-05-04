@@ -24,7 +24,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Applicable versions (please complete the following information):**
- - OS: e.g. macOS Monterey version 12.5 
+ - OS: e.g. macOS Monterey version 12.5
  - Python: e.g 3.11
  - Dependency: e.g. numpy version 1.23.4
 

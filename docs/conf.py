@@ -19,9 +19,7 @@ project = "Predictable"
 copyright = f"{year}, Ratul Maharaj"
 author = "Ratul Maharaj"
 release = (
-    subprocess.run(
-        ["git", "describe", "--tags", "--abbrev=0"], capture_output=True
-    )
+    subprocess.run(["git", "describe", "--tags", "--abbrev=0"], capture_output=True)
     .stdout.decode("utf-8")
     .replace("\n", "")
 )

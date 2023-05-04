@@ -4,7 +4,10 @@ from pandas import DataFrame
 
 
 class StaticRatingFactor(np.ndarray):
-    """StaticRatingFactor object created from an Array-Like object. Subclasses numpy.ndarray"""
+    """
+    StaticRatingFactor object created from an Array-Like object.
+    Subclasses numpy.ndarray
+    """
 
     def __new__(cls, input_array: ArrayLike, label: str = None):
         # Input array is an already formed ndarray instance
@@ -21,7 +24,8 @@ class StaticRatingFactor(np.ndarray):
         self.label = getattr(obj, "label", None)
 
     def project(self, term: int, results: DataFrame):
-        """This method is used to handle the projection logic for the component.
+        """
+        This method is used to handle the projection logic for the component.
 
         :param term: Term over which to project
         :type term: int
@@ -39,7 +43,11 @@ class StaticRatingFactor(np.ndarray):
 
 
 class RatingFactor(np.ndarray):
-    """RatingFactor object created from an Array-Like object. Subclasses numpy.ndarray"""
+    """
+    RatingFactor object created from an Array-Like object.
+
+    Subclasses numpy.ndarray
+    """
 
     def __new__(
         cls,

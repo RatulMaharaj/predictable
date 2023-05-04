@@ -19,9 +19,7 @@ def handler(modelpoint, **kwargs):
         label="age",
     )
     gender = dv.RatingFactor(input_array=[modelpoint.gender], label="gender")
-    smoker = dv.RatingFactor(
-        input_array=[modelpoint.smoker_status], label="smoker"
-    )
+    smoker = dv.RatingFactor(input_array=[modelpoint.smoker_status], label="smoker")
 
     # Add components that have a projected value
     prem = dv.CashFlow(
@@ -64,9 +62,7 @@ def handler(modelpoint, **kwargs):
     components = ["premium", "cover", "expense"]
     for component in components:
         # NOTE: The logic here is just for illustration purposes
-        df[f"EPV_{component}"] = (
-            df[component] * df["V"] * df["qx"] * (1 - df["lapse"])
-        )
+        df[f"EPV_{component}"] = df[component] * df["V"] * df["qx"] * (1 - df["lapse"])
 
     # Define reserving relationship
     df["EPV_BEL"] = df["EPV_cover"] + df["EPV_expense"] - df["EPV_premium"]

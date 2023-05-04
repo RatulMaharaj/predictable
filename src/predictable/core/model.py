@@ -22,7 +22,8 @@ class Model:
         self.components[component.label] = component
 
     def add_components(self, components: List):
-        """This method is used to associate a list of components with the Model instance.
+        """
+        This method is used to associate a list of components with the Model instance.
 
         :param components: List of component to be added to the Model instance
         :type components: List
@@ -31,7 +32,8 @@ class Model:
             self.components[component.label] = component
 
     def project(self, term: int) -> DataFrame:
-        """This method is used to invoke the project method in each of the associated components.
+        """
+        This method is used to invoke the 'project' method in each component.
 
         :param term: The term over which to project
         :type term: int

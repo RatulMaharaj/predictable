@@ -3,9 +3,7 @@ from pandas import DataFrame
 from src.predictable import DiscountFactors, i_to_v
 
 
-@pytest.mark.parametrize(
-    "i, v", [(0.05, 0.952381), (1, 0.5), (1.25, 0.444444)]
-)
+@pytest.mark.parametrize("i, v", [(0.05, 0.952381), (1, 0.5), (1.25, 0.444444)])
 def test_i_to_v(i, v):
     assert round(i_to_v(i), 6) == v
 

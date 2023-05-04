@@ -52,9 +52,7 @@ class DiscountFactors(np.ndarray):
         """
         results = self
         for n in range(1, term + 1):
-            results = np.append(
-                results, i_to_v(self.formula(self.interest_rate)) ** n
-            )
+            results = np.append(results, i_to_v(self.formula(self.interest_rate)) ** n)
         return StaticFlow(
             input_array=results,
             label=self.label,

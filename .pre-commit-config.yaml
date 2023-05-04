@@ -1,11 +1,4 @@
 repos:
-  - repo: local
-    hooks:
-      - id: pipchill
-        name: Update requirements
-        entry: bash -c 'pip freeze | grep -v "predictable" > requirements.txt'
-        language: system
-
   - repo: https://github.com/ambv/black
     rev: 22.6.0
     hooks:
@@ -19,10 +12,10 @@ repos:
       - id: check-toml
       - id: check-merge-conflict
 
-  - repo: https://gitlab.com/pycqa/flake8
-    rev: 5.0.4
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: 'v0.0.264'
     hooks:
-      - id: flake8
+      - id: ruff
 
   - repo: local
     hooks:

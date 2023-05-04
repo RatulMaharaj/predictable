@@ -6,7 +6,10 @@ from .precision import get_precision
 
 
 class StaticFlow(np.ndarray):
-    """Static cashflow object created from an Array-Like object. Subclasses numpy.ndarray"""
+    """
+    Static cashflow object created from an Array-Like object.
+    Subclasses numpy.ndarray
+    """
 
     def __new__(cls, input_array: ArrayLike, label: str = None):
         # We first cast to be our class type

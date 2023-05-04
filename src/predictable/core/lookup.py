@@ -57,9 +57,9 @@ class TableLookup(np.ndarray):
         table = read_csv(Path(self.table_name))
 
         # join the table and the results
-        results = results.join(
-            table, on=self.lookup_on, how="left", rsuffix="_table"
-        )[self.keep_column]
+        results = results.join(table, on=self.lookup_on, how="left", rsuffix="_table")[
+            self.keep_column
+        ]
 
         # Optionally handle nulls
         if self.default_value is not None:
