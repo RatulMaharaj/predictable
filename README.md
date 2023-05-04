@@ -1,7 +1,11 @@
 # Predictable
 
+[![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json)](https://github.com/charliermarsh/ruff)
+![PyPI](https://img.shields.io/pypi/v/predictable)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![pytest](https://github.com/RatulMaharaj/predictable/actions/workflows/pytest.yaml/badge.svg?branch=main)](https://github.com/RatulMaharaj/predictable/actions/workflows/pytest.yaml)
+[![build](https://github.com/RatulMaharaj/predictable/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/RatulMaharaj/predictable/actions/workflows/build.yaml)
 [![Documentation Status](https://readthedocs.org/projects/predictable/badge/?version=latest)](https://predictable.readthedocs.io/en/latest/?badge=latest)
 
 ## What is it?
