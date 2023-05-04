@@ -78,34 +78,53 @@ The following steps can be followed to set up a development environment.
 
 1. Clone the project:
 
-```sh
-git clone https://github.com/RatulMaharaj/predictable.git
-cd predictable
-```
+    ```sh
+    git clone https://github.com/RatulMaharaj/predictable.git
+    cd predictable
+    ```
+
 2. Install [hatch](https://hatch.pypa.io/latest/)
 
-```sh
-pipx install hatch
-```
+    ```sh
+    pipx install hatch
+    ```
 
 3. Enter the default environment (this will activate the default virtual environment and install the project in editable mode).
 
-```sh
-hatch shell default
-```
+    ```sh
+    hatch shell default
+    ```
 
 ### Testing
 
-The tests for this project can be found in the `tests` directory. Tests will run after every commit (locally) and on every push (using github actions) but can also be run manually using:
+This project uses `pytest` for testing purposes. The tests can be found in the `tests` directory. Tests will run after every commit (locally) and on every push (using github actions) but can also be run manually using:
 
 ```sh
 hatch run test
 ```
 
-### Documentation
+### Linting
+
+This project is linted using `ruff` and formatted with `black`. The linting and formatting can be run manually using:
+
+```sh
+hatch run lint
+```
+
+```sh
+hatch run format
+```
+
+### Editing the docs
 
 The documentation for this project can be found in the `docs` directory. The documentation is built using sphinx and can be built locally using:
 
 ```sh
-hatch run docs
+hatch run docs:make
+```
+
+You can then serve the documentation locally using:
+
+```sh
+hatch run docs:serve
 ```

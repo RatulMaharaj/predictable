@@ -23,7 +23,7 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
 ]
-dependencies = ["numpy==1.24.3", "pandas==2.0.1", "pydantic==1.10.7", "pre-commit==3.3.1", "ruff==0.0.264"]
+dependencies = ["numpy==1.24.3", "pandas==2.0.1", "pydantic==1.10.7", "pre-commit==3.3.1", "ruff==0.0.264", "black==23.3.0"]
 dynamic = ["version"]
 keywords = ["actuarial", "modelling", "financial services", "python", "predictable"]
 
@@ -40,7 +40,8 @@ post-install-commands = ["pre-commit install"]
 
 [tool.hatch.envs.default.scripts]
 test = "hatch run test:test"
-docs = "hatch run docs:make"
+lint = "ruff check ."
+format = "black ."
 
 # Test environment
 [tool.hatch.envs.test]
@@ -54,13 +55,14 @@ test = "pytest"
 dependencies = ["sphinx", "sphinx-copybutton", "sphinxext-opengraph", "myst-parser", "furo"]
 
 [tool.hatch.envs.docs.scripts]
-make = "source make_docs.sh"
+build = "source make_docs.sh"
+serve = ["cd docs/_build/html && python -m http.server"]
 
 # Formatter settings
 [tool.black]
 line-length = 88
 include = "\\.pyi?$"
-exclude = "/(\n    \\.git\n  | \\.hg\n  | \\.mypy_cache\n  | \\.tox\n  | \\.venv\n  | _build\n  | buck-out\n  | build\n  | dist\n)/\n"
+exclude = "/(\n    \\.git\n  | \\.hg\n  | \\.mypy_cache\n  | \\.tox\n  | \\.venv\n | _build\n  | buck-out\n | build\n | venv\n  | dist\n)/\n"
 
 # Linter settings
 [tool.ruff]
