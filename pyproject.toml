@@ -9,7 +9,7 @@ exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src"]
+packages = ["predictable"]
 
 [project]
 name = "predictable"
@@ -33,7 +33,7 @@ homepage = "https://github.com/RatulMaharaj/predictable"
 documentation = "https://predictable.readthedocs.io"
 
 [tool.hatch.version]
-path = "src/predictable/__init__.py"
+path = "predictable/__init__.py"
 
 [tool.hatch.envs.default]
 post-install-commands = ["pre-commit install"]
@@ -42,6 +42,7 @@ post-install-commands = ["pre-commit install"]
 test = "hatch run test:test"
 lint = "ruff check ."
 format = "black ."
+example = "python examples/run.py"
 
 # Test environment
 [tool.hatch.envs.test]

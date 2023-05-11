@@ -1,7 +1,5 @@
-# `pip install -e .` to install the library in development
 # import the library
-
-import predictable as dv
+import predictable as pr
 
 
 def handler(modelpoint, **kwargs):
@@ -10,37 +8,37 @@ def handler(modelpoint, **kwargs):
     # NOTE: `results_location` can be used to store results on a modelpoint level
 
     # Create new model instance
-    model = dv.Model()
+    model = pr.Model()
 
     # Add static components
-    age = dv.RatingFactor(
+    age = pr.RatingFactor(
         input_array=[modelpoint.age],
         formula=lambda prev: prev + 1,
         label="age",
     )
-    gender = dv.RatingFactor(input_array=[modelpoint.gender], label="gender")
-    smoker = dv.RatingFactor(input_array=[modelpoint.smoker_status], label="smoker")
+    gender = pr.RatingFactor(input_array=[modelpoint.gender], label="gender")
+    smoker = pr.RatingFactor(input_array=[modelpoint.smoker_status], label="smoker")
 
     # Add components that have a projected value
-    prem = dv.CashFlow(
+    prem = pr.CashFlow(
         input_array=[modelpoint.premium],
         formula=lambda prev: prev * 1.05,
         label="premium",
     )
-    cover = dv.CashFlow(input_array=[modelpoint.cover], label="cover")
-    exp = dv.StaticFlow(
+    cover = pr.CashFlow(input_array=[modelpoint.cover], label="cover")
+    exp = pr.StaticFlow(
         input_array=[modelpoint.expenses for _ in range(5)],
         label="expense",
     )
 
     # Add actuarial components
-    qx = dv.TableLookup(
+    qx = pr.TableLookup(
         table_name=kwargs["table_location"] / "sa8990.csv",
         lookup_on=["age"],
         keep_column="qx",
         label="qx",
     )
-    lapses = dv.TableLookup(
+    lapses = pr.TableLookup(
         table_name=kwargs["table_location"] / "lapses.csv",
         lookup_on=["t"],
         keep_column="lapse_rate_pa",
@@ -48,7 +46,7 @@ def handler(modelpoint, **kwargs):
         label="lapse",
     )
 
-    v = dv.DiscountFactors(interest_rate=0.05, label="V")
+    v = pr.DiscountFactors(interest_rate=0.05, label="V")
 
     # Attach components to the model
     component_list = [age, gender, smoker, prem, cover, exp, v, qx, lapses]
