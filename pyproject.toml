@@ -55,7 +55,7 @@ test = "pytest"
 dependencies = ["sphinx", "sphinx-copybutton", "sphinxext-opengraph", "myst-parser", "furo"]
 
 [tool.hatch.envs.docs.scripts]
-build = "source make_docs.sh"
+build = "sphinx-build -b html docs docs/_build"
 serve = ["cd docs/_build/html && python -m http.server"]
 
 # Formatter settings
