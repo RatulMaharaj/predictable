@@ -1,4 +1,4 @@
-__version__ = "v0.0.0-alpha"
+__version__ = "v0.0.1"
 
 # External imports
 from pydantic.dataclasses import dataclass
