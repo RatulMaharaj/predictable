@@ -1,6 +1,6 @@
 import pytest
 from pandas import DataFrame
-from src.predictable import CashFlow, StaticFlow
+from predictable import CashFlow, StaticFlow
 
 
 def test_cashflow_setup():

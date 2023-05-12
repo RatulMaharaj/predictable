@@ -1,5 +1,5 @@
 import pytest
-from src.predictable import RunConfig, dataclass
+from predictable import RunConfig, dataclass
 
 
 @dataclass

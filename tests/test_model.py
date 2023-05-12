@@ -1,5 +1,5 @@
 from pandas import DataFrame
-from src.predictable import Model, StaticFlow
+from predictable import Model, StaticFlow
 
 
 def test_model_components():

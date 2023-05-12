@@ -2,6 +2,7 @@ from predictable import RunConfig, dataclass
 
 from model import handler
 
+
 # This is just the pydantic dataclass
 @dataclass
 class ModelPoint:

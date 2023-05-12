@@ -42,7 +42,7 @@ post-install-commands = ["pre-commit install"]
 test = "hatch run test:test"
 lint = "ruff check ."
 format = "black ."
-example = "python examples/run.py"
+example = "python examples/rpt.py"
 
 # Test environment
 [tool.hatch.envs.test]

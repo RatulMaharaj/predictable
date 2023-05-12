@@ -1,5 +1,5 @@
 import pytest
-from src.predictable import PRECISION, get_precision, set_precision
+from predictable import PRECISION, get_precision, set_precision
 
 
 def test_get_precision():

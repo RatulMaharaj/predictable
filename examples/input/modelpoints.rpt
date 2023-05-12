@@ -1,0 +1,2 @@
+!,policy_number,age,gender,smoker_status,premium,cover,expenses
+*,1,23,"M","NS",100,1000000,10

@@ -19,19 +19,19 @@ Create a `model.py` file which will be used to house the modelling logic which w
 Import in the library as follows:
 
 ```python
-import predictable as dv
+import predictable as pr
 ```
 
 We must first create a new instance of the `predictable.core.Model` object.
 
 ```python
-model = dv.Model()
+model = pr.Model()
 ```
 
 One of the basic building blocks provided in the `core` library is the `CashFlow` component. We can create one as follows:
 
 ```python
-prem = dv.CashFlow(input_array=[100], formula=lambda prev: prev * 1.05, label="premium")
+prem = pr.CashFlow(input_array=[100], formula=lambda prev: prev * 1.05, label="premium")
 ```
 
 Once we have instantiated a new model, we can associate various cashflow (or similar) component with the model. We can do this for the `prem` component created above as follows:
@@ -44,15 +44,15 @@ We'll add some additional components for cover, expenses and discounting:
 
 ```python
 # Add a sum assured component
-cover = dv.CashFlow(label="cover", input_array=[1_000_000])
+cover = pr.CashFlow(label="cover", input_array=[1_000_000])
 model.add_component(cover)
 
 # Add an expense component
-expenses = dv.StaticFlow(input_array=[10, 10, 10, 10, 10], label="expenses")
+expenses = pr.StaticFlow(input_array=[10, 10, 10, 10, 10], label="expenses")
 model.add_component(expenses)
 
 # Add discounting component
-disc = dv.DiscountFactors(interest_rate=0.05, label="V")
+disc = pr.DiscountFactors(interest_rate=0.05, label="V")
 model.add_component(disc)
 ```
 
