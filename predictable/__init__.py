@@ -12,6 +12,9 @@ from .core.precision import PRECISION, get_precision, set_precision
 from .core.rating_factors import RatingFactor, StaticRatingFactor
 from .core.io import read_rpt
 
+# Pandas imports (for convenience)
+from pandas import DataFrame, read_csv, read_excel, read_sql, read_json
+
 # Engine imports
 from .engine.run import RunConfig
 
@@ -30,4 +33,9 @@ __all__ = [
     "StaticRatingFactor",
     "read_rpt",
     "RunConfig",
+    "DataFrame",
+    "read_csv",
+    "read_excel",
+    "read_sql",
+    "read_json",
 ]
