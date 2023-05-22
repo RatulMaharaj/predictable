@@ -2,7 +2,7 @@ import numpy as np
 from numpy.typing import ArrayLike
 from pandas import DataFrame
 
-from .flows import StaticFlow
+from .flows import StaticCashFlow
 
 
 def i_to_v(i: float) -> float:
@@ -42,7 +42,7 @@ class DiscountFactors(np.ndarray):
         self.formula = getattr(obj, "formula", lambda i: i)
         self.label = getattr(obj, "label", None)
 
-    def project(self, term: int, results: DataFrame) -> StaticFlow:
+    def project(self, term: int, results: DataFrame) -> StaticCashFlow:
         """This method is used to handle the projection logic for the component.
 
         :param term: Term over which to project
@@ -53,7 +53,7 @@ class DiscountFactors(np.ndarray):
         results = self
         for n in range(1, term + 1):
             results = np.append(results, i_to_v(self.formula(self.interest_rate)) ** n)
-        return StaticFlow(
+        return StaticCashFlow(
             input_array=results,
             label=self.label,
         )
