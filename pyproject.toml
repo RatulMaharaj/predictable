@@ -3,10 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.sdist]
-exclude = [
-  "/.github",
-  "/docs",
-]
+exclude = ["/.github", "/docs"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["predictable"]
@@ -19,13 +16,19 @@ license = { file = "LICENSE" }
 requires-python = ">=3.11"
 authors = [{ name = "Ratul Maharaj", email = "ratulmaharaj@gmail.com" }]
 classifiers = [
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
 ]
-dependencies = ["numpy==1.24.3", "pandas==2.0.1", "pydantic==1.10.7", "pre-commit==3.3.1", "ruff==0.0.264", "black==23.3.0"]
+dependencies = ["numpy==1.24.3", "pandas==2.0.1", "pydantic==1.10.7"]
 dynamic = ["version"]
-keywords = ["actuarial", "modelling", "financial services", "python", "predictable"]
+keywords = [
+  "actuarial",
+  "modelling",
+  "financial services",
+  "python",
+  "predictable",
+]
 
 [project.urls]
 "Bug Tracker" = "https://github.com/RatulMaharaj/predictable/issues"
@@ -35,14 +38,18 @@ documentation = "https://predictable.readthedocs.io"
 [tool.hatch.version]
 path = "predictable/__init__.py"
 
-[tool.hatch.envs.default]
-post-install-commands = ["pre-commit install"]
-
 [tool.hatch.envs.default.scripts]
 test = "hatch run test:test"
+lint = "hatch run dev:lint"
+format = "hatch run dev:format"
+example = "python examples/rpt.py"
+
+[tool.hatch.envs.dev]
+post-install-commands = ["pre-commit install"]
+
+[tool.hatch.envs.dev.scripts]
 lint = "ruff check ."
 format = "black ."
-example = "python examples/rpt.py"
 
 # Test environment
 [tool.hatch.envs.test]
@@ -53,7 +60,13 @@ test = "pytest"
 
 # Docs environment
 [tool.hatch.envs.docs]
-dependencies = ["sphinx", "sphinx-copybutton", "sphinxext-opengraph", "myst-parser", "furo"]
+dependencies = [
+  "sphinx",
+  "sphinx-copybutton",
+  "sphinxext-opengraph",
+  "myst-parser",
+  "furo",
+]
 
 [tool.hatch.envs.docs.scripts]
 build = "sphinx-build -b html docs docs/_build"
