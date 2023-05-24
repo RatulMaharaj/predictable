@@ -10,7 +10,7 @@
 ## Cashflows
 
 ```{eval-rst}
-.. autoclass:: predictable.StaticFlow
+.. autoclass:: predictable.StaticCashFlow
    :members:
 ```
 

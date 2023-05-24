@@ -35,6 +35,9 @@ keywords = [
 homepage = "https://github.com/RatulMaharaj/predictable"
 documentation = "https://predictable.readthedocs.io"
 
+[project.scripts]
+predictable = "predictable.cli:cli"
+
 [tool.hatch.version]
 path = "predictable/__init__.py"
 

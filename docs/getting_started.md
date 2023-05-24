@@ -48,7 +48,7 @@ cover = pr.CashFlow(label="cover", input_array=[1_000_000])
 model.add_component(cover)
 
 # Add an expense component
-expenses = pr.StaticFlow(input_array=[10, 10, 10, 10, 10], label="expenses")
+expenses = pr.StaticCashFlow(input_array=[10, 10, 10, 10, 10], label="expenses")
 model.add_component(expenses)
 
 # Add discounting component

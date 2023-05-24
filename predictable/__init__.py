@@ -5,12 +5,15 @@ from pydantic.dataclasses import dataclass
 
 # Core imports
 from .core.discounting import DiscountFactors, i_to_v
-from .core.flows import CashFlow, StaticFlow
+from .core.flows import CashFlow, StaticCashFlow
 from .core.lookup import TableLookup
 from .core.model import Model
 from .core.precision import PRECISION, get_precision, set_precision
 from .core.rating_factors import RatingFactor, StaticRatingFactor
 from .core.io import read_rpt
+
+# Pandas imports (for convenience)
+from pandas import DataFrame, read_csv, read_excel, read_sql, read_json
 
 # Engine imports
 from .engine.run import RunConfig
@@ -20,7 +23,7 @@ __all__ = [
     "DiscountFactors",
     "i_to_v",
     "CashFlow",
-    "StaticFlow",
+    "StaticCashFlow",
     "TableLookup",
     "Model",
     "PRECISION",
@@ -30,4 +33,9 @@ __all__ = [
     "StaticRatingFactor",
     "read_rpt",
     "RunConfig",
+    "DataFrame",
+    "read_csv",
+    "read_excel",
+    "read_sql",
+    "read_json",
 ]

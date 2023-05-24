@@ -4,7 +4,7 @@ from typing import Any, List
 import numpy as np
 from pandas import DataFrame, read_csv
 
-from .flows import StaticFlow
+from .flows import StaticCashFlow
 
 
 class TableLookup(np.ndarray):
@@ -46,13 +46,13 @@ class TableLookup(np.ndarray):
         self.keep_column = getattr(obj, "keep_column", [])
         self.default_value = getattr(obj, "default_value", [])
 
-    def project(self, term: int, results: DataFrame) -> StaticFlow:
+    def project(self, term: int, results: DataFrame) -> StaticCashFlow:
         """This method is used to handle the projection logic for the component.
 
         :param term: Term over which to project
         :type term: int
-        :return: StaticFlow object containing projected values
-        :rtype: StaticFlow
+        :return: StaticCashFlow object containing projected values
+        :rtype: StaticCashFlow
         """
         table = read_csv(Path(self.table_name))
 
@@ -65,4 +65,4 @@ class TableLookup(np.ndarray):
         if self.default_value is not None:
             results = results.replace(np.NaN, self.default_value)
 
-        return StaticFlow(input_array=results, label=self.label)
+        return StaticCashFlow(input_array=results, label=self.label)

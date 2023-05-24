@@ -26,7 +26,7 @@ def handler(modelpoint, **kwargs):
         label="premium",
     )
     cover = pr.CashFlow(input_array=[modelpoint.cover], label="cover")
-    exp = pr.StaticFlow(
+    exp = pr.StaticCashFlow(
         input_array=[modelpoint.expenses for _ in range(5)],
         label="expense",
     )

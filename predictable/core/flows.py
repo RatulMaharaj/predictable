@@ -5,7 +5,7 @@ from pandas import DataFrame
 from .precision import get_precision
 
 
-class StaticFlow(np.ndarray):
+class StaticCashFlow(np.ndarray):
     """
     Static cashflow object created from an Array-Like object.
     Subclasses numpy.ndarray
@@ -29,17 +29,17 @@ class StaticFlow(np.ndarray):
 
         :param term: Term over which to project
         :type term: int
-        :return: StaticFlow object containing projected values
-        :rtype: StaticFlow
+        :return: StaticCashFlow object containing projected values
+        :rtype: StaticCashFlow
         """
         if len(self) == term:
             return self
         elif len(self) < term:
             results = np.append(self, (term - len(self) + 1) * [0])
-            return StaticFlow(input_array=results, label=self.label)
+            return StaticCashFlow(input_array=results, label=self.label)
         elif len(self) > term:
             results = self[: term + 1]
-            return StaticFlow(input_array=results, label=self.label)
+            return StaticCashFlow(input_array=results, label=self.label)
 
 
 class CashFlow(np.ndarray):
@@ -59,7 +59,7 @@ class CashFlow(np.ndarray):
         # Finally, we must return the newly created object:
         if len(input_array) > 1:
             raise ValueError(
-                "Use StaticFlow instead if you wish to pre-populate cashflows.",
+                "Use StaticCashFlow instead if you wish to pre-populate cashflows.",
                 input_array,
             )
         return obj
@@ -70,13 +70,13 @@ class CashFlow(np.ndarray):
         self.label = getattr(obj, "label", None)
         self.formula = getattr(obj, "formula", lambda x: x)
 
-    def project(self, term: int, results: DataFrame) -> StaticFlow:
+    def project(self, term: int, results: DataFrame) -> StaticCashFlow:
         """This method is used to handle the projection logic for the component.
 
         :param term: Term over which to project
         :type term: int
-        :return: StaticFlow object containing projected values
-        :rtype: StaticFlow
+        :return: StaticCashFlow object containing projected values
+        :rtype: StaticCashFlow
         """
         results = self
         for _ in range(0, term):
@@ -87,4 +87,4 @@ class CashFlow(np.ndarray):
                     get_precision(),
                 ),
             )
-        return StaticFlow(input_array=results, label=self.label)
+        return StaticCashFlow(input_array=results, label=self.label)

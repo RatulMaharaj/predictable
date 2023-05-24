@@ -24,7 +24,7 @@ A `model.py` file will be used to house the modelling logic which will be applie
 
 ```python
 # import the library
-from predictable import CashFlow, DiscountFactors, Model, StaticFlow
+from predictable import CashFlow, DiscountFactors, Model, StaticCashFlow
 
 # Create new model instance
 model = Model()
@@ -41,7 +41,7 @@ model.add_component(CashFlow(label="cover", input_array=[1_000_000]))
 
 # Add an expense component
 model.add_component(
-    StaticFlow(
+    StaticCashFlow(
         input_array=[10, 10, 10, 10, 10],
         label="expense",
     )

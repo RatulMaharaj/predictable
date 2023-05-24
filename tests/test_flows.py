@@ -1,6 +1,6 @@
 import pytest
 from pandas import DataFrame
-from predictable import CashFlow, StaticFlow
+from predictable import CashFlow, StaticCashFlow
 
 
 def test_cashflow_setup():
@@ -29,8 +29,8 @@ def test_cashflow_formula_projection(input_value, formula, output_value):
     assert results[-1] == output_value
 
 
-def test_staticflow_setup():
-    s = StaticFlow(label="test", input_array=[1, 2, 3])
+def test_StaticCashFlow_setup():
+    s = StaticCashFlow(label="test", input_array=[1, 2, 3])
     assert s.label == "test"
     assert len(s) == 3
     assert s.sum() == 6
@@ -40,6 +40,6 @@ def test_staticflow_setup():
     "projected_period, projected_sum", [(10, 1.5), (1, 1.0), (3, 1.5)]
 )
 def test_static_discounting_projections(projected_period, projected_sum):
-    d = StaticFlow([0.5, 0.5, 0.5], label="test")
+    d = StaticCashFlow([0.5, 0.5, 0.5], label="test")
     results = d.project(projected_period, results=DataFrame())
     assert results.sum() == projected_sum
