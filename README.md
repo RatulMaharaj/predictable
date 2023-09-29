@@ -117,16 +117,16 @@ hatch run format
 
 ### Editing the docs
 
-The documentation for this project can be found in the `docs` directory. The documentation is built using sphinx and can be built locally using:
-
-```sh
-hatch run docs:make
-```
-
-You can then serve the documentation locally using:
+The documentation for this project can be found in the `docs` directory. The documentation is created using mkdocs and can be viewed locally using:
 
 ```sh
 hatch run docs:serve
+```
+
+The docs can also be built for deployment using:
+
+```sh
+hatch run docs:build
 ```
 
 ## License

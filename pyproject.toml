@@ -63,17 +63,11 @@ test = "pytest"
 
 # Docs environment
 [tool.hatch.envs.docs]
-dependencies = [
-  "sphinx",
-  "sphinx-copybutton",
-  "sphinxext-opengraph",
-  "myst-parser",
-  "furo",
-]
+dependencies = ["mkdocs", "mkdocs-material", "mkdocstrings-python"]
 
 [tool.hatch.envs.docs.scripts]
-build = "sphinx-build -b html docs docs/_build"
-serve = ["cd docs/_build/html && python -m http.server"]
+build = "mkdocs build"
+serve = "mkdocs serve"
 
 # Formatter settings
 [tool.black]
