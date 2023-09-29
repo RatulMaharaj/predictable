@@ -1,0 +1,70 @@
+site_name: Predictable
+site_author: RatulMaharaj
+repo_url: https://github.com/RatulMaharaj/predictable
+repo_name: RatulMaharaj/predictable
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Tutorial: tutorial.md
+  - Contributing: contributing.md
+  - Reference: reference.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/mastodon
+      link: https://fosstodon.org/@RatulMaharaj
+    - icon: fontawesome/brands/github
+      link: https://github.com/RatulMaharaj
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/ratulmaharaj
+
+theme:
+  language: en
+  name: material
+  palette:
+    scheme: slate
+    primary: black
+    accent: indigo
+  features:
+    - content.code.copy
+    - content.tabs.link
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - content.code.annotate
+    - toc.integrate
+    - toc.follow
+    - navigation.path
+    - navigation.top
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
+
+markdown_extensions:
+  - toc:
+      toc_depth: 2
+      title: On this page
+      permalink: "#"
+  - admonition
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true

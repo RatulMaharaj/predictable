@@ -42,6 +42,7 @@ def new(project_name, interactive):
     # create the required subdirectories
     (project_dir / "data").mkdir(exist_ok=True)
     (project_dir / "tables").mkdir(exist_ok=True)
+    (project_dir / "output").mkdir(exist_ok=True)
 
     # create the init file
     (project_dir / "__init__.py").touch()
