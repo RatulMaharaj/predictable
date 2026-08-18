@@ -1,0 +1,3 @@
+# Pass 2 (resolve). The suggestion must be namespace-restricted: a component,
+# modelpoint field, assumption, table or timeline input, never a builtin.
+error E0203 model.pir:35:18 cannot find `valuation_rat`

@@ -1,0 +1,6 @@
+name  = "e12-unresolved-name"
+kind  = "invalid"
+title = "An identifier that binds to nothing, with a near neighbour to suggest"
+spec  = ["01-ir.md §7"]
+entry = ["model.pir"]
+fmt   = true

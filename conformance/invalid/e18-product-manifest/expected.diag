@@ -1,0 +1,2 @@
+error E0105 product.pir:5:11 `shared` is imported but not listed in `modules`
+error E0107 product.pir:6:11 product output list disagrees with the model

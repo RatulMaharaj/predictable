@@ -1,0 +1,351 @@
+/* Screen 2 — Run Diff. Owned by T31.
+   Light and dark are both defined explicitly, as Screen 3 does (§5.2). */
+
+.rundiff {
+  --rd-fg: #10131a;
+  --rd-dim: #5b6472;
+  --rd-line: #d6dae1;
+  --rd-bg: #ffffff;
+  --rd-panel: #f6f7f9;
+  --rd-pos: #1f6f43;
+  --rd-neg: #a1301f;
+  --rd-warn-bg: #fff5e0;
+  --rd-warn-fg: #7a4a00;
+  --rd-root: #7a2f8f;
+  color: var(--rd-fg);
+  background: var(--rd-bg);
+  font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .rundiff {
+    --rd-fg: #e6e9ef;
+    --rd-dim: #99a2b0;
+    --rd-line: #2a3140;
+    --rd-bg: #10131a;
+    --rd-panel: #171b24;
+    --rd-pos: #5fd08a;
+    --rd-neg: #ff8a72;
+    --rd-warn-bg: #33280f;
+    --rd-warn-fg: #f0c98a;
+    --rd-root: #d79cf0;
+  }
+}
+
+.rundiff h2,
+.rundiff h3 {
+  font-size: 13px;
+  margin: 0 0 0.25rem;
+}
+
+.rd-banner {
+  border: 1px solid var(--rd-line);
+  border-radius: 4px;
+  padding: 0.6rem;
+  background: var(--rd-panel);
+}
+
+.rd-sides {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.rd-tag {
+  font-weight: 700;
+  margin-right: 0.35rem;
+}
+
+.rd-path,
+.rd-check-note,
+.rd-note,
+.rd-method,
+.rd-dim {
+  color: var(--rd-dim);
+}
+
+.rd-verdict {
+  margin-left: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.rd-verdict-diverged {
+  color: var(--rd-neg);
+}
+
+.rd-verdict-pass {
+  color: var(--rd-pos);
+}
+
+.rd-checks {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.rd-check {
+  display: grid;
+  grid-template-columns: 1.2rem 8rem 14rem 1fr;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.rd-check[data-status="different"] .rd-check-mark {
+  color: var(--rd-neg);
+}
+
+.rd-check[data-status="same"] .rd-check-mark {
+  color: var(--rd-pos);
+}
+
+.rd-blocking {
+  background: var(--rd-warn-bg);
+  color: var(--rd-warn-fg);
+  padding: 0.35rem 0.5rem;
+  border-radius: 3px;
+}
+
+.rd-headline {
+  font-weight: 700;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.rd-outputs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.1rem;
+}
+
+.rd-output {
+  display: grid;
+  grid-template-columns: 14rem 10rem 6rem 1fr;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.rd-output .rd-bar {
+  height: 0.55rem;
+  background: var(--rd-neg);
+  border-radius: 2px;
+  min-width: 1px;
+}
+
+.rd-ok .rd-exact {
+  color: var(--rd-pos);
+}
+
+.rd-body {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(20rem, 2fr) minmax(20rem, 2fr);
+  gap: 0.75rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .rd-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rd-findings ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rd-finding {
+  display: grid;
+  grid-template-columns: 3rem 5rem 1fr;
+  gap: 0.4rem;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: inherit;
+  font: inherit;
+  padding: 0.2rem 0.3rem;
+  cursor: pointer;
+}
+
+.rd-finding.rd-selected {
+  border-color: var(--rd-line);
+  background: var(--rd-panel);
+}
+
+.rd-class-root {
+  color: var(--rd-root);
+  font-weight: 700;
+}
+
+.rd-class-inherited,
+.rd-class-tolerance_only {
+  color: var(--rd-dim);
+}
+
+.rd-attribution,
+.rd-contributors,
+.rd-sidebyside {
+  border: 1px solid var(--rd-line);
+  border-radius: 4px;
+  padding: 0.6rem;
+}
+
+.rd-sentence {
+  font-size: 14px;
+  margin: 0 0 0.4rem;
+}
+
+.rd-hypotheses {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.rd-code {
+  font-weight: 700;
+}
+
+.rd-confidence-high {
+  color: var(--rd-pos);
+}
+
+.rd-confidence-low {
+  color: var(--rd-dim);
+}
+
+.rd-edit,
+.rd-command {
+  background: var(--rd-panel);
+  padding: 0.35rem;
+  border-radius: 3px;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.rd-edit-old {
+  color: var(--rd-neg);
+}
+
+.rd-edit-new {
+  color: var(--rd-pos);
+}
+
+.rd-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.1rem;
+}
+
+.rd-bar-row {
+  display: grid;
+  grid-template-columns: 6rem 8rem 4rem 1fr 6rem;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.rd-bar-row .rd-bar {
+  height: 0.6rem;
+  background: var(--rd-fg);
+  opacity: 0.55;
+  border-radius: 2px;
+  min-width: 1px;
+}
+
+.rd-mp {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.rd-pos {
+  color: var(--rd-pos);
+}
+
+.rd-neg {
+  color: var(--rd-neg);
+}
+
+.rd-hypothesis-tag {
+  background: var(--rd-warn-bg);
+  color: var(--rd-warn-fg);
+  padding: 0 0.3rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.rd-grid-scroll {
+  overflow-x: auto;
+}
+
+.rd-grid {
+  border-collapse: collapse;
+}
+
+.rd-grid th,
+.rd-grid td {
+  border: 1px solid var(--rd-line);
+  padding: 0.1rem 0.3rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.rd-grid th[scope="row"] {
+  text-align: left;
+}
+
+.rd-cell-a,
+.rd-cell-b,
+.rd-chip {
+  display: block;
+}
+
+.rd-cell-differs {
+  background: var(--rd-warn-bg);
+  color: var(--rd-warn-fg);
+}
+
+.rd-first-divergence {
+  outline: 2px solid var(--rd-neg);
+}
+
+.rd-traces {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .rd-traces {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .rundiff {
+    --rd-fg: #000;
+    --rd-bg: #fff;
+    --rd-panel: #fff;
+  }
+}

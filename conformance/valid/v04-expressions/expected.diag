@@ -1,0 +1,4 @@
+# No diagnostics. Every Series either depends on a PerMP value or carries a lag,
+# so W0104 does not fire; `unit = "none"` appears only on bool and on integer
+# date parts, never on money arithmetic, so W0102 does not fire; and every
+# retime/shift/cum/diff is applied to a Series, so W0105 does not fire.

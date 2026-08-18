@@ -1,0 +1,7 @@
+name    = "e21-cross-module-shadow"
+kind    = "invalid"
+title   = "The same unqualified name defined in two modules of one product"
+spec    = ["01-ir.md §2.2", "01-ir.md §7"]
+entry   = ["schema.pir", "a.pir", "b.pir"]
+product = "product.pir"
+fmt     = true

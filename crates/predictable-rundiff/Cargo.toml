@@ -1,0 +1,36 @@
+[package]
+name = "predictable-rundiff"
+description = "Run diff: alignment, tolerance profiles, earliest divergence, root-cause classification and the pvf/1 diff.json (04-verify.md §5)."
+version.workspace = true
+edition.workspace = true
+# Inherits predictable-io's arrow/parquet floor.
+rust-version = "1.82"
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_rundiff"
+path = "src/lib.rs"
+
+[dependencies]
+predictable-io = { workspace = true }
+predictable-ir = { workspace = true }
+predictable-modeldiff = { workspace = true }
+predictable-diagnostics = { workspace = true }
+predictable-syntax = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = "0.10"
+toml = "0.8"
+arrow-array = "55"
+arrow-schema = "55"
+parquet = { version = "55", default-features = false, features = ["arrow", "snap", "zstd", "base64"] }
+
+[dev-dependencies]
+predictable-prophet = { workspace = true }
+# A dev-only cycle back to the CLI: the mutation harness (§9.2) has to *run* the reference models,
+# and `predictable_cli::dispatch` is the one entry point that runs them the way a user does.
+# Cargo allows a dev-dependency cycle precisely for this case.
+predictable-cli = { workspace = true }
+tempfile = "3"

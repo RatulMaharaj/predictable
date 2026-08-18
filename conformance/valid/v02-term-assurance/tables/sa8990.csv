@@ -1,0 +1,13 @@
+age,gender,smoker,qx
+40,M,false,0.00135
+40,M,true,0.00243
+40,F,false,0.00098
+40,F,true,0.00171
+41,M,false,0.00147
+41,M,true,0.00265
+41,F,false,0.00107
+41,F,true,0.00187
+42,M,false,0.00161
+42,M,true,0.00290
+42,F,false,0.00117
+42,F,true,0.00205

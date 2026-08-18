@@ -1,0 +1,9 @@
+name    = "v08-run-config"
+kind    = "valid"
+title   = "[product], [run], [run.tables], [run.exec], [[solve]] and [[aggregation]]"
+spec    = ["01-ir.md §8.3", "01-ir.md §8.4.1", "01-ir.md §8.4.2", "01-ir.md §8.4.3", "01-ir.md §8.4.4"]
+entry   = ["model.pir"]
+product = "product.pir"
+run     = "run.pir"
+runtime = false
+fmt     = true

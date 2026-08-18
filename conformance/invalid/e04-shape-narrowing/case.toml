@@ -1,0 +1,6 @@
+name  = "e04-shape-narrowing"
+kind  = "invalid"
+title = "A Series used where a PerMP is declared, with no aggregate"
+spec  = ["01-ir.md §2.3", "01-ir.md §7"]
+entry = ["model.pir"]
+fmt   = true

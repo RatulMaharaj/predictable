@@ -30,6 +30,21 @@ keywords = [
   "predictable",
 ]
 
+# Docs are a build input, so they are pinned like one (PEP 735). `mkdocs build --strict` fails
+# on a broken link or a missing nav entry, which means an unpinned theme or handler upgrade can
+# turn a green docs build red without a commit. Resolve with:
+#
+#     uv run --group docs mkdocs build --strict
+#
+# `uv.lock` holds the exact transitive set; the `==` pins here are the direct ones.
+[dependency-groups]
+docs = [
+  "mkdocs==1.6.1",
+  "mkdocs-material==9.6.14",
+  "mkdocstrings==0.29.1",
+  "mkdocstrings-python==1.16.10",
+]
+
 [project.urls]
 "Bug Tracker" = "https://github.com/RatulMaharaj/predictable/issues"
 homepage = "https://github.com/RatulMaharaj/predictable"

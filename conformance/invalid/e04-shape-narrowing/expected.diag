@@ -1,0 +1,3 @@
+# Widening is free; narrowing requires an explicit Agg. The suggested edit must
+# offer one of sum / npv / last / at.
+error E0301 model.pir:38:9 cannot narrow `Series` to `PerMP` without an aggregate

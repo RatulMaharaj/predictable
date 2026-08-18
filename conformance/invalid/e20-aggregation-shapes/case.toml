@@ -1,0 +1,8 @@
+name    = "e20-aggregation-shapes"
+kind    = "invalid"
+title   = "A Series group key, an f64 group key, and over_t on a PerMP measure"
+spec    = ["01-ir.md §8.3"]
+entry   = ["model.pir"]
+product = "product.pir"
+run     = "run.pir"
+fmt     = true

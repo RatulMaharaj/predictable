@@ -1,0 +1,6 @@
+name  = "e03-at-self-cycle"
+kind  = "invalid"
+title = "x[5] inside x is instantaneous at t = 5; x[0] inside x is a legal seed"
+spec  = ["01-ir.md §3.1", "01-ir.md §2.7"]
+entry = ["model.pir"]
+fmt   = true

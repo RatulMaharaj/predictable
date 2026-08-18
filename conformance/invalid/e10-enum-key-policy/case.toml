@@ -1,0 +1,6 @@
+name  = "e10-enum-key-policy"
+kind  = "invalid"
+title = "clamp on an enum key — enums are unordered"
+spec  = ["01-ir.md §2.9"]
+entry = ["model.pir"]
+fmt   = true

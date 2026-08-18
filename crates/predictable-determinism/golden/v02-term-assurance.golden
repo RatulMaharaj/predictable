@@ -1,0 +1,195 @@
+# predictable determinism golden
+# generated on: aarch64-unix-macos
+# regenerate with: UPDATE_GOLDEN=1 cargo test -p predictable-determinism
+case v02-term-assurance
+modelpoints data/term.mpf.csv
+modelpoint_digest sha256:8a29a3eba284ffc9ea7e4e1d109c79011d511029cf6c35f85d1603a077149fae
+model_digest sha256:e1a001496897bac46b18a8c931f0b34e10bc2b6c1b7c143c511250e1c8b897ad
+order_digest 03db52ec8915cbc7df03936a80bbafd88dc9398f49e17a25e094cd444712bee8
+plan_digest a752868a61d999555c8bc1236587fa7fc8527e606370f76c916e41467cbe9913
+tape_digest b0af92ef0bcfed317923497f2afa061b272925b2890cdac6c545e4c3e6fbbcc2
+periods 40
+order policy_number entry_age gender smoker sum_assured annual_premium policy_term valuation_rate premium_escalation expense_inflation renewal_expense_pa mortality_loading t period_start_date period_end_date year_frac month_of_year policy_year policy_month is_anniversary wx disc_factor age in_term qx num_pols_if deaths premium_rate premium_income death_claims renewal_expenses net_cashflow reserve pv_premiums pv_claims pv_expenses bel
+table sa8990 rows=12 index=cartesian dense array drifted=false digest=sha256:9c0ebb1a86c5c5c84c377be552ff0fb704c8686a54be47ef04b86106b94baccb
+table lapse_rates rows=3 index=cartesian dense array drifted=false digest=sha256:086ef4fd70c037e2ea040ba21e5140c64cfc2c3f03be1ad504264d175de89f83
+assumption expense_inflation 0x3f9eb851eb851eb8 0.03
+assumption mortality_loading 0x3ff0000000000000 1.0
+assumption premium_escalation 0x3fa999999999999a 0.05
+assumption renewal_expense_pa 0x4046800000000000 45.0
+assumption valuation_rate 0x3fa1eb851eb851ec 0.035
+outcome Completed exit=0
+projected 2 trapped 0 traps 0
+POL00001 term_assurance.net_cashflow 0 0x4061800000000000 140.0
+POL00001 term_assurance.net_cashflow 1 0x405f5733b89430a6 125.36253180000003
+POL00001 term_assurance.net_cashflow 2 0x405d13526702dabe 116.30190444258457
+POL00001 term_assurance.net_cashflow 3 0x405eae0c89518924 122.71951516115638
+POL00001 term_assurance.net_cashflow 4 0x406018d73f3b30ff 128.77627526818102
+POL00001 term_assurance.net_cashflow 5 0x4060cfb18b8b91fd 134.49042298564737
+POL00001 term_assurance.net_cashflow 6 0x40617c22f94e4c8d 139.8792692689207
+POL00001 term_assurance.net_cashflow 7 0x40621eb22328f758 144.959245281231
+POL00001 term_assurance.net_cashflow 8 0x4062b7decd248064 149.74594742898182
+POL00001 term_assurance.net_cashflow 9 0x406348223e453106 154.25418008340802
+POL00001 term_assurance.net_cashflow 10 0x4063cfef95887ae7 158.49799610763804
+POL00001 term_assurance.net_cashflow 11 0x40644fb41a852f57 162.49073530209236
+POL00001 term_assurance.net_cashflow 12 0x4064c7d789e7a220 166.24506087532882
+POL00001 term_assurance.net_cashflow 13 0x406538bc5e004358 169.77299404193286
+POL00001 term_assurance.net_cashflow 14 0x4065a2c013986c8a 173.0859468438178
+POL00001 term_assurance.net_cashflow 15 0x4066063b6b3e736a 176.19475328633717
+POL00001 term_assurance.net_cashflow 16 0x40666382a7378db9 179.10969887590707
+POL00001 term_assurance.net_cashflow 17 0x4066bae5c643ac08 181.84054864136874
+POL00001 term_assurance.net_cashflow 18 0x40670cb0bb5d2b86 184.39657371709126
+POL00001 term_assurance.net_cashflow 19 0x4067592ba29c169e 186.78657656179433
+POL00001 term_assurance.net_cashflow 20 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 21 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 22 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 23 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 24 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 25 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 26 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 27 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 28 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 29 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 30 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 31 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 32 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 33 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 34 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 35 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 36 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 37 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 38 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 39 0x0000000000000000 0.0
+POL00001 term_assurance.net_cashflow 40 0x0000000000000000 0.0
+POL00001 term_assurance.pv_premiums . 0x40b01c4d43319422 4124.301806543985
+POL00001 term_assurance.pv_claims . 0x409547f5f9b97179 1361.990210435439
+POL00001 term_assurance.pv_expenses . 0x407f2cd21e860f06 498.801298640887
+POL00001 term_assurance.bel . 0xc0a1af0545b5ada7 -2263.510297467659
+POL00001 term_assurance.reserve 0 0xc0a1af0545b5ada7 -2263.510297467659
+POL00001 term_assurance.reserve 1 0xc0a12baa93ab65a6 -2197.8331578790267
+POL00001 term_assurance.reserve 2 0xc0a0c203a259153b -2145.0070979917923
+POL00001 term_assurance.reserve 3 0xc0a0676b74c744bd -2099.70987532343
+POL00001 term_assurance.reserve 4 0xc09ff8bd769bc57f -2046.1850227679531
+POL00001 term_assurance.reserve 5 0xc09f02127ca8c3fd -1984.518053662264
+POL00001 term_assurance.reserve 6 0xc09deb1d48ba8914 -1914.778597750298
+POL00001 term_assurance.reserve 7 0xc09cb4154de6744b -1837.0208049782257
+POL00001 term_assurance.reserve 8 0xc09b5d2285ff75ce -1751.2837142863896
+POL00001 term_assurance.reserve 9 0xc099e65dc96d705b -1657.591588697417
+POL00001 term_assurance.reserve 10 0xc0984fd11e80514e -1555.9542179154992
+POL00001 term_assurance.reserve 11 0xc0969978008afdd9 -1446.3671895711361
+POL00001 term_assurance.reserve 12 0xc094c33f9f0d0687 -1328.8121301684603
+POL00001 term_assurance.reserve 13 0xc092cd07152d1d24 -1203.256916718391
+POL00001 term_assurance.reserve 14 0xc090b69f99c189ed -1069.655859970134
+POL00001 term_assurance.reserve 15 0xc08cff99503ea023 -927.9498600857372
+POL00001 term_assurance.reserve 16 0xc088508843c8a884 -778.066535537379
+POL00001 term_assurance.reserve 17 0xc0835f5cd3d94e8b -619.9203259446234
+POL00001 term_assurance.reserve 18 0xc07c5699e27c3ead -453.41256950886856
+POL00001 term_assurance.reserve 19 0xc07166e7a6e437c9 -278.4315556444895
+POL00001 term_assurance.reserve 20 0xc057b6903bedb822 -94.85255335058949
+POL00001 term_assurance.reserve 21 0xc0588b087b7751c6 -98.1723927178601
+POL00001 term_assurance.reserve 22 0xc05966f0758c22b7 -101.60842646298521
+POL00001 term_assurance.reserve 23 0xc05a4a8acb94e15e -105.16472138918968
+POL00001 term_assurance.reserve 24 0xc05b361c73fca6b1 -108.8454866378113
+POL00001 term_assurance.reserve 25 0xc05c29eccf162249 -112.6550786701347
+POL00001 term_assurance.reserve 26 0xc05d2645bcbc0753 -116.59800642358941
+POL00001 term_assurance.reserve 27 0xc05e2b73b2b33fe6 -120.67893664841503
+POL00001 term_assurance.reserve 28 0xc05f39c5d3d5aeef -124.90269943110955
+POL00001 term_assurance.reserve 29 0xc06028c7040642d9 -129.27429391119838
+POL00001 term_assurance.reserve 30 0xc060b9908a90b863 -133.79889419809032
+POL00001 term_assurance.reserve 31 0xc0614f6b5c3710c2 -138.48185549502347
+POL00001 term_assurance.reserve 32 0xc061ea84e0b8fe25 -143.3287204373493
+POL00001 term_assurance.reserve 33 0xc0628b0c16aafccc -148.3452256526565
+POL00001 term_assurance.reserve 34 0xc0633131a1b38834 -153.53730855049946
+POL00001 term_assurance.reserve 35 0xc063dd27d947e54a -158.91111434976693
+POL00001 term_assurance.reserve 36 0xc0648f22d7ecf8d5 -164.47300335200876
+POL00001 term_assurance.reserve 37 0xc06547588b00c938 -170.22955846932905
+POL00001 term_assurance.reserve 38 0xc0660600c3117419 -176.18759301575554
+POL00001 term_assurance.reserve 39 0xc066cb5544c68b5c -182.35415877130697
+POL00001 term_assurance.reserve 40 0xc0679791da61f932 -188.7365543283027
+POL00002 term_assurance.net_cashflow 0 0x407ab80000000000 427.5
+POL00002 term_assurance.net_cashflow 1 0x4077811438260c2d 376.06743635999993
+POL00002 term_assurance.net_cashflow 2 0x4077ff2e0223cf6b 383.9487325095021
+POL00002 term_assurance.net_cashflow 3 0x407928666081e829 402.5249943804252
+POL00002 term_assurance.net_cashflow 4 0x407a3fb6141c8a7e 419.9819527735598
+POL00002 term_assurance.net_cashflow 5 0x407b460c26163866 436.3779660099011
+POL00002 term_assurance.net_cashflow 6 0x407c3c4b3fc007f4 451.7683713437284
+POL00002 term_assurance.net_cashflow 7 0x407d234a4ed3dc28 466.2056415820866
+POL00002 term_assurance.net_cashflow 8 0x407dfbd52128b76c 479.7395335760582
+POL00002 term_assurance.net_cashflow 9 0x407ec6acf852733b 492.4172290058811
+POL00002 term_assurance.net_cashflow 10 0x407f848915984602 504.2834678600485
+POL00002 term_assurance.net_cashflow 11 0x40801b0b9f53f61e 515.3806749877438
+POL00002 term_assurance.net_cashflow 12 0x40806dfe1db2ffe5 525.7490800842612
+POL00002 term_assurance.net_cashflow 13 0x4080bb6a269b8286 535.4268314503868
+POL00002 term_assurance.net_cashflow 14 0x40810399d00bfa13 544.4501038490001
+POL00002 term_assurance.net_cashflow 15 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 16 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 17 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 18 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 19 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 20 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 21 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 22 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 23 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 24 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 25 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 26 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 27 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 28 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 29 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 30 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 31 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 32 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 33 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 34 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 35 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 36 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 37 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 38 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 39 0x0000000000000000 0.0
+POL00002 term_assurance.net_cashflow 40 0x0000000000000000 0.0
+POL00002 term_assurance.pv_premiums . 0x40c351bcd421cb10 9891.475223755027
+POL00002 term_assurance.pv_claims . 0x40ae663accd81415 3891.114844086124
+POL00002 term_assurance.pv_expenses . 0x407a5ba52658806a 421.72781977244324
+POL00002 term_assurance.bel . 0xc0b5caa1ef72040f -5578.63255989646
+POL00002 term_assurance.reserve 0 0xc0b5caa1ef72040f -5578.63255989646
+POL00002 term_assurance.reserve 1 0xc0b4d36c1544161e -5331.422199492836
+POL00002 term_assurance.reserve 2 0xc0b408cacc4c5406 -5128.792179842485
+POL00002 term_assurance.reserve 3 0xc0b32ee9b84529ca -4910.912967989638
+POL00002 term_assurance.reserve 4 0xc0b23a2e7a3c9ee0 -4666.181552685535
+POL00002 term_assurance.reserve 5 0xc0b12ad10bc62d13 -4394.816585908894
+POL00002 term_assurance.reserve 6 0xc0b000fbe58ffeaf -4096.983971595458
+POL00002 term_assurance.reserve 7 0xc0ad7998a6a06ce2 -3772.7981462605394
+POL00002 term_assurance.reserve 8 0xc0aabca5800530d9 -3422.3232423421982
+POL00002 term_assurance.reserve 9 0xc0a7cb25f57db46c -3045.5741385729543
+POL00002 term_assurance.reserve 10 0xc0a4a508e8d6284e -2642.5174014019203
+POL00002 term_assurance.reserve 11 0xc0a14a24ed126ebd -2213.0721212158373
+POL00002 term_assurance.reserve 12 0xc09b74714d682539 -1757.1106468460769
+POL00002 term_assurance.reserve 13 0xc093e9d63e2fcc57 -1274.4592215984792
+POL00002 term_assurance.reserve 14 0xc087e7302d3f6df8 -764.8985238032756
+POL00002 term_assurance.reserve 15 0xc06c85406d5f4112 -228.16411465267498
+POL00002 term_assurance.reserve 16 0xc06d84cba4666d96 -236.1498586655186
+POL00002 term_assurance.reserve 17 0xc06e8d48879817d2 -244.41510371881174
+POL00002 term_assurance.reserve 18 0xc06f9f073a6b7f0d -252.96963234897012
+POL00002 term_assurance.reserve 19 0xc0705d2d57313ab5 -261.82356948118405
+POL00002 term_assurance.reserve 20 0xc070efcc5e158329 -270.98739441302547
+POL00002 term_assurance.reserve 21 0xc071878d1ed12530 -280.4719532174813
+POL00002 term_assurance.reserve 22 0xc072249d94602535 -290.28847158009313
+POL00002 term_assurance.reserve 23 0xc072c72d55ba8ce8 -300.44856808539635
+POL00002 term_assurance.reserve 24 0xc0736f6da43fccb7 -310.9642679683852
+POL00002 term_assurance.reserve 25 0xc0741d917aa3500a -321.84801734727864
+POL00002 term_assurance.reserve 26 0xc074d1cd9c5ec9e1 -333.1126979544334
+POL00002 term_assurance.reserve 27 0xc0758c58a5aee7fc -344.77164238283854
+POL00002 term_assurance.reserve 28 0xc0764d6b1c1f4495 -356.83864986623786
+POL00002 term_assurance.reserve 29 0xc077153f7faa9a2e -369.32800261155614
+POL00002 term_assurance.reserve 30 0xc077e4125c7469d0 -382.25448270296056
+POL00002 term_assurance.reserve 31 0xc078ba225d2172a2 -395.63338959756413
+POL00002 term_assurance.reserve 32 0xc07997b05dd489d8 -409.48055823347886
+POL00002 term_assurance.reserve 33 0xc07a7cff7fd593c9 -423.8123777716506
+POL00002 term_assurance.reserve 34 0xc07b6a553de8928e -438.6458109936583
+POL00002 term_assurance.reserve 35 0xc07c5ff9815af3d7 -453.9984143784363
+POL00002 term_assurance.reserve 36 0xc07d5e36b7cd7eef -469.88835888168154
+POL00002 term_assurance.reserve 37 0xc07e6559e9c17cf9 -486.33445144254034
+POL00002 term_assurance.reserve 38 0xc07f75b2d1eff0b4 -503.3561572430292
+POL00002 term_assurance.reserve 39 0xc08047c9fab8f815 -520.9736227465352
+POL00002 term_assurance.reserve 40 0xc080d9a95e60b915 -539.2076995426638
+aggregate AggregateRow { aggregation: "bel_by_gender", group_key: "gender=F", measure: "bel", t: -1, value: -5578.63255989646 }
+aggregate AggregateRow { aggregation: "bel_by_gender", group_key: "gender=M", measure: "bel", t: -1, value: -2263.510297467659 }

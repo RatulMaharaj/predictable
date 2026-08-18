@@ -1,0 +1,5 @@
+# There is no runtime null. is_null/coalesce read an opt-in presence bit and are
+# legal only on an optional modelpoint field or an on_missing = default(...) lookup.
+# The suggested edit is deletion of the call.
+error E0602 model.pir:29:9 `sum_assured` can never be missing
+error E0602 model.pir:38:9 `sum_assured` can never be missing

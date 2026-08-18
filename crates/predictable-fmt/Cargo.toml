@@ -1,0 +1,18 @@
+[package]
+name = "predictable-fmt"
+description = "Canonical form (`predictable fmt`) and the digests computed over it, per 01-ir.md §4.1 and §9.3."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_fmt"
+path = "src/lib.rs"
+
+[dependencies]
+predictable-syntax = { workspace = true }
+ryu = "1"
+sha2 = "0.10"

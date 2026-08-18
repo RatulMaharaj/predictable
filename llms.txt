@@ -1,0 +1,53 @@
+# predictable
+
+> An open-source (MIT) actuarial modelling framework for life insurance cashflow projection.
+> A Python authoring DSL compiles to a serialisable, git-diffable computation-graph IR that a Rust
+> engine executes. Designed so an LLM can read a Prophet model and reimplement it in predictable
+> in minutes, with a machine-readable verification loop: definition-time diagnostics, provenance
+> traces, and a structured run-diff against Prophet .rpt output.
+
+Every link below resolves to a file in this repository; a test asserts it. A single fetch of
+`llms-full.txt` primes a model with the whole of the normative material.
+
+## Start here
+
+- [IR specification](/docs/design/01-ir.md): the normative format an LLM should write. Shapes, units, timing, expression grammar, builtins. Read this before writing any model.
+- [Verification loop](/docs/design/04-verify.md): explain() traces, Prophet readers, run-diff format, tolerance policy, run manifests. Read this before interpreting any diff output.
+- [The verification loop end to end](/docs/v2/verification-walkthrough.md): a real four-command rehearsal from "the reserve looks wrong" to one line of `.pir`.
+- [Building a model](/docs/v2/building-a-model.md): the DSL from declaration to a checked `.pir`.
+
+## Writing models
+
+- [IR cheatsheet](/skills/predictable-migration/references/ir-cheatsheet.md): shapes, units, timing, grammar and the whole builtin set on one page.
+- [IR concepts](/docs/v2/ir-concepts.md) and [.pir syntax](/docs/v2/pir-syntax.md): the data model and the file format.
+- [Declaring a model](/docs/v2/dsl-declarations.md) and [the DSL tracer](/docs/v2/dsl-tracer.md): how Python becomes IR.
+- [Tables and lookups](/docs/v2/tables.md), [loading modelpoints](/docs/v2/modelpoint-loading.md), [substage levels and terms](/docs/v2/substage-levels.md).
+- [Reference models](/docs/v2/reference-models.md): term assurance, monthly term, savings, a solve, IFRS 17 GMM — each one runnable, golden-checked and reconciled.
+- [Diagnostics index](/docs/llm/diagnostics.md): every E/W/P/N/H code, its meaning and its fix. Every `doc_url` points here.
+
+## Prophet migration
+
+- [Agent skill](/skills/predictable-migration/SKILL.md): the packaged procedure — inventory, schema first, units and timing as decisions, leaves upward, run and diff, findings top-down, stop condition.
+- [The migration loop script](/skills/predictable-migration/scripts/loop.py): check → run → diff → report, one command, JSON out, with the stop condition as booleans.
+- [Prophet idiom table](/skills/predictable-migration/references/prophet-idioms.md): Prophet construct → IR construct, including the timing table and the `/12` trap.
+- [Migration diagnostics](/skills/predictable-migration/references/diagnostics.md): the codes that actually fire in a migration, and the standard fix for each.
+- [Verify-layer formats](/skills/predictable-migration/references/verify-formats.md): `diff.json`, traces and manifests, condensed.
+- [Reading Prophet files](/docs/v2/prophet-readers.md): `.MPF`, `.FAC` and `.RPT` readers and their diagnostics.
+
+## Running and checking
+
+- [Checking a model](/docs/v2/checking.md), [planning](/docs/v2/planning.md), [tape lowering](/docs/v2/tape-lowering.md), [the kernel](/docs/v2/kernel.md).
+- [Running a model](/docs/v2/running-a-model.md), [run results and manifests](/docs/v2/run-results.md), [determinism and goldens](/docs/v2/determinism.md).
+- [Explaining a number](/docs/v2/explain.md): the trace format and its `N0xxx` notes.
+- [Diffing two models](/docs/v2/model-diff.md), [diffing two runs](/docs/v2/run-diff.md), [hypotheses and mutation testing](/docs/v2/hypotheses.md).
+
+## Reference
+
+- [The command line](/docs/v2/cli.md) and [the Python API](/docs/v2/python-api.md).
+- [Canonical form and digests](/docs/v2/canonical-form.md), [byte-deterministic result files](/docs/v2/parquet-determinism.md), [the conformance corpus](/docs/v2/conformance-corpus.md).
+- [The graph document and viz server](/docs/v2/viz-server.md), [the Model Explorer](/docs/v2/model-explorer.md), [the modelpoint drill-down](/docs/v2/viz-drilldown.md), [the viz data source contract](/docs/v2/viz-datasource.md).
+
+## Optional
+
+- [Design specs overview](/docs/design/README.md), [DSL spec](/docs/design/02-dsl.md), [engine spec](/docs/design/03-engine.md), [visualisation spec](/docs/design/05-viz.md).
+- [Build backlog](/docs/design/00-backlog.md), [roadmap](/ROADMAP.md), [contributing](/docs/contributing.md).

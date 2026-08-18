@@ -1,0 +1,6 @@
+name  = "e17-table-source-escape"
+kind  = "invalid"
+title = "A table source that escapes the project root, and an absolute path"
+spec  = ["01-ir.md §2.9.1"]
+entry = ["model.pir"]
+fmt   = true

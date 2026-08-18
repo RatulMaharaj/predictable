@@ -1,0 +1,5 @@
+policy_number,sum_assured,premium,q
+POL1,100000,900,0.01
+POL2,250000,1500,0.02
+POL3,50000,400,0.005
+POL4,75000,600,0.03

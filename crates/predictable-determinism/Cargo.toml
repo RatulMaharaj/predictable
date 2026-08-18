@@ -1,0 +1,28 @@
+[package]
+name = "predictable-determinism"
+description = "The determinism harness: golden corpus, chunk-invariance property tests and the float contract (03-engine.md §7)."
+version.workspace = true
+edition.workspace = true
+# Inherited from predictable-io's arrow/parquet 55 floor, via predictable-runner.
+rust-version = "1.82"
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+publish = false
+
+[lib]
+name = "predictable_determinism"
+path = "src/lib.rs"
+
+[dependencies]
+predictable-check = { workspace = true }
+predictable-diagnostics = { workspace = true }
+predictable-engine = { workspace = true }
+predictable-fmt = { workspace = true }
+predictable-io = { workspace = true }
+predictable-ir = { workspace = true }
+predictable-plan = { workspace = true }
+predictable-runner = { workspace = true }
+predictable-syntax = { workspace = true }
+predictable-tables = { workspace = true }
+predictable-tape = { workspace = true }

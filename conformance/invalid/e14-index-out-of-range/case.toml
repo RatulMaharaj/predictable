@@ -1,0 +1,6 @@
+name  = "e14-index-out-of-range"
+kind  = "invalid"
+title = "x[50] when the timeline declares periods = 10"
+spec  = ["01-ir.md §2.7"]
+entry = ["model.pir"]
+fmt   = true

@@ -1,0 +1,3 @@
+# enum key dtypes support policy = "exact" only; clamp, step and interpolate on
+# an enum key are E0305. Declaration order in [[enum]] is presentational.
+error E0305 model.pir:34:62 enum keys support `policy = "exact"` only

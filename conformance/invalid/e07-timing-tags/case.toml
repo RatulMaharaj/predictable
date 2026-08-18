@@ -1,0 +1,6 @@
+name  = "e07-timing-tags"
+kind  = "invalid"
+title = "timing on a PerMP, missing timing on a Series, and an unknown timing tag"
+spec  = ["01-ir.md §2.1", "01-ir.md §2.5"]
+entry = ["model.pir"]
+fmt   = true

@@ -1,0 +1,8 @@
+name    = "e19-run-config"
+kind    = "invalid"
+title   = "A run that overrides the timeline, names an unresolved emit_list id, and asks for f32 storage"
+spec    = ["01-ir.md §8.4.2", "01-ir.md §8.4.3", "01-ir.md §8.4.5"]
+entry   = ["model.pir"]
+product = "product.pir"
+run     = "run.pir"
+fmt     = true

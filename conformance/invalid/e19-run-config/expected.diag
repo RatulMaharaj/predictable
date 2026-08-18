@@ -1,0 +1,5 @@
+# [timeline].periods is the only normative source of T; changing the projection
+# length is a model change and must appear in model_digest.
+error E0106 run.pir:8:15 `no_such_component` does not resolve
+error E0108 run.pir:9:22 output-only f32 storage arrives in IR 1.1
+error E0101 run.pir:12:1 the timeline is a property of the model, not of the run

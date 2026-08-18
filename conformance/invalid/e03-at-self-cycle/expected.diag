@@ -1,0 +1,3 @@
+# The At edge contributes a lag = 0 edge for the period t = 5 only, so G0 is
+# cyclic there. The message must name the period and offer `init` or a lag.
+error E0201 model.pir:42:9 cyclic dependency in the same period

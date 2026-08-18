@@ -1,0 +1,2 @@
+# No diagnostics. Formatting is not a diagnostic condition; `fmt` rewrites, it
+# does not complain.

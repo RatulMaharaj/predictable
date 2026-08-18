@@ -1,0 +1,6 @@
+name  = "e02-cycle-through-init"
+kind  = "invalid"
+title = "Two stage-1 series whose init expressions depend on each other's aggregate"
+spec  = ["01-ir.md §3.1", "01-ir.md §8.2"]
+entry = ["model.pir"]
+fmt   = true

@@ -1,0 +1,4 @@
+node_modules/
+*.tsbuildinfo
+# do not gitignore dist: the Rust build embeds dist/index.html
+!dist/

@@ -1,0 +1,3 @@
+policy_number,entry_age,gender,smoker,sum_assured,annual_premium,policy_term
+POL00001,40,M,false,100000.0,320.0,20
+POL00002,41,F,true,250000.0,940.0,15

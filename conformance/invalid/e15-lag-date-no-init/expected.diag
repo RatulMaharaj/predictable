@@ -1,0 +1,3 @@
+# f64/i64/bool fall back to their zero with a pre_origin_default note; date and
+# str have no zero, so the init is mandatory.
+error E0509 model.pir:30:9 `date` has no zero value; declare an `init`

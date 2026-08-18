@@ -1,0 +1,21 @@
+[package]
+name = "predictable-check"
+description = "The checker: resolution, cycles, shapes, types/units and lints over a parsed .pir model (01-ir.md §7)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_check"
+path = "src/lib.rs"
+
+[dependencies]
+predictable-syntax = { workspace = true }
+predictable-ir = { workspace = true }
+predictable-diagnostics = { workspace = true }
+
+[dev-dependencies]
+toml = "0.8"

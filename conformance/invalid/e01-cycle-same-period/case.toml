@@ -1,0 +1,6 @@
+name  = "e01-cycle-same-period"
+kind  = "invalid"
+title = "Two components that read each other at time t"
+spec  = ["01-ir.md §3.1"]
+entry = ["model.pir"]
+fmt   = true

@@ -1,0 +1,3 @@
+aggregation,group_key,measure,t,value
+bel_by_sex,sex=F,bel,-1,4.547473508864641e-13
+bel_by_sex,sex=M,bel,-1,-3.751665644813329e-12

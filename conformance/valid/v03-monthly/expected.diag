@@ -1,0 +1,11 @@
+# No diagnostics: every annual-to-monthly conversion is explicit, so E1402 does
+# not fire, and every Series depends on a modelpoint field or a lag, so W0104
+# does not fire.
+# W0101 (IR §7, "unused components"): five intermediates exist to demonstrate a
+# builtin and nothing reads them. Lints never block a run, so the case stays
+# valid; the warnings are listed here because the expected set is exact.
+warning W0101 model.pir:56:9 `nominal_monthly_rate` is never read
+warning W0101 model.pir:65:9 `implied_annual_rate` is never read
+warning W0101 model.pir:83:9 `policy_year_frac` is never read
+warning W0101 model.pir:92:9 `anniversary_month` is never read
+warning W0101 model.pir:102:9 `renewal_month` is never read

@@ -1,0 +1,7 @@
+name    = "e18-product-manifest"
+kind    = "invalid"
+title   = "A module reached by imports but absent from `modules`, and an outputs list that disagrees with the model"
+spec    = ["01-ir.md §2.2", "01-ir.md §8.4.1"]
+entry   = ["model.pir", "shared.pir"]
+product = "product.pir"
+fmt     = true

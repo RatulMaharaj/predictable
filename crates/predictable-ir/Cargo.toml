@@ -1,0 +1,18 @@
+[package]
+name = "predictable-ir"
+description = "The predictable IR data model (01-ir.md) and its lossless pir.json encoding."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_ir"
+path = "src/lib.rs"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }

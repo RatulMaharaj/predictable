@@ -1,0 +1,8 @@
+name    = "v06-tables"
+kind    = "valid"
+title   = "All four key policies, all three on_missing modes, all three resolvers"
+spec    = ["01-ir.md §2.9", "01-ir.md §2.9.1"]
+entry   = ["model.pir"]
+runtime = false
+fmt     = true
+notes   = "runtime = false because `expense_scale` uses the `resource:` scheme and needs a host-supplied MapResolver entry; the digest recorded here is the host's, not a file's."

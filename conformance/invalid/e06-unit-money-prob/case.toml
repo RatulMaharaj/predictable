@@ -1,0 +1,6 @@
+name  = "e06-unit-money-prob"
+kind  = "invalid"
+title = "money + prob, and money * money"
+spec  = ["01-ir.md §2.4"]
+entry = ["model.pir"]
+fmt   = true

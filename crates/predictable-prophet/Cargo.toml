@@ -1,0 +1,31 @@
+[package]
+name = "predictable-prophet"
+description = "Read-only Prophet interop readers: .MPF, .fac and .rpt as pure bytes -> (value, diagnostics) functions (04-verify.md §4)."
+version.workspace = true
+edition.workspace = true
+# `run-dir` pulls predictable-io, which needs a newer floor than the workspace's 1.78.
+rust-version = "1.82"
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_prophet"
+path = "src/lib.rs"
+
+[features]
+default = ["run-dir"]
+# Turning a `.rpt` into a first-class run directory (results.parquet + manifest.json).
+# Off by default in the WASM build, where arrow/parquet are not wanted.
+run-dir = ["dep:predictable-io"]
+
+[dependencies]
+predictable-diagnostics = { workspace = true }
+predictable-ir = { workspace = true }
+predictable-io = { workspace = true, optional = true }
+sha2 = "0.10"
+
+[dev-dependencies]
+proptest = "1"
+tempfile = "3"
+serde_json = { workspace = true }

@@ -1,0 +1,2011 @@
+{
+ "edges": [
+  {
+   "at": false,
+   "from": "schema.expenses",
+   "lag": null,
+   "span": {
+    "byte_end": 2026,
+    "byte_start": 2003,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 92
+   },
+   "stage": 1,
+   "to": "model.expense_scale",
+   "via": "expr"
+  },
+  {
+   "at": false,
+   "from": "schema.expense_band",
+   "lag": 0,
+   "span": {
+    "byte_end": 2025,
+    "byte_start": 2013,
+    "col": 19,
+    "file": "models/term_annual/build/model.pir",
+    "line": 92
+   },
+   "stage": 1,
+   "to": "model.expense_scale",
+   "via": "expr.key0"
+  },
+  {
+   "at": false,
+   "from": "schema.initial_expense_pct",
+   "lag": 0,
+   "span": {
+    "byte_end": 3274,
+    "byte_start": 3255,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 142
+   },
+   "stage": 1,
+   "to": "model.initial_expense",
+   "via": "expr.lhs"
+  },
+  {
+   "at": false,
+   "from": "schema.annual_premium",
+   "lag": 0,
+   "span": {
+    "byte_end": 3291,
+    "byte_start": 3277,
+    "col": 31,
+    "file": "models/term_annual/build/model.pir",
+    "line": 142
+   },
+   "stage": 1,
+   "to": "model.initial_expense",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "schema.lapses",
+   "lag": null,
+   "span": {
+    "byte_end": 1069,
+    "byte_start": 1049,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 52
+   },
+   "stage": 1,
+   "to": "model.wx",
+   "via": "expr.lhs"
+  },
+  {
+   "at": false,
+   "from": "<timeline>.policy_year",
+   "lag": 0,
+   "span": {
+    "byte_end": 1068,
+    "byte_start": 1057,
+    "col": 17,
+    "file": "models/term_annual/build/model.pir",
+    "line": 52
+   },
+   "stage": 1,
+   "to": "model.wx",
+   "via": "expr.lhs.key0"
+  },
+  {
+   "at": false,
+   "from": "schema.lapse_loading",
+   "lag": 0,
+   "span": {
+    "byte_end": 1085,
+    "byte_start": 1072,
+    "col": 32,
+    "file": "models/term_annual/build/model.pir",
+    "line": 52
+   },
+   "stage": 1,
+   "to": "model.wx",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.disc_factor",
+   "lag": 1,
+   "span": {
+    "byte_end": 3802,
+    "byte_start": 3786,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 163
+   },
+   "stage": 1,
+   "to": "model.disc_factor",
+   "via": "expr.lhs"
+  },
+  {
+   "at": false,
+   "from": "schema.valuation_rate",
+   "lag": 0,
+   "span": {
+    "byte_end": 3824,
+    "byte_start": 3810,
+    "col": 33,
+    "file": "models/term_annual/build/model.pir",
+    "line": 163
+   },
+   "stage": 1,
+   "to": "model.disc_factor",
+   "via": "expr.rhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "schema.entry_age",
+   "lag": 0,
+   "span": {
+    "byte_end": 180,
+    "byte_start": 171,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 12
+   },
+   "stage": 1,
+   "to": "model.age",
+   "via": "expr.lhs"
+  },
+  {
+   "at": false,
+   "from": "<timeline>.t",
+   "lag": 0,
+   "span": {
+    "byte_end": 184,
+    "byte_start": 183,
+    "col": 21,
+    "file": "models/term_annual/build/model.pir",
+    "line": 12
+   },
+   "stage": 1,
+   "to": "model.age",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "<timeline>.t",
+   "lag": 0,
+   "span": {
+    "byte_end": 365,
+    "byte_start": 364,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 22
+   },
+   "stage": 1,
+   "to": "model.in_term",
+   "via": "expr.lhs"
+  },
+  {
+   "at": false,
+   "from": "schema.policy_term",
+   "lag": 0,
+   "span": {
+    "byte_end": 379,
+    "byte_start": 368,
+    "col": 13,
+    "file": "models/term_annual/build/model.pir",
+    "line": 22
+   },
+   "stage": 1,
+   "to": "model.in_term",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.in_term",
+   "lag": 0,
+   "span": {
+    "byte_end": 582,
+    "byte_start": 575,
+    "col": 12,
+    "file": "models/term_annual/build/model.pir",
+    "line": 32
+   },
+   "stage": 1,
+   "to": "model.in_force_factor",
+   "via": "expr.cond"
+  },
+  {
+   "at": false,
+   "from": "schema.mortality",
+   "lag": null,
+   "span": {
+    "byte_end": 836,
+    "byte_start": 808,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 42
+   },
+   "stage": 1,
+   "to": "model.qx",
+   "via": "expr.lhs"
+  },
+  {
+   "at": false,
+   "from": "model.age",
+   "lag": 0,
+   "span": {
+    "byte_end": 822,
+    "byte_start": 819,
+    "col": 20,
+    "file": "models/term_annual/build/model.pir",
+    "line": 42
+   },
+   "stage": 1,
+   "to": "model.qx",
+   "via": "expr.lhs.key0"
+  },
+  {
+   "at": false,
+   "from": "schema.sex",
+   "lag": 0,
+   "span": {
+    "byte_end": 827,
+    "byte_start": 824,
+    "col": 25,
+    "file": "models/term_annual/build/model.pir",
+    "line": 42
+   },
+   "stage": 1,
+   "to": "model.qx",
+   "via": "expr.lhs.key1"
+  },
+  {
+   "at": false,
+   "from": "schema.smoker",
+   "lag": 0,
+   "span": {
+    "byte_end": 835,
+    "byte_start": 829,
+    "col": 30,
+    "file": "models/term_annual/build/model.pir",
+    "line": 42
+   },
+   "stage": 1,
+   "to": "model.qx",
+   "via": "expr.lhs.key2"
+  },
+  {
+   "at": false,
+   "from": "schema.mortality_loading",
+   "lag": 0,
+   "span": {
+    "byte_end": 856,
+    "byte_start": 839,
+    "col": 40,
+    "file": "models/term_annual/build/model.pir",
+    "line": 42
+   },
+   "stage": 1,
+   "to": "model.qx",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.num_pols_if",
+   "lag": 1,
+   "span": {
+    "byte_end": 1320,
+    "byte_start": 1304,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 63
+   },
+   "stage": 1,
+   "to": "model.num_pols_if",
+   "via": "expr.lhs.lhs.lhs"
+  },
+  {
+   "at": false,
+   "from": "model.qx",
+   "lag": 1,
+   "span": {
+    "byte_end": 1335,
+    "byte_start": 1328,
+    "col": 33,
+    "file": "models/term_annual/build/model.pir",
+    "line": 63
+   },
+   "stage": 1,
+   "to": "model.num_pols_if",
+   "via": "expr.lhs.lhs.rhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.wx",
+   "lag": 1,
+   "span": {
+    "byte_end": 1351,
+    "byte_start": 1344,
+    "col": 49,
+    "file": "models/term_annual/build/model.pir",
+    "line": 63
+   },
+   "stage": 1,
+   "to": "model.num_pols_if",
+   "via": "expr.lhs.rhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.in_term",
+   "lag": 0,
+   "span": {
+    "byte_end": 1366,
+    "byte_start": 1359,
+    "col": 64,
+    "file": "models/term_annual/build/model.pir",
+    "line": 63
+   },
+   "stage": 1,
+   "to": "model.num_pols_if",
+   "via": "expr.rhs.cond"
+  },
+  {
+   "at": false,
+   "from": "model.num_pols_if",
+   "lag": 0,
+   "span": {
+    "byte_end": 1583,
+    "byte_start": 1572,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 73
+   },
+   "stage": 1,
+   "to": "model.deaths",
+   "via": "expr.lhs.lhs"
+  },
+  {
+   "at": false,
+   "from": "model.qx",
+   "lag": 0,
+   "span": {
+    "byte_end": 1588,
+    "byte_start": 1586,
+    "col": 23,
+    "file": "models/term_annual/build/model.pir",
+    "line": 73
+   },
+   "stage": 1,
+   "to": "model.deaths",
+   "via": "expr.lhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.in_force_factor",
+   "lag": 0,
+   "span": {
+    "byte_end": 1606,
+    "byte_start": 1591,
+    "col": 28,
+    "file": "models/term_annual/build/model.pir",
+    "line": 73
+   },
+   "stage": 1,
+   "to": "model.deaths",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.num_pols_if",
+   "lag": 0,
+   "span": {
+    "byte_end": 1780,
+    "byte_start": 1769,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 83
+   },
+   "stage": 1,
+   "to": "model.surrenders",
+   "via": "expr.lhs.lhs.lhs"
+  },
+  {
+   "at": false,
+   "from": "model.qx",
+   "lag": 0,
+   "span": {
+    "byte_end": 1790,
+    "byte_start": 1788,
+    "col": 28,
+    "file": "models/term_annual/build/model.pir",
+    "line": 83
+   },
+   "stage": 1,
+   "to": "model.surrenders",
+   "via": "expr.lhs.lhs.rhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.wx",
+   "lag": 0,
+   "span": {
+    "byte_end": 1796,
+    "byte_start": 1794,
+    "col": 34,
+    "file": "models/term_annual/build/model.pir",
+    "line": 83
+   },
+   "stage": 1,
+   "to": "model.surrenders",
+   "via": "expr.lhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.in_force_factor",
+   "lag": 0,
+   "span": {
+    "byte_end": 1814,
+    "byte_start": 1799,
+    "col": 39,
+    "file": "models/term_annual/build/model.pir",
+    "line": 83
+   },
+   "stage": 1,
+   "to": "model.surrenders",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.premium_rate",
+   "lag": 1,
+   "span": {
+    "byte_end": 2283,
+    "byte_start": 2266,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 103
+   },
+   "stage": 1,
+   "to": "model.premium_rate",
+   "via": "expr.lhs"
+  },
+  {
+   "at": false,
+   "from": "schema.premium_escalation",
+   "lag": 0,
+   "span": {
+    "byte_end": 2309,
+    "byte_start": 2291,
+    "col": 34,
+    "file": "models/term_annual/build/model.pir",
+    "line": 103
+   },
+   "stage": 1,
+   "to": "model.premium_rate",
+   "via": "expr.rhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "schema.annual_premium",
+   "lag": 0,
+   "span": {
+    "byte_end": 2256,
+    "byte_start": 2242,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 102
+   },
+   "stage": 1,
+   "to": "model.premium_rate",
+   "via": "init"
+  },
+  {
+   "at": false,
+   "from": "model.premium_rate",
+   "lag": 0,
+   "span": {
+    "byte_end": 2538,
+    "byte_start": 2526,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 113
+   },
+   "stage": 1,
+   "to": "model.premium_income",
+   "via": "expr.lhs.lhs"
+  },
+  {
+   "at": false,
+   "from": "model.num_pols_if",
+   "lag": 0,
+   "span": {
+    "byte_end": 2552,
+    "byte_start": 2541,
+    "col": 24,
+    "file": "models/term_annual/build/model.pir",
+    "line": 113
+   },
+   "stage": 1,
+   "to": "model.premium_income",
+   "via": "expr.lhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.in_force_factor",
+   "lag": 0,
+   "span": {
+    "byte_end": 2570,
+    "byte_start": 2555,
+    "col": 38,
+    "file": "models/term_annual/build/model.pir",
+    "line": 113
+   },
+   "stage": 1,
+   "to": "model.premium_income",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "schema.sum_assured",
+   "lag": 0,
+   "span": {
+    "byte_end": 2767,
+    "byte_start": 2756,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 123
+   },
+   "stage": 1,
+   "to": "model.death_claims",
+   "via": "expr.lhs"
+  },
+  {
+   "at": false,
+   "from": "model.deaths",
+   "lag": 0,
+   "span": {
+    "byte_end": 2776,
+    "byte_start": 2770,
+    "col": 23,
+    "file": "models/term_annual/build/model.pir",
+    "line": 123
+   },
+   "stage": 1,
+   "to": "model.death_claims",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "schema.renewal_expense_pa",
+   "lag": 0,
+   "span": {
+    "byte_end": 2975,
+    "byte_start": 2957,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 133
+   },
+   "stage": 1,
+   "to": "model.renewal_expenses",
+   "via": "expr.lhs.lhs.lhs.lhs"
+  },
+  {
+   "at": false,
+   "from": "schema.expense_inflation",
+   "lag": 0,
+   "span": {
+    "byte_end": 3004,
+    "byte_start": 2987,
+    "col": 39,
+    "file": "models/term_annual/build/model.pir",
+    "line": 133
+   },
+   "stage": 1,
+   "to": "model.renewal_expenses",
+   "via": "expr.lhs.lhs.lhs.rhs.arg0"
+  },
+  {
+   "at": false,
+   "from": "<timeline>.t",
+   "lag": 0,
+   "span": {
+    "byte_end": 3007,
+    "byte_start": 3006,
+    "col": 58,
+    "file": "models/term_annual/build/model.pir",
+    "line": 133
+   },
+   "stage": 1,
+   "to": "model.renewal_expenses",
+   "via": "expr.lhs.lhs.lhs.rhs.arg1"
+  },
+  {
+   "at": false,
+   "from": "model.expense_scale",
+   "lag": 0,
+   "span": {
+    "byte_end": 3024,
+    "byte_start": 3011,
+    "col": 63,
+    "file": "models/term_annual/build/model.pir",
+    "line": 133
+   },
+   "stage": 1,
+   "to": "model.renewal_expenses",
+   "via": "expr.lhs.lhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.num_pols_if",
+   "lag": 0,
+   "span": {
+    "byte_end": 3038,
+    "byte_start": 3027,
+    "col": 79,
+    "file": "models/term_annual/build/model.pir",
+    "line": 133
+   },
+   "stage": 1,
+   "to": "model.renewal_expenses",
+   "via": "expr.lhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.in_force_factor",
+   "lag": 0,
+   "span": {
+    "byte_end": 3056,
+    "byte_start": 3041,
+    "col": 93,
+    "file": "models/term_annual/build/model.pir",
+    "line": 133
+   },
+   "stage": 1,
+   "to": "model.renewal_expenses",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.premium_income",
+   "lag": 0,
+   "span": {
+    "byte_end": 3526,
+    "byte_start": 3512,
+    "col": 16,
+    "file": "models/term_annual/build/model.pir",
+    "line": 152
+   },
+   "stage": 1,
+   "to": "model.net_cashflow",
+   "via": "expr.lhs.lhs.arg0"
+  },
+  {
+   "at": false,
+   "from": "model.death_claims",
+   "lag": 0,
+   "span": {
+    "byte_end": 3554,
+    "byte_start": 3542,
+    "col": 46,
+    "file": "models/term_annual/build/model.pir",
+    "line": 152
+   },
+   "stage": 1,
+   "to": "model.net_cashflow",
+   "via": "expr.lhs.rhs.arg0"
+  },
+  {
+   "at": false,
+   "from": "model.renewal_expenses",
+   "lag": 0,
+   "span": {
+    "byte_end": 3586,
+    "byte_start": 3570,
+    "col": 74,
+    "file": "models/term_annual/build/model.pir",
+    "line": 152
+   },
+   "stage": 1,
+   "to": "model.net_cashflow",
+   "via": "expr.rhs.arg0"
+  },
+  {
+   "at": false,
+   "from": "model.reserve",
+   "lag": 1,
+   "span": {
+    "byte_end": 4987,
+    "byte_start": 4975,
+    "col": 10,
+    "file": "models/term_annual/build/model.pir",
+    "line": 219
+   },
+   "stage": 1,
+   "to": "model.reserve",
+   "via": "expr.lhs.lhs.lhs.lhs.lhs"
+  },
+  {
+   "at": false,
+   "from": "model.premium_income",
+   "lag": 1,
+   "span": {
+    "byte_end": 5009,
+    "byte_start": 4990,
+    "col": 25,
+    "file": "models/term_annual/build/model.pir",
+    "line": 219
+   },
+   "stage": 1,
+   "to": "model.reserve",
+   "via": "expr.lhs.lhs.lhs.lhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.death_claims",
+   "lag": 1,
+   "span": {
+    "byte_end": 5029,
+    "byte_start": 5012,
+    "col": 47,
+    "file": "models/term_annual/build/model.pir",
+    "line": 219
+   },
+   "stage": 1,
+   "to": "model.reserve",
+   "via": "expr.lhs.lhs.lhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.renewal_expenses",
+   "lag": 1,
+   "span": {
+    "byte_end": 5053,
+    "byte_start": 5032,
+    "col": 67,
+    "file": "models/term_annual/build/model.pir",
+    "line": 219
+   },
+   "stage": 1,
+   "to": "model.reserve",
+   "via": "expr.lhs.lhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "schema.valuation_rate",
+   "lag": 0,
+   "span": {
+    "byte_end": 5076,
+    "byte_start": 5062,
+    "col": 97,
+    "file": "models/term_annual/build/model.pir",
+    "line": 219
+   },
+   "stage": 1,
+   "to": "model.reserve",
+   "via": "expr.lhs.rhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "<timeline>.t",
+   "lag": 0,
+   "span": {
+    "byte_end": 5085,
+    "byte_start": 5084,
+    "col": 119,
+    "file": "models/term_annual/build/model.pir",
+    "line": 219
+   },
+   "stage": 1,
+   "to": "model.reserve",
+   "via": "expr.rhs.cond.lhs"
+  },
+  {
+   "at": false,
+   "from": "schema.policy_term",
+   "lag": 0,
+   "span": {
+    "byte_end": 5100,
+    "byte_start": 5089,
+    "col": 124,
+    "file": "models/term_annual/build/model.pir",
+    "line": 219
+   },
+   "stage": 1,
+   "to": "model.reserve",
+   "via": "expr.rhs.cond.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.bel",
+   "lag": 0,
+   "span": {
+    "byte_end": 4964,
+    "byte_start": 4961,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 218
+   },
+   "stage": 1,
+   "to": "model.reserve",
+   "via": "init"
+  },
+  {
+   "at": false,
+   "from": "model.premium_income",
+   "lag": 0,
+   "span": {
+    "byte_end": 3990,
+    "byte_start": 3976,
+    "col": 13,
+    "file": "models/term_annual/build/model.pir",
+    "line": 172
+   },
+   "stage": 2,
+   "to": "model.pv_premiums",
+   "via": "expr.arg0"
+  },
+  {
+   "at": false,
+   "from": "model.disc_factor",
+   "lag": 0,
+   "span": {
+    "byte_end": 4003,
+    "byte_start": 3992,
+    "col": 29,
+    "file": "models/term_annual/build/model.pir",
+    "line": 172
+   },
+   "stage": 2,
+   "to": "model.pv_premiums",
+   "via": "expr.arg1"
+  },
+  {
+   "at": false,
+   "from": "model.death_claims",
+   "lag": 0,
+   "span": {
+    "byte_end": 4163,
+    "byte_start": 4151,
+    "col": 13,
+    "file": "models/term_annual/build/model.pir",
+    "line": 181
+   },
+   "stage": 2,
+   "to": "model.pv_claims",
+   "via": "expr.arg0"
+  },
+  {
+   "at": false,
+   "from": "model.disc_factor",
+   "lag": 0,
+   "span": {
+    "byte_end": 4176,
+    "byte_start": 4165,
+    "col": 27,
+    "file": "models/term_annual/build/model.pir",
+    "line": 181
+   },
+   "stage": 2,
+   "to": "model.pv_claims",
+   "via": "expr.arg1"
+  },
+  {
+   "at": false,
+   "from": "model.renewal_expenses",
+   "lag": 0,
+   "span": {
+    "byte_end": 4339,
+    "byte_start": 4323,
+    "col": 13,
+    "file": "models/term_annual/build/model.pir",
+    "line": 190
+   },
+   "stage": 2,
+   "to": "model.pv_expenses",
+   "via": "expr.arg0"
+  },
+  {
+   "at": false,
+   "from": "model.disc_factor",
+   "lag": 0,
+   "span": {
+    "byte_end": 4352,
+    "byte_start": 4341,
+    "col": 31,
+    "file": "models/term_annual/build/model.pir",
+    "line": 190
+   },
+   "stage": 2,
+   "to": "model.pv_expenses",
+   "via": "expr.arg1"
+  },
+  {
+   "at": false,
+   "from": "model.pv_claims",
+   "lag": 0,
+   "span": {
+    "byte_end": 4500,
+    "byte_start": 4491,
+    "col": 9,
+    "file": "models/term_annual/build/model.pir",
+    "line": 199
+   },
+   "stage": 1,
+   "to": "model.bel",
+   "via": "expr.lhs.lhs.lhs"
+  },
+  {
+   "at": false,
+   "from": "model.pv_expenses",
+   "lag": 0,
+   "span": {
+    "byte_end": 4514,
+    "byte_start": 4503,
+    "col": 21,
+    "file": "models/term_annual/build/model.pir",
+    "line": 199
+   },
+   "stage": 1,
+   "to": "model.bel",
+   "via": "expr.lhs.lhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.initial_expense",
+   "lag": 0,
+   "span": {
+    "byte_end": 4532,
+    "byte_start": 4517,
+    "col": 35,
+    "file": "models/term_annual/build/model.pir",
+    "line": 199
+   },
+   "stage": 1,
+   "to": "model.bel",
+   "via": "expr.lhs.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.pv_premiums",
+   "lag": 0,
+   "span": {
+    "byte_end": 4546,
+    "byte_start": 4535,
+    "col": 53,
+    "file": "models/term_annual/build/model.pir",
+    "line": 199
+   },
+   "stage": 1,
+   "to": "model.bel",
+   "via": "expr.rhs"
+  },
+  {
+   "at": false,
+   "from": "model.bel",
+   "lag": 0,
+   "span": {
+    "byte_end": 4744,
+    "byte_start": 4741,
+    "col": 10,
+    "file": "models/term_annual/build/model.pir",
+    "line": 208
+   },
+   "stage": 1,
+   "to": "model.profit_margin",
+   "via": "expr.lhs.operand"
+  },
+  {
+   "at": false,
+   "from": "model.pv_premiums",
+   "lag": 0,
+   "span": {
+    "byte_end": 4758,
+    "byte_start": 4747,
+    "col": 16,
+    "file": "models/term_annual/build/model.pir",
+    "line": 208
+   },
+   "stage": 1,
+   "to": "model.profit_margin",
+   "via": "expr.rhs"
+  }
+ ],
+ "ir_version": "pir/1",
+ "layers": [
+  [
+   "mortality",
+   "lapses",
+   "expenses",
+   "policy_number",
+   "entry_age",
+   "sex",
+   "smoker",
+   "sum_assured",
+   "annual_premium",
+   "policy_term",
+   "expense_band",
+   "valuation_rate",
+   "mortality_loading",
+   "lapse_loading",
+   "premium_escalation",
+   "expense_inflation",
+   "renewal_expense_pa",
+   "initial_expense_pct",
+   "t",
+   "period_start_date",
+   "period_end_date",
+   "year_frac",
+   "month_of_year",
+   "policy_year",
+   "policy_month",
+   "is_anniversary"
+  ],
+  [
+   "expense_scale",
+   "initial_expense",
+   "wx",
+   "disc_factor",
+   "age",
+   "in_term",
+   "premium_rate"
+  ],
+  [
+   "in_force_factor",
+   "qx"
+  ],
+  [
+   "num_pols_if"
+  ],
+  [
+   "deaths",
+   "surrenders",
+   "premium_income",
+   "renewal_expenses"
+  ],
+  [
+   "death_claims",
+   "pv_premiums",
+   "pv_expenses"
+  ],
+  [
+   "net_cashflow",
+   "reserve",
+   "pv_claims"
+  ],
+  [
+   "bel"
+  ],
+  [
+   "profit_margin"
+  ]
+ ],
+ "model_digest": "sha256:46e1065e3d2a6fdd95cf4cfc8afa19b9fd67c4f7cd755a72a2e57ba45dec4b34",
+ "modules": [
+  "model",
+  "schema"
+ ],
+ "nodes": [
+  {
+   "declaration_index": 0,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.mortality",
+   "kind": "Table",
+   "module": "schema",
+   "name": "mortality",
+   "shape": "Table",
+   "span": {
+    "byte_end": 1471,
+    "byte_start": 1460,
+    "col": 8,
+    "file": "models/term_annual/build/schema.pir",
+    "line": 99
+   },
+   "stage": 1,
+   "tags": [
+    "age",
+    "sex",
+    "smoker"
+   ],
+   "unit": "prob"
+  },
+  {
+   "declaration_index": 1,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.lapses",
+   "kind": "Table",
+   "module": "schema",
+   "name": "lapses",
+   "shape": "Table",
+   "span": {
+    "byte_end": 1865,
+    "byte_start": 1857,
+    "col": 8,
+    "file": "models/term_annual/build/schema.pir",
+    "line": 111
+   },
+   "stage": 1,
+   "tags": [
+    "policy_year"
+   ],
+   "unit": "prob"
+  },
+  {
+   "declaration_index": 2,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.expenses",
+   "kind": "Table",
+   "module": "schema",
+   "name": "expenses",
+   "shape": "Table",
+   "span": {
+    "byte_end": 2156,
+    "byte_start": 2146,
+    "col": 8,
+    "file": "models/term_annual/build/schema.pir",
+    "line": 119
+   },
+   "stage": 1,
+   "tags": [
+    "band"
+   ],
+   "unit": "factor"
+  },
+  {
+   "declaration_index": 0,
+   "depth": 0,
+   "dtype": "str",
+   "id": "schema.policy_number",
+   "kind": "InputModelpoint",
+   "module": "schema",
+   "name": "policy_number",
+   "shape": "PerMP",
+   "stage": 1,
+   "tags": [],
+   "unit": "none"
+  },
+  {
+   "declaration_index": 1,
+   "depth": 0,
+   "dtype": "i64",
+   "id": "schema.entry_age",
+   "kind": "InputModelpoint",
+   "module": "schema",
+   "name": "entry_age",
+   "shape": "PerMP",
+   "stage": 1,
+   "tags": [],
+   "unit": "years"
+  },
+  {
+   "declaration_index": 2,
+   "depth": 0,
+   "dtype": "str",
+   "id": "schema.sex",
+   "kind": "InputModelpoint",
+   "module": "schema",
+   "name": "sex",
+   "shape": "PerMP",
+   "stage": 1,
+   "tags": [],
+   "unit": "none"
+  },
+  {
+   "declaration_index": 3,
+   "depth": 0,
+   "dtype": "bool",
+   "id": "schema.smoker",
+   "kind": "InputModelpoint",
+   "module": "schema",
+   "name": "smoker",
+   "shape": "PerMP",
+   "stage": 1,
+   "tags": [],
+   "unit": "none"
+  },
+  {
+   "declaration_index": 4,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.sum_assured",
+   "kind": "InputModelpoint",
+   "module": "schema",
+   "name": "sum_assured",
+   "shape": "PerMP",
+   "stage": 1,
+   "tags": [],
+   "unit": "money"
+  },
+  {
+   "declaration_index": 5,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.annual_premium",
+   "kind": "InputModelpoint",
+   "module": "schema",
+   "name": "annual_premium",
+   "shape": "PerMP",
+   "stage": 1,
+   "tags": [],
+   "unit": "money"
+  },
+  {
+   "declaration_index": 6,
+   "depth": 0,
+   "dtype": "i64",
+   "id": "schema.policy_term",
+   "kind": "InputModelpoint",
+   "module": "schema",
+   "name": "policy_term",
+   "shape": "PerMP",
+   "stage": 1,
+   "tags": [],
+   "unit": "years"
+  },
+  {
+   "declaration_index": 7,
+   "depth": 0,
+   "dtype": "i64",
+   "id": "schema.expense_band",
+   "kind": "InputModelpoint",
+   "module": "schema",
+   "name": "expense_band",
+   "shape": "PerMP",
+   "stage": 1,
+   "tags": [],
+   "unit": "none"
+  },
+  {
+   "declaration_index": 8,
+   "depth": 1,
+   "doc": "Per-policy expense scaling from the servicing band. Constant in `t`, so `PerMP`.",
+   "dtype": "f64",
+   "expr": "expenses@(expense_band)",
+   "id": "model.expense_scale",
+   "kind": "Derived",
+   "module": "model",
+   "name": "expense_scale",
+   "shape": "PerMP",
+   "span": {
+    "byte_end": 1931,
+    "byte_start": 1916,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 87
+   },
+   "stage": 1,
+   "tags": [],
+   "unit": "factor"
+  },
+  {
+   "declaration_index": 8,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.valuation_rate",
+   "kind": "InputAssumption",
+   "module": "schema",
+   "name": "valuation_rate",
+   "shape": "Scalar",
+   "stage": 1,
+   "tags": [],
+   "unit": "rate(annual)"
+  },
+  {
+   "declaration_index": 9,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.mortality_loading",
+   "kind": "InputAssumption",
+   "module": "schema",
+   "name": "mortality_loading",
+   "shape": "Scalar",
+   "stage": 1,
+   "tags": [],
+   "unit": "factor"
+  },
+  {
+   "declaration_index": 10,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.lapse_loading",
+   "kind": "InputAssumption",
+   "module": "schema",
+   "name": "lapse_loading",
+   "shape": "Scalar",
+   "stage": 1,
+   "tags": [],
+   "unit": "factor"
+  },
+  {
+   "declaration_index": 11,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.premium_escalation",
+   "kind": "InputAssumption",
+   "module": "schema",
+   "name": "premium_escalation",
+   "shape": "Scalar",
+   "stage": 1,
+   "tags": [],
+   "unit": "rate(annual)"
+  },
+  {
+   "declaration_index": 12,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.expense_inflation",
+   "kind": "InputAssumption",
+   "module": "schema",
+   "name": "expense_inflation",
+   "shape": "Scalar",
+   "stage": 1,
+   "tags": [],
+   "unit": "rate(annual)"
+  },
+  {
+   "declaration_index": 13,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.renewal_expense_pa",
+   "kind": "InputAssumption",
+   "module": "schema",
+   "name": "renewal_expense_pa",
+   "shape": "Scalar",
+   "stage": 1,
+   "tags": [],
+   "unit": "money"
+  },
+  {
+   "declaration_index": 14,
+   "depth": 0,
+   "dtype": "f64",
+   "id": "schema.initial_expense_pct",
+   "kind": "InputAssumption",
+   "module": "schema",
+   "name": "initial_expense_pct",
+   "shape": "Scalar",
+   "stage": 1,
+   "tags": [],
+   "unit": "factor"
+  },
+  {
+   "declaration_index": 13,
+   "depth": 1,
+   "doc": "Acquisition expense, incurred once at issue as a percentage of the first premium.",
+   "dtype": "f64",
+   "expr": "initial_expense_pct * annual_premium",
+   "id": "model.initial_expense",
+   "kind": "Output",
+   "module": "model",
+   "name": "initial_expense",
+   "shape": "PerMP",
+   "span": {
+    "byte_end": 3185,
+    "byte_start": 3168,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 137
+   },
+   "stage": 1,
+   "tags": [],
+   "unit": "money"
+  },
+  {
+   "declaration_index": 0,
+   "depth": 0,
+   "dtype": "i64",
+   "hoistable": true,
+   "id": "<timeline>.t",
+   "kind": "InputTimeline",
+   "module": "<timeline>",
+   "name": "t",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "none"
+  },
+  {
+   "declaration_index": 1,
+   "depth": 0,
+   "dtype": "date",
+   "hoistable": true,
+   "id": "<timeline>.period_start_date",
+   "kind": "InputTimeline",
+   "module": "<timeline>",
+   "name": "period_start_date",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "none"
+  },
+  {
+   "declaration_index": 2,
+   "depth": 0,
+   "dtype": "date",
+   "hoistable": true,
+   "id": "<timeline>.period_end_date",
+   "kind": "InputTimeline",
+   "module": "<timeline>",
+   "name": "period_end_date",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "none"
+  },
+  {
+   "declaration_index": 3,
+   "depth": 0,
+   "dtype": "f64",
+   "hoistable": true,
+   "id": "<timeline>.year_frac",
+   "kind": "InputTimeline",
+   "module": "<timeline>",
+   "name": "year_frac",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "years"
+  },
+  {
+   "declaration_index": 4,
+   "depth": 0,
+   "dtype": "i64",
+   "hoistable": true,
+   "id": "<timeline>.month_of_year",
+   "kind": "InputTimeline",
+   "module": "<timeline>",
+   "name": "month_of_year",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "none"
+  },
+  {
+   "declaration_index": 5,
+   "depth": 0,
+   "dtype": "i64",
+   "hoistable": true,
+   "id": "<timeline>.policy_year",
+   "kind": "InputTimeline",
+   "module": "<timeline>",
+   "name": "policy_year",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "none"
+  },
+  {
+   "declaration_index": 6,
+   "depth": 0,
+   "dtype": "i64",
+   "hoistable": true,
+   "id": "<timeline>.policy_month",
+   "kind": "InputTimeline",
+   "module": "<timeline>",
+   "name": "policy_month",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "none"
+  },
+  {
+   "declaration_index": 7,
+   "depth": 0,
+   "dtype": "bool",
+   "hoistable": true,
+   "id": "<timeline>.is_anniversary",
+   "kind": "InputTimeline",
+   "module": "<timeline>",
+   "name": "is_anniversary",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "none"
+  },
+  {
+   "declaration_index": 4,
+   "depth": 1,
+   "doc": "Annual lapse rate, stepped on policy year, scaled by the lapse loading.",
+   "dtype": "f64",
+   "expr": "lapses@(policy_year) * lapse_loading",
+   "hoistable": true,
+   "id": "model.wx",
+   "kind": "Derived",
+   "module": "model",
+   "name": "wx",
+   "retention": "ring(2)",
+   "shape": "Series",
+   "span": {
+    "byte_end": 963,
+    "byte_start": 959,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 46
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "end",
+   "unit": "prob"
+  },
+  {
+   "declaration_index": 15,
+   "depth": 1,
+   "doc": "v^t at the flat valuation rate.",
+   "dtype": "f64",
+   "expr": "disc_factor[t-1] / (1 + valuation_rate)",
+   "hoistable": true,
+   "id": "model.disc_factor",
+   "init": "1.0",
+   "kind": "Derived",
+   "module": "model",
+   "name": "disc_factor",
+   "retention": "full",
+   "shape": "Series",
+   "span": {
+    "byte_end": 3683,
+    "byte_start": 3670,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 156
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "point",
+   "unit": "factor"
+  },
+  {
+   "declaration_index": 0,
+   "depth": 1,
+   "doc": "Attained age at the start of projection year `t`.",
+   "dtype": "i64",
+   "expr": "entry_age + t",
+   "hoistable": false,
+   "id": "model.age",
+   "kind": "Derived",
+   "module": "model",
+   "name": "age",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "span": {
+    "byte_end": 82,
+    "byte_start": 77,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 6
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "years"
+  },
+  {
+   "declaration_index": 1,
+   "depth": 1,
+   "doc": "True while the policy is inside its contractual term.",
+   "dtype": "bool",
+   "expr": "t < policy_term",
+   "hoistable": false,
+   "id": "model.in_term",
+   "kind": "Derived",
+   "module": "model",
+   "name": "in_term",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "span": {
+    "byte_end": 275,
+    "byte_start": 266,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 16
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "none"
+  },
+  {
+   "declaration_index": 2,
+   "depth": 2,
+   "doc": "1 inside the term, 0 after it. The single on/off switch every cashflow multiplies by.",
+   "dtype": "f64",
+   "expr": "if in_term then 1.0 else 0.0",
+   "hoistable": false,
+   "id": "model.in_force_factor",
+   "kind": "Derived",
+   "module": "model",
+   "name": "in_force_factor",
+   "retention": "ring(1)",
+   "shape": "Series",
+   "span": {
+    "byte_end": 482,
+    "byte_start": 465,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 26
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "factor"
+  },
+  {
+   "declaration_index": 3,
+   "depth": 2,
+   "doc": "Annual mortality rate: the table rate scaled by the valuation loading.",
+   "dtype": "f64",
+   "expr": "mortality@(age, sex, smoker) * mortality_loading",
+   "hoistable": false,
+   "id": "model.qx",
+   "kind": "Derived",
+   "module": "model",
+   "name": "qx",
+   "retention": "ring(2)",
+   "shape": "Series",
+   "span": {
+    "byte_end": 722,
+    "byte_start": 718,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 36
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "end",
+   "unit": "prob"
+  },
+  {
+   "declaration_index": 5,
+   "depth": 3,
+   "doc": "Policies in force at the start of year `t`, per policy sold.",
+   "dtype": "f64",
+   "expr": "num_pols_if[t-1] * (1 - qx[t-1]) * (1 - wx[t-1]) * (if in_term then 1.0 else 0.0)",
+   "hoistable": false,
+   "id": "model.num_pols_if",
+   "init": "1.0",
+   "kind": "Derived",
+   "module": "model",
+   "name": "num_pols_if",
+   "retention": "ring(2)",
+   "shape": "Series",
+   "span": {
+    "byte_end": 1202,
+    "byte_start": 1189,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 56
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "count"
+  },
+  {
+   "declaration_index": 6,
+   "depth": 4,
+   "doc": "Expected deaths during year `t`.",
+   "dtype": "f64",
+   "expr": "num_pols_if * qx * in_force_factor",
+   "hoistable": false,
+   "id": "model.deaths",
+   "kind": "Output",
+   "module": "model",
+   "name": "deaths",
+   "retention": "full",
+   "shape": "Series",
+   "span": {
+    "byte_end": 1486,
+    "byte_start": 1478,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 67
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "end",
+   "unit": "count"
+  },
+  {
+   "declaration_index": 7,
+   "depth": 4,
+   "doc": "Expected lapses during year `t`, on the lives that survived the year.",
+   "dtype": "f64",
+   "expr": "num_pols_if * (1 - qx) * wx * in_force_factor",
+   "hoistable": false,
+   "id": "model.surrenders",
+   "kind": "Output",
+   "module": "model",
+   "name": "surrenders",
+   "retention": "full",
+   "shape": "Series",
+   "span": {
+    "byte_end": 1683,
+    "byte_start": 1671,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 77
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "end",
+   "unit": "count"
+  },
+  {
+   "declaration_index": 9,
+   "depth": 1,
+   "doc": "Office premium payable in year `t`, escalating annually from the issue premium.",
+   "dtype": "f64",
+   "expr": "premium_rate[t-1] * (1 + premium_escalation)",
+   "hoistable": false,
+   "id": "model.premium_rate",
+   "init": "annual_premium",
+   "kind": "Derived",
+   "module": "model",
+   "name": "premium_rate",
+   "retention": "ring(2)",
+   "shape": "Series",
+   "span": {
+    "byte_end": 2153,
+    "byte_start": 2139,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 96
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "money"
+  },
+  {
+   "declaration_index": 10,
+   "depth": 4,
+   "doc": "Premium received in advance at the start of year `t`.",
+   "dtype": "f64",
+   "expr": "premium_rate * num_pols_if * in_force_factor",
+   "hoistable": false,
+   "id": "model.premium_income",
+   "kind": "Output",
+   "module": "model",
+   "name": "premium_income",
+   "retention": "full",
+   "shape": "Series",
+   "span": {
+    "byte_end": 2438,
+    "byte_start": 2422,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 107
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "money"
+  },
+  {
+   "declaration_index": 11,
+   "depth": 5,
+   "doc": "Death benefit paid at the end of year `t`.",
+   "dtype": "f64",
+   "expr": "sum_assured * deaths",
+   "hoistable": false,
+   "id": "model.death_claims",
+   "kind": "Output",
+   "module": "model",
+   "name": "death_claims",
+   "retention": "full",
+   "shape": "Series",
+   "span": {
+    "byte_end": 2670,
+    "byte_start": 2656,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 117
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "end",
+   "unit": "money"
+  },
+  {
+   "declaration_index": 12,
+   "depth": 4,
+   "doc": "Per-policy servicing expense, inflated from the valuation date and band-scaled.",
+   "dtype": "f64",
+   "expr": "renewal_expense_pa * compound(expense_inflation, t) * expense_scale * num_pols_if * in_force_factor",
+   "hoistable": false,
+   "id": "model.renewal_expenses",
+   "kind": "Output",
+   "module": "model",
+   "name": "renewal_expenses",
+   "retention": "full",
+   "shape": "Series",
+   "span": {
+    "byte_end": 2869,
+    "byte_start": 2851,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 127
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "start",
+   "unit": "money"
+  },
+  {
+   "declaration_index": 14,
+   "depth": 6,
+   "doc": "Insurer-positive net flow, restated mid-year.",
+   "dtype": "f64",
+   "expr": "retime(premium_income, mid) - retime(death_claims, mid) - retime(renewal_expenses, mid)",
+   "hoistable": false,
+   "id": "model.net_cashflow",
+   "kind": "Output",
+   "module": "model",
+   "name": "net_cashflow",
+   "retention": "full",
+   "shape": "Series",
+   "span": {
+    "byte_end": 3419,
+    "byte_start": 3405,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 146
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "mid",
+   "unit": "money"
+  },
+  {
+   "declaration_index": 21,
+   "depth": 6,
+   "doc": "Retrospective reserve roll-forward, seeded from the prospective `bel`.",
+   "dtype": "f64",
+   "expr": "(reserve[t-1] + premium_income[t-1] - death_claims[t-1] - renewal_expenses[t-1]) * (1 + valuation_rate) * (if t <= policy_term then 1.0 else 0.0)",
+   "hoistable": false,
+   "id": "model.reserve",
+   "init": "bel",
+   "kind": "Output",
+   "module": "model",
+   "name": "reserve",
+   "retention": "full",
+   "shape": "Series",
+   "span": {
+    "byte_end": 4873,
+    "byte_start": 4864,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 212
+   },
+   "stage": 1,
+   "tags": [],
+   "timing": "point",
+   "unit": "money"
+  },
+  {
+   "declaration_index": 16,
+   "depth": 5,
+   "doc": "PV of future office premiums.",
+   "dtype": "f64",
+   "expr": "npv(premium_income, disc_factor)",
+   "id": "model.pv_premiums",
+   "kind": "Output",
+   "module": "model",
+   "name": "pv_premiums",
+   "shape": "PerMP",
+   "span": {
+    "byte_end": 3902,
+    "byte_start": 3889,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 167
+   },
+   "stage": 2,
+   "tags": [],
+   "unit": "money"
+  },
+  {
+   "declaration_index": 17,
+   "depth": 6,
+   "doc": "PV of future death claims.",
+   "dtype": "f64",
+   "expr": "npv(death_claims, disc_factor)",
+   "id": "model.pv_claims",
+   "kind": "Output",
+   "module": "model",
+   "name": "pv_claims",
+   "shape": "PerMP",
+   "span": {
+    "byte_end": 4077,
+    "byte_start": 4066,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 176
+   },
+   "stage": 2,
+   "tags": [],
+   "unit": "money"
+  },
+  {
+   "declaration_index": 18,
+   "depth": 5,
+   "doc": "PV of future renewal expenses.",
+   "dtype": "f64",
+   "expr": "npv(renewal_expenses, disc_factor)",
+   "id": "model.pv_expenses",
+   "kind": "Output",
+   "module": "model",
+   "name": "pv_expenses",
+   "shape": "PerMP",
+   "span": {
+    "byte_end": 4249,
+    "byte_start": 4236,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 185
+   },
+   "stage": 2,
+   "tags": [],
+   "unit": "money"
+  },
+  {
+   "declaration_index": 19,
+   "depth": 7,
+   "doc": "Best estimate liability at `t = 0` \u2014 the prospective gross premium reserve.",
+   "dtype": "f64",
+   "expr": "pv_claims + pv_expenses + initial_expense - pv_premiums",
+   "id": "model.bel",
+   "kind": "Output",
+   "module": "model",
+   "name": "bel",
+   "shape": "PerMP",
+   "span": {
+    "byte_end": 4421,
+    "byte_start": 4416,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 194
+   },
+   "stage": 1,
+   "tags": [],
+   "unit": "money"
+  },
+  {
+   "declaration_index": 20,
+   "depth": 8,
+   "doc": "New-business margin: minus the BEL as a proportion of the PV of premiums.",
+   "dtype": "f64",
+   "expr": "-bel / pv_premiums",
+   "id": "model.profit_margin",
+   "kind": "Output",
+   "module": "model",
+   "name": "profit_margin",
+   "shape": "PerMP",
+   "span": {
+    "byte_end": 4671,
+    "byte_start": 4656,
+    "col": 8,
+    "file": "models/term_annual/build/model.pir",
+    "line": 203
+   },
+   "stage": 1,
+   "tags": [],
+   "unit": "none"
+  }
+ ],
+ "order_digest": "a6bd21385c96584a8c55c9060bb9c86882559eb4d89af4681a90bb067298ecdf",
+ "plan_digest": "34d342c75630e188b4a1939a0e775af3f29ba1a75be49b59af59e8111e93cdc9"
+}

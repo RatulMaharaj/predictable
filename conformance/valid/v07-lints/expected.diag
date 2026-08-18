@@ -1,0 +1,8 @@
+# Lints only; no errors. Spans: a component-level lint points at the component's
+# `name` value, an expression-level lint at the offending node (col 9 is the
+# first character inside the `expr = "` string).
+warning W0101 model.pir:30:9 `never_used` is never read
+warning W0102 model.pir:44:9 money arithmetic with unit = "none"
+warning W0103 model.pir:72:9 adding a `start` flow to an `end` flow
+warning W0104 model.pir:82:9 constant across modelpoints and time
+warning W0105 model.pir:91:9 `retime` on a value that has no timing

@@ -1,0 +1,44 @@
+[package]
+name = "predictable-py"
+description = "PyO3 bindings exposing the predictable projection engine to Python (03-engine.md §8)."
+version.workspace = true
+edition.workspace = true
+# Inherited from predictable-io's arrow/parquet 55 floor.
+rust-version = "1.82"
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+# Python import name: `import predictable_engine`
+name = "predictable_engine"
+# cdylib only: the lib name deliberately matches the `predictable-engine` crate's
+# lib name (`predictable_engine`) so the Python import reads well, and emitting an
+# rlib as well makes rustdoc see two `libpredictable_engine.rlib` candidates
+# (E0464). Nothing in the workspace links this crate as a Rust library.
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[dependencies]
+predictable-check = { workspace = true }
+predictable-diagnostics = { workspace = true }
+predictable-engine = { workspace = true }
+predictable-fmt = { workspace = true }
+predictable-io = { workspace = true }
+predictable-ir = { workspace = true }
+predictable-plan = { workspace = true }
+predictable-runner = { workspace = true }
+predictable-syntax = { workspace = true }
+predictable-tables = { workspace = true }
+predictable-tape = { workspace = true }
+serde_json = { workspace = true }
+arrow-array = "55"
+arrow-schema = "55"
+arrow = { version = "55", default-features = false, features = ["ffi"] }
+pyo3 = { version = "0.22", features = ["abi3-py39"] }
+
+[features]
+# Enabled by maturin when building the wheel. Left off by default so plain
+# `cargo test` can link against libpython instead of relying on the host
+# interpreter symbols being resolved at load time.
+extension-module = ["pyo3/extension-module"]

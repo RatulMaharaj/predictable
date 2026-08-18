@@ -1,0 +1,15 @@
+{
+  "code": "E0902",
+  "severity": "error",
+  "kind": "trap",
+  "trap": "lookup_miss",
+  "component": "lookup_miss.qx",
+  "expr_path": "expr",
+  "span": {"file": "model.pir", "line": 58, "col_start": 9},
+  "mp_key": "POL00042",
+  "mp_row": 0,
+  "t": 3,
+  "outcome": "aborted",
+  "exit_code": 2,
+  "results_written": false
+}

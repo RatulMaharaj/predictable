@@ -1,0 +1,4 @@
+# index := "[" ("t" ("-" INT)? | INT) "]" — there is no t+k form and no T. A
+# projection is a single forward pass; use an Agg over the completed series.
+error E0030 model.pir:39:14 forward references are not expressible
+error E0030 model.pir:48:14 forward references are not expressible

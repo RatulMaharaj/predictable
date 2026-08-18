@@ -1,0 +1,8 @@
+name    = "v05-canonical-fmt"
+kind    = "valid"
+title   = "predictable fmt: key order, operator spacing, redundant parentheses, float shortest form"
+spec    = ["01-ir.md §4.1"]
+entry   = ["model.pir"]
+runtime = false
+fmt     = true
+notes   = "The only case in the corpus whose input is deliberately not canonical. `fmt(model.pir)` must equal `model.pir.expected` byte for byte, and `fmt` must be idempotent on both."
