@@ -14,7 +14,7 @@ predictable_project/
 
 # Distribution / packaging
 .Python
-build/
+/build/
 develop-eggs/
 dist/
 downloads/

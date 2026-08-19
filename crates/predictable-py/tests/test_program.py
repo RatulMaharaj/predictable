@@ -1,6 +1,7 @@
 """`Program`, `check()` and the error hierarchy (`03-engine.md` §8, §8.2)."""
 
 import pytest
+from pathlib import PurePath
 
 from predictable_engine import (
     CheckError,
@@ -71,7 +72,7 @@ def test_from_pir_reads_files_and_classifies_them(project):
 
 def test_from_pir_reads_a_directory_in_sorted_order(project):
     program = Program.from_pir(str(project))
-    assert [p.split("/")[-1] for p in program.files] == ["run.pir", "term.pir"]
+    assert [PurePath(p).name for p in program.files] == ["run.pir", "term.pir"]
 
 
 def test_model_digest_is_content_addressed_not_order_addressed():

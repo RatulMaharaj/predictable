@@ -33,7 +33,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          python -m pip install --upgrade pip maturin pytest
+          python -m pip install --upgrade pip maturin pytest pyarrow
           pip install -e .
           pip install -e packages/predictable
 

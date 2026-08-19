@@ -1,0 +1,1316 @@
+{
+  "version": 1,
+  "produced_by": "predictable build",
+  "components": [
+    {
+      "name": "age",
+      "pir_file": "model.pir",
+      "pir_line": 5,
+      "pir_end_line": 14,
+      "origin_span": {
+        "file": "model.py",
+        "line": 100,
+        "col_start": 4,
+        "col_end": 7
+      },
+      "refs": {
+        "START": {
+          "file": "model.py",
+          "line": 99,
+          "col_start": 15,
+          "col_end": 20
+        },
+        "Years": {
+          "file": "model.py",
+          "line": 100,
+          "col_start": 29,
+          "col_end": 34
+        },
+        "entry_age": {
+          "file": "model.py",
+          "line": 102,
+          "col_start": 11,
+          "col_end": 20
+        },
+        "series": {
+          "file": "model.py",
+          "line": 99,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "t": {
+          "file": "model.py",
+          "line": 102,
+          "col_start": 23,
+          "col_end": 24
+        }
+      }
+    },
+    {
+      "name": "in_term",
+      "pir_file": "model.pir",
+      "pir_line": 15,
+      "pir_end_line": 24,
+      "origin_span": {
+        "file": "model.py",
+        "line": 106,
+        "col_start": 4,
+        "col_end": 11
+      },
+      "refs": {
+        "Flag": {
+          "file": "model.py",
+          "line": 106,
+          "col_start": 35,
+          "col_end": 39
+        },
+        "START": {
+          "file": "model.py",
+          "line": 105,
+          "col_start": 15,
+          "col_end": 20
+        },
+        "Years": {
+          "file": "model.py",
+          "line": 106,
+          "col_start": 25,
+          "col_end": 30
+        },
+        "policy_term": {
+          "file": "model.py",
+          "line": 108,
+          "col_start": 15,
+          "col_end": 26
+        },
+        "series": {
+          "file": "model.py",
+          "line": 105,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "t": {
+          "file": "model.py",
+          "line": 108,
+          "col_start": 11,
+          "col_end": 12
+        }
+      }
+    },
+    {
+      "name": "in_force_factor",
+      "pir_file": "model.pir",
+      "pir_line": 25,
+      "pir_end_line": 34,
+      "origin_span": {
+        "file": "model.py",
+        "line": 112,
+        "col_start": 4,
+        "col_end": 19
+      },
+      "refs": {
+        "Factor": {
+          "file": "model.py",
+          "line": 112,
+          "col_start": 38,
+          "col_end": 44
+        },
+        "Flag": {
+          "file": "model.py",
+          "line": 112,
+          "col_start": 29,
+          "col_end": 33
+        },
+        "START": {
+          "file": "model.py",
+          "line": 111,
+          "col_start": 15,
+          "col_end": 20
+        },
+        "in_term": {
+          "file": "model.py",
+          "line": 114,
+          "col_start": 16,
+          "col_end": 23
+        },
+        "series": {
+          "file": "model.py",
+          "line": 111,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "when": {
+          "file": "model.py",
+          "line": 114,
+          "col_start": 11,
+          "col_end": 15
+        }
+      }
+    },
+    {
+      "name": "qx",
+      "pir_file": "model.pir",
+      "pir_line": 35,
+      "pir_end_line": 44,
+      "origin_span": {
+        "file": "model.py",
+        "line": 118,
+        "col_start": 4,
+        "col_end": 6
+      },
+      "refs": {
+        "END": {
+          "file": "model.py",
+          "line": 117,
+          "col_start": 15,
+          "col_end": 18
+        },
+        "Factor": {
+          "file": "model.py",
+          "line": 118,
+          "col_start": 62,
+          "col_end": 68
+        },
+        "Prob": {
+          "file": "model.py",
+          "line": 118,
+          "col_start": 94,
+          "col_end": 98
+        },
+        "Years": {
+          "file": "model.py",
+          "line": 118,
+          "col_start": 36,
+          "col_end": 41
+        },
+        "age": {
+          "file": "model.py",
+          "line": 120,
+          "col_start": 21,
+          "col_end": 24
+        },
+        "bool": {
+          "file": "model.py",
+          "line": 118,
+          "col_start": 25,
+          "col_end": 29
+        },
+        "mortality": {
+          "file": "model.py",
+          "line": 118,
+          "col_start": 80,
+          "col_end": 89
+        },
+        "mortality_loading": {
+          "file": "model.py",
+          "line": 120,
+          "col_start": 41,
+          "col_end": 58
+        },
+        "series": {
+          "file": "model.py",
+          "line": 117,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "sex": {
+          "file": "model.py",
+          "line": 120,
+          "col_start": 26,
+          "col_end": 29
+        },
+        "smoker": {
+          "file": "model.py",
+          "line": 120,
+          "col_start": 31,
+          "col_end": 37
+        },
+        "str": {
+          "file": "model.py",
+          "line": 118,
+          "col_start": 12,
+          "col_end": 15
+        }
+      }
+    },
+    {
+      "name": "wx",
+      "pir_file": "model.pir",
+      "pir_line": 45,
+      "pir_end_line": 54,
+      "origin_span": {
+        "file": "model.py",
+        "line": 124,
+        "col_start": 4,
+        "col_end": 6
+      },
+      "refs": {
+        "END": {
+          "file": "model.py",
+          "line": 123,
+          "col_start": 15,
+          "col_end": 18
+        },
+        "Factor": {
+          "file": "model.py",
+          "line": 124,
+          "col_start": 42,
+          "col_end": 48
+        },
+        "Prob": {
+          "file": "model.py",
+          "line": 124,
+          "col_start": 68,
+          "col_end": 72
+        },
+        "Years": {
+          "file": "model.py",
+          "line": 124,
+          "col_start": 20,
+          "col_end": 25
+        },
+        "lapse_loading": {
+          "file": "model.py",
+          "line": 126,
+          "col_start": 33,
+          "col_end": 46
+        },
+        "lapses": {
+          "file": "model.py",
+          "line": 124,
+          "col_start": 57,
+          "col_end": 63
+        },
+        "policy_year": {
+          "file": "model.py",
+          "line": 126,
+          "col_start": 18,
+          "col_end": 29
+        },
+        "series": {
+          "file": "model.py",
+          "line": 123,
+          "col_start": 1,
+          "col_end": 7
+        }
+      }
+    },
+    {
+      "name": "num_pols_if",
+      "pir_file": "model.pir",
+      "pir_line": 55,
+      "pir_end_line": 65,
+      "origin_span": {
+        "file": "model.py",
+        "line": 130,
+        "col_start": 4,
+        "col_end": 15
+      },
+      "refs": {
+        "Count": {
+          "file": "model.py",
+          "line": 130,
+          "col_start": 74,
+          "col_end": 79
+        },
+        "Flag": {
+          "file": "model.py",
+          "line": 130,
+          "col_start": 65,
+          "col_end": 69
+        },
+        "Prob": {
+          "file": "model.py",
+          "line": 130,
+          "col_start": 40,
+          "col_end": 44
+        },
+        "START": {
+          "file": "model.py",
+          "line": 129,
+          "col_start": 15,
+          "col_end": 20
+        },
+        "in_term": {
+          "file": "model.py",
+          "line": 137,
+          "col_start": 73,
+          "col_end": 80
+        },
+        "num_pols_if": {
+          "file": "model.py",
+          "line": 137,
+          "col_start": 11,
+          "col_end": 22
+        },
+        "qx": {
+          "file": "model.py",
+          "line": 137,
+          "col_start": 37,
+          "col_end": 39
+        },
+        "series": {
+          "file": "model.py",
+          "line": 129,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "t": {
+          "file": "model.py",
+          "line": 137,
+          "col_start": 23,
+          "col_end": 24
+        },
+        "when": {
+          "file": "model.py",
+          "line": 137,
+          "col_start": 68,
+          "col_end": 72
+        },
+        "wx": {
+          "file": "model.py",
+          "line": 137,
+          "col_start": 55,
+          "col_end": 57
+        }
+      }
+    },
+    {
+      "name": "deaths",
+      "pir_file": "model.pir",
+      "pir_line": 66,
+      "pir_end_line": 75,
+      "origin_span": {
+        "file": "model.py",
+        "line": 141,
+        "col_start": 4,
+        "col_end": 10
+      },
+      "refs": {
+        "Count": {
+          "file": "model.py",
+          "line": 141,
+          "col_start": 69,
+          "col_end": 74
+        },
+        "END": {
+          "file": "model.py",
+          "line": 140,
+          "col_start": 15,
+          "col_end": 18
+        },
+        "Factor": {
+          "file": "model.py",
+          "line": 141,
+          "col_start": 58,
+          "col_end": 64
+        },
+        "Prob": {
+          "file": "model.py",
+          "line": 141,
+          "col_start": 35,
+          "col_end": 39
+        },
+        "in_force_factor": {
+          "file": "model.py",
+          "line": 143,
+          "col_start": 30,
+          "col_end": 45
+        },
+        "num_pols_if": {
+          "file": "model.py",
+          "line": 143,
+          "col_start": 11,
+          "col_end": 22
+        },
+        "qx": {
+          "file": "model.py",
+          "line": 143,
+          "col_start": 25,
+          "col_end": 27
+        },
+        "series": {
+          "file": "model.py",
+          "line": 140,
+          "col_start": 1,
+          "col_end": 7
+        }
+      }
+    },
+    {
+      "name": "surrenders",
+      "pir_file": "model.pir",
+      "pir_line": 76,
+      "pir_end_line": 85,
+      "origin_span": {
+        "file": "model.py",
+        "line": 147,
+        "col_start": 4,
+        "col_end": 14
+      },
+      "refs": {
+        "Count": {
+          "file": "model.py",
+          "line": 147,
+          "col_start": 83,
+          "col_end": 88
+        },
+        "END": {
+          "file": "model.py",
+          "line": 146,
+          "col_start": 15,
+          "col_end": 18
+        },
+        "Factor": {
+          "file": "model.py",
+          "line": 147,
+          "col_start": 72,
+          "col_end": 78
+        },
+        "Prob": {
+          "file": "model.py",
+          "line": 147,
+          "col_start": 39,
+          "col_end": 43
+        },
+        "in_force_factor": {
+          "file": "model.py",
+          "line": 149,
+          "col_start": 41,
+          "col_end": 56
+        },
+        "num_pols_if": {
+          "file": "model.py",
+          "line": 149,
+          "col_start": 11,
+          "col_end": 22
+        },
+        "qx": {
+          "file": "model.py",
+          "line": 149,
+          "col_start": 30,
+          "col_end": 32
+        },
+        "series": {
+          "file": "model.py",
+          "line": 146,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "wx": {
+          "file": "model.py",
+          "line": 149,
+          "col_start": 36,
+          "col_end": 38
+        }
+      }
+    },
+    {
+      "name": "expense_scale",
+      "pir_file": "model.pir",
+      "pir_line": 86,
+      "pir_end_line": 94,
+      "origin_span": {
+        "file": "model.py",
+        "line": 158,
+        "col_start": 4,
+        "col_end": 17
+      },
+      "refs": {
+        "Factor": {
+          "file": "model.py",
+          "line": 158,
+          "col_start": 59,
+          "col_end": 65
+        },
+        "expense_band": {
+          "file": "model.py",
+          "line": 160,
+          "col_start": 20,
+          "col_end": 32
+        },
+        "expenses": {
+          "file": "model.py",
+          "line": 158,
+          "col_start": 46,
+          "col_end": 54
+        },
+        "int": {
+          "file": "model.py",
+          "line": 158,
+          "col_start": 32,
+          "col_end": 35
+        },
+        "per_mp": {
+          "file": "model.py",
+          "line": 157,
+          "col_start": 1,
+          "col_end": 7
+        }
+      }
+    },
+    {
+      "name": "premium_rate",
+      "pir_file": "model.pir",
+      "pir_line": 95,
+      "pir_end_line": 105,
+      "origin_span": {
+        "file": "model.py",
+        "line": 164,
+        "col_start": 4,
+        "col_end": 16
+      },
+      "refs": {
+        "Money": {
+          "file": "model.py",
+          "line": 164,
+          "col_start": 74,
+          "col_end": 79
+        },
+        "Rate": {
+          "file": "model.py",
+          "line": 164,
+          "col_start": 58,
+          "col_end": 62
+        },
+        "START": {
+          "file": "model.py",
+          "line": 163,
+          "col_start": 15,
+          "col_end": 20
+        },
+        "annual_premium": {
+          "file": "model.py",
+          "line": 163,
+          "col_start": 50,
+          "col_end": 64
+        },
+        "premium_escalation": {
+          "file": "model.py",
+          "line": 166,
+          "col_start": 38,
+          "col_end": 56
+        },
+        "premium_rate": {
+          "file": "model.py",
+          "line": 166,
+          "col_start": 11,
+          "col_end": 23
+        },
+        "series": {
+          "file": "model.py",
+          "line": 163,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "t": {
+          "file": "model.py",
+          "line": 166,
+          "col_start": 24,
+          "col_end": 25
+        }
+      }
+    },
+    {
+      "name": "premium_income",
+      "pir_file": "model.pir",
+      "pir_line": 106,
+      "pir_end_line": 115,
+      "origin_span": {
+        "file": "model.py",
+        "line": 170,
+        "col_start": 4,
+        "col_end": 18
+      },
+      "refs": {
+        "Count": {
+          "file": "model.py",
+          "line": 170,
+          "col_start": 53,
+          "col_end": 58
+        },
+        "Factor": {
+          "file": "model.py",
+          "line": 170,
+          "col_start": 77,
+          "col_end": 83
+        },
+        "Money": {
+          "file": "model.py",
+          "line": 170,
+          "col_start": 88,
+          "col_end": 93
+        },
+        "START": {
+          "file": "model.py",
+          "line": 169,
+          "col_start": 15,
+          "col_end": 20
+        },
+        "in_force_factor": {
+          "file": "model.py",
+          "line": 172,
+          "col_start": 40,
+          "col_end": 55
+        },
+        "num_pols_if": {
+          "file": "model.py",
+          "line": 172,
+          "col_start": 26,
+          "col_end": 37
+        },
+        "premium_rate": {
+          "file": "model.py",
+          "line": 172,
+          "col_start": 11,
+          "col_end": 23
+        },
+        "series": {
+          "file": "model.py",
+          "line": 169,
+          "col_start": 1,
+          "col_end": 7
+        }
+      }
+    },
+    {
+      "name": "death_claims",
+      "pir_file": "model.pir",
+      "pir_line": 116,
+      "pir_end_line": 125,
+      "origin_span": {
+        "file": "model.py",
+        "line": 176,
+        "col_start": 4,
+        "col_end": 16
+      },
+      "refs": {
+        "Count": {
+          "file": "model.py",
+          "line": 176,
+          "col_start": 45,
+          "col_end": 50
+        },
+        "END": {
+          "file": "model.py",
+          "line": 175,
+          "col_start": 15,
+          "col_end": 18
+        },
+        "Money": {
+          "file": "model.py",
+          "line": 176,
+          "col_start": 55,
+          "col_end": 60
+        },
+        "deaths": {
+          "file": "model.py",
+          "line": 178,
+          "col_start": 25,
+          "col_end": 31
+        },
+        "series": {
+          "file": "model.py",
+          "line": 175,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "sum_assured": {
+          "file": "model.py",
+          "line": 178,
+          "col_start": 11,
+          "col_end": 22
+        }
+      }
+    },
+    {
+      "name": "renewal_expenses",
+      "pir_file": "model.pir",
+      "pir_line": 126,
+      "pir_end_line": 135,
+      "origin_span": {
+        "file": "model.py",
+        "line": 182,
+        "col_start": 4,
+        "col_end": 20
+      },
+      "refs": {
+        "Count": {
+          "file": "model.py",
+          "line": 186,
+          "col_start": 17,
+          "col_end": 22
+        },
+        "Factor": {
+          "file": "model.py",
+          "line": 185,
+          "col_start": 19,
+          "col_end": 25
+        },
+        "Money": {
+          "file": "model.py",
+          "line": 188,
+          "col_start": 5,
+          "col_end": 10
+        },
+        "Rate": {
+          "file": "model.py",
+          "line": 184,
+          "col_start": 23,
+          "col_end": 27
+        },
+        "START": {
+          "file": "model.py",
+          "line": 181,
+          "col_start": 15,
+          "col_end": 20
+        },
+        "compound": {
+          "file": "model.py",
+          "line": 192,
+          "col_start": 10,
+          "col_end": 18
+        },
+        "expense_inflation": {
+          "file": "model.py",
+          "line": 192,
+          "col_start": 19,
+          "col_end": 36
+        },
+        "expense_scale": {
+          "file": "model.py",
+          "line": 193,
+          "col_start": 10,
+          "col_end": 23
+        },
+        "in_force_factor": {
+          "file": "model.py",
+          "line": 195,
+          "col_start": 10,
+          "col_end": 25
+        },
+        "num_pols_if": {
+          "file": "model.py",
+          "line": 194,
+          "col_start": 10,
+          "col_end": 21
+        },
+        "renewal_expense_pa": {
+          "file": "model.py",
+          "line": 191,
+          "col_start": 8,
+          "col_end": 26
+        },
+        "series": {
+          "file": "model.py",
+          "line": 181,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "t": {
+          "file": "model.py",
+          "line": 192,
+          "col_start": 38,
+          "col_end": 39
+        }
+      }
+    },
+    {
+      "name": "initial_expense",
+      "pir_file": "model.pir",
+      "pir_line": 136,
+      "pir_end_line": 144,
+      "origin_span": {
+        "file": "model.py",
+        "line": 200,
+        "col_start": 4,
+        "col_end": 19
+      },
+      "refs": {
+        "Factor": {
+          "file": "model.py",
+          "line": 200,
+          "col_start": 41,
+          "col_end": 47
+        },
+        "Money": {
+          "file": "model.py",
+          "line": 200,
+          "col_start": 75,
+          "col_end": 80
+        },
+        "annual_premium": {
+          "file": "model.py",
+          "line": 202,
+          "col_start": 33,
+          "col_end": 47
+        },
+        "initial_expense_pct": {
+          "file": "model.py",
+          "line": 202,
+          "col_start": 11,
+          "col_end": 30
+        },
+        "per_mp": {
+          "file": "model.py",
+          "line": 199,
+          "col_start": 1,
+          "col_end": 7
+        }
+      }
+    },
+    {
+      "name": "net_cashflow",
+      "pir_file": "model.pir",
+      "pir_line": 145,
+      "pir_end_line": 154,
+      "origin_span": {
+        "file": "model.py",
+        "line": 206,
+        "col_start": 4,
+        "col_end": 16
+      },
+      "refs": {
+        "MID": {
+          "file": "model.py",
+          "line": 205,
+          "col_start": 15,
+          "col_end": 18
+        },
+        "Money": {
+          "file": "model.py",
+          "line": 206,
+          "col_start": 89,
+          "col_end": 94
+        },
+        "death_claims": {
+          "file": "model.py",
+          "line": 212,
+          "col_start": 48,
+          "col_end": 60
+        },
+        "premium_income": {
+          "file": "model.py",
+          "line": 212,
+          "col_start": 18,
+          "col_end": 32
+        },
+        "renewal_expenses": {
+          "file": "model.py",
+          "line": 212,
+          "col_start": 76,
+          "col_end": 92
+        },
+        "retime": {
+          "file": "model.py",
+          "line": 212,
+          "col_start": 69,
+          "col_end": 75
+        },
+        "series": {
+          "file": "model.py",
+          "line": 205,
+          "col_start": 1,
+          "col_end": 7
+        }
+      }
+    },
+    {
+      "name": "disc_factor",
+      "pir_file": "model.pir",
+      "pir_line": 155,
+      "pir_end_line": 165,
+      "origin_span": {
+        "file": "model.py",
+        "line": 221,
+        "col_start": 4,
+        "col_end": 15
+      },
+      "refs": {
+        "Factor": {
+          "file": "model.py",
+          "line": 221,
+          "col_start": 69,
+          "col_end": 75
+        },
+        "POINT": {
+          "file": "model.py",
+          "line": 220,
+          "col_start": 15,
+          "col_end": 20
+        },
+        "Rate": {
+          "file": "model.py",
+          "line": 221,
+          "col_start": 53,
+          "col_end": 57
+        },
+        "disc_factor": {
+          "file": "model.py",
+          "line": 227,
+          "col_start": 11,
+          "col_end": 22
+        },
+        "series": {
+          "file": "model.py",
+          "line": 220,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "t": {
+          "file": "model.py",
+          "line": 227,
+          "col_start": 23,
+          "col_end": 24
+        },
+        "valuation_rate": {
+          "file": "model.py",
+          "line": 227,
+          "col_start": 37,
+          "col_end": 51
+        }
+      }
+    },
+    {
+      "name": "pv_premiums",
+      "pir_file": "model.pir",
+      "pir_line": 166,
+      "pir_end_line": 174,
+      "origin_span": {
+        "file": "model.py",
+        "line": 231,
+        "col_start": 4,
+        "col_end": 15
+      },
+      "refs": {
+        "Factor": {
+          "file": "model.py",
+          "line": 231,
+          "col_start": 52,
+          "col_end": 58
+        },
+        "Money": {
+          "file": "model.py",
+          "line": 231,
+          "col_start": 63,
+          "col_end": 68
+        },
+        "disc_factor": {
+          "file": "model.py",
+          "line": 233,
+          "col_start": 31,
+          "col_end": 42
+        },
+        "npv": {
+          "file": "model.py",
+          "line": 233,
+          "col_start": 11,
+          "col_end": 14
+        },
+        "per_mp": {
+          "file": "model.py",
+          "line": 230,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "premium_income": {
+          "file": "model.py",
+          "line": 233,
+          "col_start": 15,
+          "col_end": 29
+        }
+      }
+    },
+    {
+      "name": "pv_claims",
+      "pir_file": "model.pir",
+      "pir_line": 175,
+      "pir_end_line": 183,
+      "origin_span": {
+        "file": "model.py",
+        "line": 237,
+        "col_start": 4,
+        "col_end": 13
+      },
+      "refs": {
+        "Factor": {
+          "file": "model.py",
+          "line": 237,
+          "col_start": 48,
+          "col_end": 54
+        },
+        "Money": {
+          "file": "model.py",
+          "line": 237,
+          "col_start": 59,
+          "col_end": 64
+        },
+        "death_claims": {
+          "file": "model.py",
+          "line": 239,
+          "col_start": 15,
+          "col_end": 27
+        },
+        "disc_factor": {
+          "file": "model.py",
+          "line": 239,
+          "col_start": 29,
+          "col_end": 40
+        },
+        "npv": {
+          "file": "model.py",
+          "line": 239,
+          "col_start": 11,
+          "col_end": 14
+        },
+        "per_mp": {
+          "file": "model.py",
+          "line": 236,
+          "col_start": 1,
+          "col_end": 7
+        }
+      }
+    },
+    {
+      "name": "pv_expenses",
+      "pir_file": "model.pir",
+      "pir_line": 184,
+      "pir_end_line": 192,
+      "origin_span": {
+        "file": "model.py",
+        "line": 243,
+        "col_start": 4,
+        "col_end": 15
+      },
+      "refs": {
+        "Factor": {
+          "file": "model.py",
+          "line": 243,
+          "col_start": 54,
+          "col_end": 60
+        },
+        "Money": {
+          "file": "model.py",
+          "line": 243,
+          "col_start": 65,
+          "col_end": 70
+        },
+        "disc_factor": {
+          "file": "model.py",
+          "line": 245,
+          "col_start": 33,
+          "col_end": 44
+        },
+        "npv": {
+          "file": "model.py",
+          "line": 245,
+          "col_start": 11,
+          "col_end": 14
+        },
+        "per_mp": {
+          "file": "model.py",
+          "line": 242,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "renewal_expenses": {
+          "file": "model.py",
+          "line": 245,
+          "col_start": 15,
+          "col_end": 31
+        }
+      }
+    },
+    {
+      "name": "bel",
+      "pir_file": "model.pir",
+      "pir_line": 193,
+      "pir_end_line": 201,
+      "origin_span": {
+        "file": "model.py",
+        "line": 249,
+        "col_start": 4,
+        "col_end": 7
+      },
+      "refs": {
+        "Money": {
+          "file": "model.py",
+          "line": 251,
+          "col_start": 5,
+          "col_end": 10
+        },
+        "initial_expense": {
+          "file": "model.py",
+          "line": 253,
+          "col_start": 37,
+          "col_end": 52
+        },
+        "per_mp": {
+          "file": "model.py",
+          "line": 248,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "pv_claims": {
+          "file": "model.py",
+          "line": 253,
+          "col_start": 11,
+          "col_end": 20
+        },
+        "pv_expenses": {
+          "file": "model.py",
+          "line": 253,
+          "col_start": 23,
+          "col_end": 34
+        },
+        "pv_premiums": {
+          "file": "model.py",
+          "line": 253,
+          "col_start": 55,
+          "col_end": 66
+        }
+      }
+    },
+    {
+      "name": "profit_margin",
+      "pir_file": "model.pir",
+      "pir_line": 202,
+      "pir_end_line": 210,
+      "origin_span": {
+        "file": "model.py",
+        "line": 257,
+        "col_start": 4,
+        "col_end": 17
+      },
+      "refs": {
+        "Money": {
+          "file": "model.py",
+          "line": 257,
+          "col_start": 23,
+          "col_end": 28
+        },
+        "Num": {
+          "file": "model.py",
+          "line": 257,
+          "col_start": 53,
+          "col_end": 56
+        },
+        "bel": {
+          "file": "model.py",
+          "line": 259,
+          "col_start": 12,
+          "col_end": 15
+        },
+        "per_mp": {
+          "file": "model.py",
+          "line": 256,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "pv_premiums": {
+          "file": "model.py",
+          "line": 259,
+          "col_start": 18,
+          "col_end": 29
+        }
+      }
+    },
+    {
+      "name": "reserve",
+      "pir_file": "model.pir",
+      "pir_line": 211,
+      "pir_end_line": 221,
+      "origin_span": {
+        "file": "model.py",
+        "line": 263,
+        "col_start": 4,
+        "col_end": 11
+      },
+      "refs": {
+        "Money": {
+          "file": "model.py",
+          "line": 270,
+          "col_start": 5,
+          "col_end": 10
+        },
+        "POINT": {
+          "file": "model.py",
+          "line": 262,
+          "col_start": 15,
+          "col_end": 20
+        },
+        "Rate": {
+          "file": "model.py",
+          "line": 268,
+          "col_start": 20,
+          "col_end": 24
+        },
+        "Years": {
+          "file": "model.py",
+          "line": 269,
+          "col_start": 17,
+          "col_end": 22
+        },
+        "bel": {
+          "file": "model.py",
+          "line": 262,
+          "col_start": 27,
+          "col_end": 30
+        },
+        "death_claims": {
+          "file": "model.py",
+          "line": 278,
+          "col_start": 50,
+          "col_end": 62
+        },
+        "policy_term": {
+          "file": "model.py",
+          "line": 280,
+          "col_start": 20,
+          "col_end": 31
+        },
+        "premium_income": {
+          "file": "model.py",
+          "line": 278,
+          "col_start": 26,
+          "col_end": 40
+        },
+        "renewal_expenses": {
+          "file": "model.py",
+          "line": 278,
+          "col_start": 72,
+          "col_end": 88
+        },
+        "reserve": {
+          "file": "model.py",
+          "line": 278,
+          "col_start": 9,
+          "col_end": 16
+        },
+        "series": {
+          "file": "model.py",
+          "line": 262,
+          "col_start": 1,
+          "col_end": 7
+        },
+        "t": {
+          "file": "model.py",
+          "line": 280,
+          "col_start": 15,
+          "col_end": 16
+        },
+        "valuation_rate": {
+          "file": "model.py",
+          "line": 279,
+          "col_start": 15,
+          "col_end": 29
+        },
+        "when": {
+          "file": "model.py",
+          "line": 280,
+          "col_start": 10,
+          "col_end": 14
+        }
+      }
+    }
+  ]
+}
