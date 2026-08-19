@@ -62,7 +62,7 @@ POL00001 term_assurance.net_cashflow 39 0x0000000000000000 0.0
 POL00001 term_assurance.net_cashflow 40 0x0000000000000000 0.0
 POL00001 term_assurance.pv_premiums . 0x40b01c4d43319422 4124.301806543985
 POL00001 term_assurance.pv_claims . 0x409547f5f9b97179 1361.990210435439
-POL00001 term_assurance.pv_expenses . 0x407f2cd21e860f06 498.801298640887
+POL00001 term_assurance.pv_expenses . 0x407f2cd21e860f04 498.8012986408869
 POL00001 term_assurance.bel . 0xc0a1af0545b5ada7 -2263.510297467659
 POL00001 term_assurance.reserve 0 0xc0a1af0545b5ada7 -2263.510297467659
 POL00001 term_assurance.reserve 1 0xc0a12baa93ab65a6 -2197.8331578790267

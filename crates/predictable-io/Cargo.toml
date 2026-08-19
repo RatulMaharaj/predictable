@@ -23,10 +23,18 @@ csv = "1"
 serde_json = { workspace = true }
 sha2 = "0.10"
 predictable-fmt = { workspace = true }
+parquet = { version = "55", default-features = false, features = ["arrow", "snap", "base64"] }
+
+# `zstd` pulls in zstd-sys, a C build that does not compile for wasm32-wasip1
+# (no wasi sysroot on the CI runners). Nothing in this crate *writes* zstd —
+# the writer offers Uncompressed/Snappy only — so the codec is read-side
+# convenience and native-only. Cargo unions features per target, so native
+# builds get zstd and wasm builds never see the C dependency.
+[target.'cfg(not(target_family = "wasm"))'.dependencies]
 parquet = { version = "55", default-features = false, features = ["arrow", "snap", "zstd", "base64"] }
 
 [dev-dependencies]
 arrow-array = "55"
 arrow-schema = "55"
-parquet = { version = "55", default-features = false, features = ["arrow", "snap", "zstd", "base64"] }
+parquet = { version = "55", default-features = false, features = ["arrow", "snap", "base64"] }
 tempfile = "3"

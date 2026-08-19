@@ -21,6 +21,7 @@ predictable-diagnostics = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 thiserror = { workspace = true }
+libm = { workspace = true }
 
 [dev-dependencies]
 predictable-check = { workspace = true }

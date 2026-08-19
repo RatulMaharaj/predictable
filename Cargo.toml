@@ -61,6 +61,9 @@ serde = { version = "1", features = ["derive"] }
 # from the run it describes (04-verify.md §3.6).
 serde_json = { version = "1", features = ["float_roundtrip"] }
 thiserror = "1"
+# §7 rule 4 (03-engine.md): transcendentals come from the vendored `libm`, never
+# the platform's — glibc's `pow` and macOS's differ in the last ULP.
+libm = "0.2"
 
 [profile.release]
 lto = "thin"

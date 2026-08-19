@@ -20,7 +20,7 @@ jobs:
         include:
           - os: ubuntu-latest    # x86_64-unknown-linux-gnu
           - os: macos-14         # aarch64-apple-darwin (where the goldens were generated)
-          - os: macos-13         # x86_64-apple-darwin
+          - os: macos-15-intel   # x86_64-apple-darwin (macos-13 runners are retired)
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -45,5 +45,8 @@ jobs:
       - uses: bytecodealliance/actions/wasmtime/setup@v1
       - name: Determinism suite under wasmtime
         env:
-          CARGO_TARGET_WASM32_WASIP1_RUNNER: wasmtime run --dir=.
+          # Preopen the workspace root (not `.`): the harness locates the
+          # conformance corpus via the absolute CARGO_MANIFEST_DIR baked in at
+          # compile time, which lives under the workspace.
+          CARGO_TARGET_WASM32_WASIP1_RUNNER: wasmtime run --dir=${{ github.workspace }}
         run: cargo test -p predictable-determinism --target wasm32-wasip1

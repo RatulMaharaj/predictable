@@ -111,7 +111,7 @@ fn expr(rng: &mut Rng, depth: usize, series: &[String], self_name: Option<&str>)
     }
     let a = expr(rng, depth - 1, series, self_name);
     let b = expr(rng, depth - 1, series, self_name);
-    match rng.below(10) {
+    match rng.below(14) {
         0 => format!("({a} + {b})"),
         1 => format!("({a} - {b})"),
         2 => format!("({a} * {b})"),
@@ -123,6 +123,14 @@ fn expr(rng: &mut Rng, depth: usize, series: &[String], self_name: Option<&str>)
         6 => format!("({a} / (1.0 + abs({b})))"),
         7 => format!("sqrt(abs({a}))"),
         8 => format!("(if {a} > {b} then {a} else {b})"),
+        // The transcendentals §7 clause 4 routes through the vendored libm. Guarded into
+        // ranges that stay finite (an overflow-to-inf would test `on_trap`, not arithmetic):
+        // `exp` of a non-positive argument, `ln` of `>= 1`, `pow` with base in `[1, 2)` and a
+        // bounded, usually fractional exponent — the rate-conversion shape real models use.
+        9 => format!("exp(0.0 - min(abs({a}), 700.0))"),
+        10 => format!("ln(1.0 + abs({a}))"),
+        11 => format!("pow(1.0 + abs({a}) / (1.0 + abs({a})), min(abs({b}), 64.0))"),
+        12 => format!("pow(1.0 + abs({a}) / (1.0 + abs({a})), 0.08333333333333333)"),
         _ => leaf(rng, series, self_name),
     }
 }

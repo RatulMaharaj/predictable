@@ -111,10 +111,17 @@ impl Case {
 
 /// The corpus root, `conformance/valid`.
 pub fn corpus_root() -> PathBuf {
-    Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../conformance/valid")
-        .canonicalize()
-        .expect("the conformance corpus is checked in")
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../conformance/valid");
+    // WASI preview 1 has no `realpath`, so `canonicalize` fails under wasmtime.
+    // The un-normalised path resolves fine as long as the workspace root is
+    // preopened (the CI runner passes `--dir=<workspace>`), and the `..`
+    // components never escape that preopen.
+    if cfg!(target_family = "wasm") {
+        root
+    } else {
+        root.canonicalize()
+            .expect("the conformance corpus is checked in")
+    }
 }
 
 /// Every valid case, in directory order.

@@ -38,9 +38,12 @@ pub fn div(a: f64, b: f64) -> Outcome {
 
 /// `a ^ b`. A NaN out of non-NaN operands is `pow_nan` — the classic
 /// `(-1) ^ 0.5`.
+///
+/// `libm::pow`, not `f64::powf`: the platform libms disagree in the last ULP
+/// (glibc vs. macOS), and `03-engine.md` §7 rule 4 requires the vendored one.
 #[inline]
 pub fn pow(a: f64, b: f64) -> Outcome {
-    let r = a.powf(b);
+    let r = libm::pow(a, b);
     if r.is_nan() && !a.is_nan() && !b.is_nan() {
         return (r, Some(TrapKind::PowNan));
     }
@@ -85,7 +88,8 @@ pub fn apply1(f: Fn1, x: f64) -> Outcome {
             0.0
         }),
         Fn1::Exp => {
-            let r = x.exp();
+            // Vendored libm, not the platform's (`03-engine.md` §7 rule 4).
+            let r = libm::exp(x);
             if r.is_infinite() {
                 (r, Some(TrapKind::OverflowToInf))
             } else {
@@ -96,7 +100,8 @@ pub fn apply1(f: Fn1, x: f64) -> Outcome {
             if x <= 0.0 {
                 (f64::NAN, Some(TrapKind::LogNonPositive))
             } else {
-                ok(x.ln())
+                // Vendored libm, not the platform's (`03-engine.md` §7 rule 4).
+                ok(libm::log(x))
             }
         }
         Fn1::Sqrt => {

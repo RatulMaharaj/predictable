@@ -1,0 +1,10 @@
+# Digest-relevant text must check out byte-identically on every platform.
+#
+# Table digests are taken over the raw CSV bytes (`01-ir.md` §2.9), goldens are
+# compared byte for byte, and `.pir` canonical text is hashed into
+# `model_digest` — so none of these files may be subject to eol conversion on
+# checkout (e.g. `core.autocrlf=true` on Windows).
+*.pir text eol=lf
+*.csv text eol=lf
+*.json text eol=lf
+*.golden text eol=lf

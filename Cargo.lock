@@ -1832,6 +1832,7 @@ dependencies = [
 name = "predictable-engine"
 version = "0.0.1"
 dependencies = [
+ "libm",
  "predictable-check",
  "predictable-diagnostics",
  "predictable-ir",

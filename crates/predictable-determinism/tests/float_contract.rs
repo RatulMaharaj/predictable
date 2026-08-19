@@ -195,12 +195,11 @@ fn no_fma_contraction() {
 
 /// Transcendentals, pinned to the bit.
 ///
-/// This is the golden that fails first when the platform libm changes underneath the engine —
-/// glibc's `pow` and macOS's differ in the last ULP, and §7 clause 4 says an actuary reconciling
-/// to the penny will find it. **This golden is currently platform-dependent by construction:**
-/// `predictable-engine` calls `f64::powf`/`exp`/`ln` (the platform libm), not the vendored
-/// `libm` §7 requires. Until that changes, a CI failure here on Linux or wasm is the harness
-/// working, not the harness being wrong.
+/// This is the golden that fails first when the libm underneath the engine changes — glibc's
+/// `pow` and macOS's differ in the last ULP, and §7 clause 4 says an actuary reconciling to the
+/// penny will find it. `predictable-engine` therefore calls the vendored `libm` crate for
+/// `exp`/`ln`/`pow` (`sqrt` is the IEEE-exact hardware instruction), so this golden is
+/// platform-independent: a failure here means the vendored libm itself changed.
 #[test]
 fn transcendentals_are_pinned() {
     let source = PICK4.replace(
