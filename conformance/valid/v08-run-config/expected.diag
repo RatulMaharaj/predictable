@@ -1,0 +1,7 @@
+# No diagnostics.
+#   - `emit = "list"` widens the emitted set to emit_list ∪ outputs; `disc_factor`
+#     resolves, so E0106 does not fire (IR §8.4.3).
+#   - The two aggregations are successive prefixes of one ordered key tuple, which
+#     is how a drill-down is expressed; groupings do not nest (IR §8.3).
+#   - `over_t` is present only on the Series measure, so E0404 does not fire.
+#   - The run overrides no timeline field, so E0101 does not fire.

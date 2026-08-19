@@ -1,0 +1,271 @@
+/* Screen 3 — modelpoint drill-down. Owned by T30.
+   Light and dark are both defined explicitly and print forces light (§5.2). */
+
+.drilldown {
+  --dd-fg: #10131a;
+  --dd-dim: #5b6472;
+  --dd-line: #d6dae1;
+  --dd-bg: #ffffff;
+  --dd-sel: rgba(56, 132, 255, 0.18);
+  --dd-pos: #1f6f43;
+  --dd-neg: #a1301f;
+  --dd-warn-bg: #fff5e0;
+  --dd-warn-fg: #7a4a00;
+  color: var(--dd-fg);
+  background: var(--dd-bg);
+  font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .drilldown {
+    --dd-fg: #e6e9ef;
+    --dd-dim: #99a2b0;
+    --dd-line: #2a3140;
+    --dd-bg: #10131a;
+    --dd-sel: rgba(96, 160, 255, 0.28);
+    --dd-pos: #5fd08a;
+    --dd-neg: #ff8a72;
+    --dd-warn-bg: #33280f;
+    --dd-warn-fg: #f2c66b;
+  }
+}
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+}
+.crumbs button {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.1rem 0.3rem;
+  font: inherit;
+}
+.crumbs button + button::before {
+  content: "▸ ";
+  color: var(--dd-dim);
+}
+
+.drilldown-toolbar {
+  display: flex;
+  gap: 1rem;
+  color: var(--dd-dim);
+}
+
+/* --- grid ---------------------------------------------------------------- */
+
+.mp-grid-scroll {
+  position: relative;
+  overflow: auto;
+  max-height: 45vh;
+  border: 1px solid var(--dd-line);
+}
+.mp-grid-scroll:focus-visible {
+  outline: 2px solid #3884ff;
+  outline-offset: -2px;
+}
+.mp-grid-canvas {
+  position: relative;
+  margin-left: 12rem;
+}
+.mp-grid-head,
+.mp-grid-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.mp-grid-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--dd-bg);
+}
+.mp-grid-th,
+.mp-grid-cell {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.4rem;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.mp-grid-th {
+  color: var(--dd-dim);
+  border-bottom: 1px solid var(--dd-line);
+}
+.mp-grid-label {
+  position: absolute;
+  left: -12rem;
+  width: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 0.5rem;
+  box-sizing: border-box;
+}
+.mp-grid-cell.is-empty {
+  color: var(--dd-dim);
+}
+.mp-grid-cell.is-selected {
+  box-shadow: inset 0 0 0 9999px var(--dd-sel);
+}
+.mp-grid-cell.is-focus {
+  outline: 2px solid #3884ff;
+  outline-offset: -2px;
+}
+.mp-grid-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  color: var(--dd-dim);
+}
+
+/* --- waterfall ----------------------------------------------------------- */
+
+.drilldown-lower {
+  display: grid;
+  grid-template-columns: minmax(20rem, 2fr) 3fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+.waterfall header,
+.trace-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.waterfall h2,
+.trace-panel h2 {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dd-dim);
+  margin: 0 0 0.4rem;
+}
+.wf-axis {
+  stroke: var(--dd-line);
+}
+.wf-connector {
+  stroke: var(--dd-dim);
+  stroke-dasharray: 2 2;
+}
+.wf-bar rect {
+  fill: var(--dd-pos);
+  cursor: pointer;
+}
+.wf-bar.is-negative rect {
+  fill: var(--dd-neg);
+}
+.wf-bar.is-output rect {
+  fill: none;
+  stroke: var(--dd-fg);
+  stroke-width: 2;
+}
+.wf-bar.is-highlight rect {
+  stroke: #3884ff;
+  stroke-width: 2;
+}
+.wf-glyph,
+.wf-timing {
+  fill: var(--dd-dim);
+  font-size: 8px;
+  text-anchor: middle;
+}
+.wf-warn {
+  background: var(--dd-warn-bg);
+  color: var(--dd-warn-fg);
+  padding: 0.25rem 0.4rem;
+}
+.wf-table td,
+.trace-terms td {
+  text-align: right;
+  padding: 0 0.4rem;
+}
+
+/* --- trace --------------------------------------------------------------- */
+
+.trace-expr {
+  white-space: pre-wrap;
+  color: var(--dd-dim);
+  margin: 0.2rem 0;
+}
+.trace-tree {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.trace-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: baseline;
+  padding: 0.05rem 0;
+}
+.trace-row.is-warn {
+  background: var(--dd-warn-bg);
+}
+.trace-line {
+  display: flex;
+  gap: 0.4rem;
+  align-items: baseline;
+}
+.trace-toggle,
+.trace-ref,
+.trace-span,
+.trace-table {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+.trace-toggle.is-leaf {
+  color: var(--dd-line);
+  cursor: default;
+}
+.trace-ref {
+  text-decoration: underline dotted;
+}
+.trace-num {
+  font-variant-numeric: tabular-nums;
+}
+.trace-unit,
+.trace-timing,
+.trace-span,
+.trace-run,
+.trace-truncated {
+  color: var(--dd-dim);
+}
+.trace-badge {
+  padding: 0 0.3rem;
+  border: 1px solid var(--dd-line);
+  border-radius: 2px;
+}
+.trace-badge.is-warn,
+.trace-note {
+  background: var(--dd-warn-bg);
+  color: var(--dd-warn-fg);
+  padding: 0 0.3rem;
+}
+.trace-terms .is-excluded {
+  color: var(--dd-dim);
+  text-decoration: line-through;
+}
+
+@media print {
+  .drilldown {
+    --dd-fg: #000;
+    --dd-bg: #fff;
+    --dd-line: #999;
+    --dd-dim: #444;
+  }
+}

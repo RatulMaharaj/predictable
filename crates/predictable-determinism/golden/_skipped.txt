@@ -1,0 +1,2 @@
+# cases the harness cannot execute, and why
+v06-tables tables: table `expense_scale`: no resource named `expense_scale_2026` was supplied by the host

@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://predictable.dev/schemas/results.schema.json",
+  "title": "predictable results schema document (pvf/1)",
+  "description": "The component list of a result set plus the physical column layout of results.parquet (04-verify.md §2, 01-ir.md §8.4.3).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "kind",
+    "emit",
+    "component_set_digest",
+    "columns",
+    "components",
+    "storage_precision"
+  ],
+  "properties": {
+    "format": { "const": "pvf/1" },
+    "kind": { "const": "results_schema" },
+    "emit": { "enum": ["outputs", "all", "list"] },
+    "component_set_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "SHA-256 over the sorted qualified component ids (Q6)."
+    },
+    "columns": {
+      "type": "array",
+      "minItems": 9,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "type", "nullable", "doc"],
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string" },
+          "nullable": { "type": "boolean" },
+          "doc": { "type": "string" }
+        }
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "dtype",
+          "shape",
+          "unit",
+          "timing",
+          "stage",
+          "output",
+          "display"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "kind": {
+            "enum": [
+              "Input.Modelpoint",
+              "Input.Assumption",
+              "Input.Table",
+              "Input.Timeline",
+              "Derived",
+              "Output"
+            ]
+          },
+          "dtype": { "type": "string" },
+          "shape": { "enum": ["Scalar", "PerMP", "Series"] },
+          "unit": { "type": "string" },
+          "timing": { "type": ["string", "null"] },
+          "stage": { "type": "integer", "minimum": 1 },
+          "output": { "type": "boolean" },
+          "display": { "type": ["object", "null"] }
+        }
+      }
+    },
+    "storage_precision": {
+      "const": "f64",
+      "description": "Q15: f64 only in IR 1.0; f32 is E0108."
+    }
+  }
+}

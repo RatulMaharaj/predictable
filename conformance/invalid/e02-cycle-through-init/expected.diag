@@ -1,0 +1,3 @@
+# G_init must be acyclic: reserve_a seeds from sum(reserve_b), which seeds from
+# sum(reserve_a). Chains through init are legal; cycles are not.
+error E0202 model.pir:30:9 cyclic dependency through `init`

@@ -1,0 +1,291 @@
+{
+  "format": "pvf/1",
+  "kind": "trace",
+  "notes": [],
+  "root": {
+    "children": [
+      {
+        "node": "Agg",
+        "op": "npv",
+        "over": {
+          "component": "model.premium_income",
+          "discount": "model.disc_factor",
+          "exponent_rule": "v^t",
+          "t_from": 0,
+          "t_to": 40,
+          "timing": "start"
+        },
+        "path": "root.children[0]",
+        "ref": "model.premium_income",
+        "term_count": 41,
+        "terms": [
+          {
+            "contribution": 151.39,
+            "disc": 1.0,
+            "t": 0,
+            "value": 151.39
+          },
+          {
+            "contribution": 124.98099904511847,
+            "disc": 0.9661835748792271,
+            "t": 1,
+            "value": 129.3553340116976
+          },
+          {
+            "contribution": 108.8485763421287,
+            "disc": 0.933510700366403,
+            "t": 2,
+            "value": 116.6013161920968
+          },
+          {
+            "contribution": 97.52892536447656,
+            "disc": 0.9019427056680224,
+            "t": 3,
+            "value": 108.13206288113604
+          },
+          {
+            "contribution": 88.70260197740824,
+            "disc": 0.8714422276985724,
+            "t": 4,
+            "value": 101.78827598436052
+          },
+          {
+            "contribution": 81.35794355603706,
+            "disc": 0.8419731668585241,
+            "t": 5,
+            "value": 96.6277154170966
+          },
+          {
+            "contribution": 74.93329371467856,
+            "disc": 0.8135006443077528,
+            "t": 6,
+            "value": 92.11215041930659
+          },
+          {
+            "contribution": 69.23059469508301,
+            "disc": 0.7859909606838192,
+            "t": 7,
+            "value": 88.08064997955164
+          },
+          {
+            "contribution": 64.09304396701182,
+            "disc": 0.7594115562162506,
+            "t": 8,
+            "value": 84.39829950225388
+          },
+          {
+            "contribution": 59.395996423661096,
+            "disc": 0.7337309721896141,
+            "t": 9,
+            "value": 80.95064631987718
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.7089188137097722,
+            "t": 10,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.6849457137292485,
+            "t": 11,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.6617832982891291,
+            "t": 12,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.6394041529363567,
+            "t": 13,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.6177817902766731,
+            "t": 14,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.596890618624805,
+            "t": 15,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.5767059117147875,
+            "t": 16,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.5572037794345773,
+            "t": 17,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.5383611395503163,
+            "t": 18,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.520155690386779,
+            "t": 19,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.5025658844316706,
+            "t": 20,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.485570902832532,
+            "t": 21,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.4691506307560696,
+            "t": 22,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.45328563358074364,
+            "t": 23,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.43795713389443836,
+            "t": 24,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.4231469892699888,
+            "t": 25,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.40883767079225974,
+            "t": 26,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.3950122423113621,
+            "t": 27,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.38165434039745133,
+            "t": 28,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.368748154973383,
+            "t": 29,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.3562784106023024,
+            "t": 30,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.3442303484080217,
+            "t": 31,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.3325897086067843,
+            "t": 32,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.32134271362974326,
+            "t": 33,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.3104760518161771,
+            "t": 34,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.29997686165814214,
+            "t": 35,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.28983271657791515,
+            "t": 36,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.2800316102202079,
+            "t": 37,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.2705619422417468,
+            "t": 38,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.26141250458139786,
+            "t": 39,
+            "value": 0.0
+          },
+          {
+            "contribution": 0.0,
+            "disc": 0.25257246819458734,
+            "t": 40,
+            "value": 0.0
+          }
+        ],
+        "value": 920.4619750856035
+      }
+    ],
+    "dtype": "f64",
+    "expr": "npv(premium_income, disc_factor)",
+    "id": "model.pv_premiums",
+    "modelpoint": {
+      "key": "TA00001",
+      "row": 0
+    },
+    "node": "Component",
+    "path": "root",
+    "shape": "PerMP",
+    "stage": 2,
+    "unit": "money",
+    "value": 920.4619750856035
+  },
+  "run": "sha256:e2c34ad6b8c4361acd4eb362b710ab078af205d4f0092b66a6a4569e54a0b25d",
+  "truncated": {
+    "depth": 2,
+    "elided_nodes": 0
+  }
+}

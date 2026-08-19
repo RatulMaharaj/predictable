@@ -1,0 +1,6 @@
+name  = "e15-lag-date-no-init"
+kind  = "invalid"
+title = "A Lag on a date component with no init — date has no zero"
+spec  = ["01-ir.md §2.7"]
+entry = ["model.pir"]
+fmt   = true

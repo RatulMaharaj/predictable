@@ -1,0 +1,4 @@
+# A Lookup supplies exactly one expression per key, in declaration order, with
+# dtypes matching the table declaration exactly.
+error E0504 model.pir:55:9 `sa8990` has 2 keys, 1 supplied
+error E0505 model.pir:63:9 key 1 of `sa8990` is `i64`

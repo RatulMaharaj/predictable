@@ -1,0 +1,6 @@
+name  = "e13-annual-over-12"
+kind  = "invalid"
+title = "r / 12 on a rate(annual) in a monthly model"
+spec  = ["01-ir.md §5", "01-ir.md §2.8"]
+entry = ["model.pir"]
+fmt   = true

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "predictable-engine"
+description = "Rust projection engine for predictable (compiled extension module)."
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Ratul Maharaj" }]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/ratulmaharaj/predictable"
+
+[tool.maturin]
+# Path is relative to this file; the Rust workspace root is two levels up.
+manifest-path = "Cargo.toml"
+module-name = "predictable_engine"
+features = ["extension-module"]
+strip = true

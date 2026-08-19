@@ -1,0 +1,6 @@
+name  = "e16-is-null-not-optional"
+kind  = "invalid"
+title = "is_null on a required field and on an on_missing = error table"
+spec  = ["01-ir.md §2.11"]
+entry = ["model.pir"]
+fmt   = true

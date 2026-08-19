@@ -1,0 +1,3 @@
+# Unqualified names are globally unique within a product; the qualified form
+# a.loading / b.loading is presentational, not disambiguating.
+error E0204 b.pir:6:9 `loading` is already defined in module `a`

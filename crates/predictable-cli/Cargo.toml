@@ -1,0 +1,41 @@
+[package]
+name = "predictable-cli"
+description = "The `predictable` command-line tool: check, run, fmt, build, graph, export, rerun, digest."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_cli"
+path = "src/lib.rs"
+
+[[bin]]
+name = "predictable"
+path = "src/main.rs"
+
+[dependencies]
+predictable-check = { workspace = true }
+predictable-diagnostics = { workspace = true }
+predictable-engine = { workspace = true }
+predictable-fmt = { workspace = true }
+predictable-io = { workspace = true }
+predictable-ir = { workspace = true }
+predictable-modeldiff = { workspace = true }
+predictable-plan = { workspace = true }
+predictable-prophet = { workspace = true }
+predictable-rundiff = { workspace = true }
+predictable-runner = { workspace = true }
+predictable-syntax = { workspace = true }
+predictable-tables = { workspace = true }
+predictable-tape = { workspace = true }
+predictable-viz = { workspace = true }
+predictable-wasm = { workspace = true }
+arrow-array = "55"
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3"

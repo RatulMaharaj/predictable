@@ -1,0 +1,8 @@
+name    = "v04-expressions"
+kind    = "valid"
+title   = "Every Expr variant and every 1.0 builtin, exactly once"
+spec    = ["01-ir.md §2.6", "01-ir.md §2.7", "01-ir.md §2.8", "01-ir.md §2.11", "01-ir.md §4.2"]
+entry   = ["model.pir"]
+runtime = false
+fmt     = true
+notes   = "Every component is `Output` so that W0101 (unused) does not fire on the intermediates. There is no product file, so the §8.4.1 manifest check does not apply."

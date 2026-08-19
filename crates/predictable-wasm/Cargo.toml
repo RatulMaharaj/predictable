@@ -1,0 +1,48 @@
+[package]
+name = "predictable-wasm"
+description = "The browser/WASI build of the engine kernel: check, plan, project and explain with no filesystem, no threads and no clock (03-engine.md §9)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+publish = false
+
+[lib]
+name = "predictable_wasm"
+path = "src/lib.rs"
+# `cdylib` is the wasm32-unknown-unknown artefact the browser loads; `rlib` is
+# what the native tests and the WASI binary link against. One code path, two
+# targets — which is the whole point of the determinism gate.
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "predictable-wasm-cli"
+path = "src/bin/cli.rs"
+
+[dependencies]
+predictable-check = { workspace = true }
+predictable-diagnostics = { workspace = true }
+predictable-engine = { workspace = true }
+predictable-fmt = { workspace = true }
+predictable-ir = { workspace = true }
+predictable-plan = { workspace = true }
+predictable-syntax = { workspace = true }
+predictable-tables = { workspace = true }
+predictable-tape = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+[dev-dependencies]
+flate2 = "1"
+predictable-determinism = { workspace = true }
+wasmtime = { version = "27", default-features = false, features = ["cranelift", "runtime", "std"] }
+wasmtime-wasi = { version = "27", default-features = false, features = ["preview1"] }
+
+# `03-engine.md` §9: `opt-level = "z"` and `panic = "abort"` for the wasm
+# artefact, because the size budget is a shipped constraint and not a wish.
+# Applied through `profile.release` here rather than a custom profile so
+# `--target wasm32-*` --release picks it up without extra flags.
+[package.metadata.wasm]
+size-budget-gzip-bytes = 1572864

@@ -1,0 +1,51 @@
+{
+  "format": "migration-coverage/1",
+  "prophet_library": "TERM_UK",
+  "prophet_run": "TERM_BASE_2026Q2",
+  "source": "prophet/TERM_UK.MOD",
+  "note": "Step 1 of skills/predictable-migration. Every variable defined in TERM_UK.MOD appears exactly once below. Nothing is silently absent: `out_of_scope` requires a reason.",
+  "variables": {
+    "mapped": [
+      { "prophet": "MORT_RATE", "predictable": "model.qx" },
+      { "prophet": "LAPSE_RATE", "predictable": "model.wx" },
+      { "prophet": "POLS_IF", "predictable": "model.num_pols_if" },
+      { "prophet": "DEATHS", "predictable": "model.deaths" },
+      { "prophet": "SURRENDERS", "predictable": "model.surrenders" },
+      { "prophet": "PREM_INC", "predictable": "model.premium_income" },
+      { "prophet": "DTH_CLAIM", "predictable": "model.death_claims" },
+      { "prophet": "EXPENSE", "predictable": "model.renewal_expenses" },
+      { "prophet": "NET_CF", "predictable": "model.net_cashflow" },
+      { "prophet": "RESERVE", "predictable": "model.reserve" }
+    ],
+    "derived": [
+      { "prophet": "ATT_AGE", "predictable": "model.age", "why": "reproduced, renamed to the predictable convention" },
+      { "prophet": "IN_TERM", "predictable": "model.in_term + model.in_force_factor", "why": "split into the boolean and its 0/1 form, because predictable distinguishes `bool` from `factor`" },
+      { "prophet": "DISC", "predictable": "model.disc_factor", "why": "reproduced, renamed" },
+      { "prophet": "EXP_BAND", "predictable": "model.expense_scale", "why": "reproduced as PerMP: it is constant in t and predictable says so in the shape" },
+      { "prophet": "PV_PREM", "predictable": "model.pv_premiums", "why": "reproduced; `npv` applies the component's own timing, which is why PV_CLM discounts a period further" },
+      { "prophet": "PV_CLM", "predictable": "model.pv_claims", "why": "reproduced" },
+      { "prophet": "PV_EXP", "predictable": "model.pv_expenses", "why": "reproduced" },
+      { "prophet": "INIT_EXP", "predictable": "model.initial_expense", "why": "reproduced" },
+      { "prophet": "BEL", "predictable": "model.bel", "why": "reproduced; seeds `reserve` through the one legal stage-2 -> init back-channel" }
+    ],
+    "out_of_scope": [
+      {
+        "prophet": "RESERVE_INT",
+        "why": "a Prophet working variable (RESERVE * VAL_RATE) that is reported because the run settings say so and consumed by nothing. Declared `unmapped` in migration/mapping.toml rather than reproduced, so the diff reports it as a known absence instead of a gap."
+      }
+    ]
+  },
+  "run_parameters": {
+    "VAL_RATE": "base.pir valuation_rate",
+    "MORT_LOAD": "base.pir mortality_loading",
+    "LAPSE_LOAD": "base.pir lapse_loading",
+    "EXP_INFL": "base.pir expense_inflation",
+    "EXP_PP": "base.pir renewal_expense_pa",
+    "INIT_EXP_PCT": "base.pir initial_expense_pct"
+  },
+  "tables": {
+    "SA8990.fac": "tables/mortality.csv (unloaded rates; MORT_LOAD stays an assumption)",
+    "LAPSE_TERM.fac": "tables/lapses.csv",
+    "EXP_BAND.fac": "tables/expenses.csv"
+  }
+}

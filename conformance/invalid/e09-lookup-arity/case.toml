@@ -1,0 +1,6 @@
+name  = "e09-lookup-arity"
+kind  = "invalid"
+title = "A lookup with the wrong number of keys, and one with the wrong key dtype"
+spec  = ["01-ir.md §2.9", "01-ir.md §7"]
+entry = ["model.pir"]
+fmt   = true

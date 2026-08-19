@@ -1,0 +1,2 @@
+error E0501 model.pir:44:9 cannot add `money` and `prob`
+error E0503 model.pir:52:9 `money * money` is not a unit

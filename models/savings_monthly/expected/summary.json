@@ -1,0 +1,22 @@
+{
+  "aggregates_digest": "sha256:a39ea60ef0b756893e7708f305976abe2ed21064cd660df88e1032a0e070bf3d",
+  "aggregates_rows": 1085,
+  "assumption_digest": "sha256:4cf315da0140acfd4b07819d3d577158dc1b016f0209ff74c5c9282ed57e8b7f",
+  "component_set_digest": "sha256:9b14a4d4cc426c7c96d873228e61eb0ef51b801efb8aae837a417255c7cde7b8",
+  "components": 25,
+  "model_digest": "sha256:fb71b45dad72c9d4813cc197b955250ff45ecf6d0c56a4a7d51aa7662ae54d11",
+  "modelpoint_digest": "sha256:36962b791ac7a9c3a6d667a34f238ab9e6a874d950d9b6f3cfec357591e0793b",
+  "modelpoints_projected": 20,
+  "outcome": "completed",
+  "periods": 360,
+  "results_digest": "sha256:a70c94f8b8952e9ae6dc671453fdf9b9d246249121c0566dae0ac118ef41068a",
+  "rows": 108500,
+  "run_digest": "sha256:0b65a41392a0db9eb552d6dd946d3ca64c2cd8796544f9cc7cb7d67aa2c7b98a",
+  "table_digests": {
+    "expenses": "sha256:d8df4dfd42391238a6ba7f29ddf7d65a82aae4eab5acc9c13eed1f21a4f332a7",
+    "lapses": "sha256:42f8f7bcfcc324a9d609f731a9ef89c6c2725bb8ad0a666d819e4fbb8c37da81",
+    "mortality": "sha256:de972761d11068b2c7dcadfaab1edf4b3e81ed4d4374f5f35fd499485d363cf6",
+    "surrender_penalty": "sha256:09b64d2351bd0306f17566dd9979e75344cfb88d7ecd52cb85f44ddcf31cf209",
+    "yield_curve": "sha256:70a16dfd58c4272d0307206e09bd9ba7a148b072d16858a397d359f4ddd4f362"
+  }
+}

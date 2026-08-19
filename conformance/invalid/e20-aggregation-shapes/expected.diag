@@ -1,0 +1,6 @@
+# A group whose membership changes with t is not a group (E0402); f64 keys must
+# be banded into an i64 or an enum first (E0403); over_t is meaningless for a
+# PerMP measure (E0404).
+error E0402 run.pir:11:14 group key `policy_year_series` is a `Series`
+error E0403 run.pir:17:14 group key `sum_assured` is `f64`
+error E0404 run.pir:26:11 `over_t` is only for a `Series` measure

@@ -1,0 +1,9 @@
+name    = "v02-term-assurance"
+kind    = "valid"
+title   = "The 01-ir.md §6 worked example: lookup, discounting, t-1 reserve recursion"
+spec    = ["01-ir.md §6", "01-ir.md §2.5", "01-ir.md §2.9", "01-ir.md §3.1", "01-ir.md §8.2"]
+entry   = ["schema.pir", "model.pir"]
+product = "product.pir"
+run     = "run.pir"
+runtime = true
+fmt     = true

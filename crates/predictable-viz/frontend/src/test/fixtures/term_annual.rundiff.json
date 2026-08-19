@@ -1,0 +1,653 @@
+{
+  "a": {
+    "engine_version": "0.0.1",
+    "manifest": "sha256:185555b6802662cf6b3ee091f530470c6e1b840f8140d54b8727c610f9798c86",
+    "model_digest": "sha256:cb5068778587ab01784e77caf31c151f1a228d2d61550dda57821b04a4ba703c",
+    "path": "good/runs/base",
+    "run": "2026-08-17T07:52:58Z-c2387e29",
+    "system": "predictable"
+  },
+  "b": {
+    "engine_version": "0.0.1",
+    "manifest": "sha256:1e9c051def0023e836d755ca8523dd8a52d0e16441d4010ec06c049d6b14bc11",
+    "model_digest": "sha256:c31119266c7e3a840754958e9dd311b619e382d1971a8d5c935642b8b4075359",
+    "path": "bad/runs/base",
+    "run": "2026-08-17T07:52:58Z-01631e10",
+    "system": "predictable"
+  },
+  "findings": [
+    {
+      "affects_outputs": [
+        "model.bel",
+        "model.net_cashflow",
+        "model.premium_income",
+        "model.profit_margin",
+        "model.pv_premiums",
+        "model.reserve"
+      ],
+      "category": "value",
+      "class": "root",
+      "class_basis": "partial_graph",
+      "component": "model.premium_income",
+      "contribution": {
+        "method": "delta_sum_ratio",
+        "output": "model.reserve",
+        "share_of_total_delta": -0.11995236692422803
+      },
+      "exemplar": {
+        "a": 151.39,
+        "abs": 4.541699999999992,
+        "b": 155.93169999999998,
+        "category": "value",
+        "mp_key": "TA00001",
+        "mp_row": 0,
+        "rel": 0.02912621359223296,
+        "t": 0
+      },
+      "explain_command": "predictable explain bad/runs/base --component premium_income --mp TA00001 --t 0   # a: good/runs/base",
+      "explained_by_model_change": {
+        "changed": true,
+        "what": [
+          "upstream"
+        ]
+      },
+      "hypotheses": [
+        {
+          "code": "H0101",
+          "confidence": "high",
+          "evidence": {
+            "matches": null,
+            "ratio": 1.03,
+            "t_tested": 10
+          },
+          "evidence_support": {
+            "held": 24,
+            "tested": 24
+          },
+          "message": "b/a is constant at 1.030000000 across all 10 periods of `premium_income`: a scale factor, not a behavioural difference",
+          "suggested_edit": {
+            "byte_end": 2598,
+            "byte_start": 2552,
+            "file": "bad/build/model.pir",
+            "message": "`premium_income` on side b is 1.03 times side a's; * 0.970873786407767 restores it",
+            "new": "\"(premium_rate * num_pols_if * in_force_factor) * 0.970873786407767\"",
+            "old": "\"premium_rate * num_pols_if * in_force_factor\""
+          }
+        }
+      ],
+      "id": "F001",
+      "message": "RESERVE diverges at t=0 in component premium_income: 151.39 vs 155.93  (Δ 4.54, 2.9%)  [mp TA00001]",
+      "n_cells": 500,
+      "n_modelpoints": 25,
+      "source_component": null,
+      "t_first": 0,
+      "t_range": [
+        0,
+        29
+      ],
+      "worst": {
+        "a": 1085.19,
+        "abs": 32.555700000000115,
+        "b": 1117.7457000000002,
+        "category": "value",
+        "mp_key": "TA00015",
+        "mp_row": 14,
+        "rel": 0.029126213592233108,
+        "t": 0
+      }
+    },
+    {
+      "affects_outputs": [
+        "model.reserve"
+      ],
+      "category": "value",
+      "class": "inherited",
+      "class_basis": "ir_graph",
+      "component": "model.reserve",
+      "contribution": {
+        "method": "identity",
+        "output": "model.reserve",
+        "share_of_total_delta": 0.9999999999999939
+      },
+      "exemplar": {
+        "a": -332.3707674697721,
+        "abs": 30.888921384469313,
+        "b": -363.2596888542414,
+        "category": "value",
+        "mp_key": "TA00001",
+        "mp_row": 0,
+        "rel": 0.08503261532237767,
+        "t": 0
+      },
+      "explain_command": "predictable explain bad/runs/base --component reserve --mp TA00001 --t 0   # a: good/runs/base",
+      "explained_by_model_change": {
+        "changed": true,
+        "what": [
+          "upstream"
+        ]
+      },
+      "hypotheses": [],
+      "id": "F002",
+      "message": "RESERVE diverges at t=0 in component reserve: -332.37 vs -363.26  (Δ 30.89, 8.5%)  [mp TA00001]",
+      "n_cells": 500,
+      "n_modelpoints": 25,
+      "source_component": null,
+      "t_first": 0,
+      "t_range": [
+        0,
+        29
+      ],
+      "worst": {
+        "a": -192.6536771583269,
+        "abs": 341.6331667041959,
+        "b": -534.2868438625228,
+        "category": "value",
+        "mp_key": "TA00015",
+        "mp_row": 14,
+        "rel": 0.639419013641484,
+        "t": 0
+      }
+    },
+    {
+      "affects_outputs": [
+        "model.bel",
+        "model.profit_margin",
+        "model.reserve"
+      ],
+      "category": "value",
+      "class": "inherited",
+      "class_basis": "ir_graph",
+      "component": "model.bel",
+      "contribution": {
+        "method": "delta_sum_ratio",
+        "output": "model.reserve",
+        "share_of_total_delta": 0.08915069976657716
+      },
+      "exemplar": {
+        "a": -332.3707674697721,
+        "abs": 30.888921384469313,
+        "b": -363.2596888542414,
+        "category": "value",
+        "mp_key": "TA00001",
+        "mp_row": 0,
+        "rel": 0.08503261532237767,
+        "t": -1
+      },
+      "explain_command": "predictable explain bad/runs/base --component bel --mp TA00001 --t -1   # a: good/runs/base",
+      "explained_by_model_change": {
+        "changed": true,
+        "what": [
+          "upstream"
+        ]
+      },
+      "hypotheses": [],
+      "id": "F003",
+      "message": "RESERVE diverges at t=-1 in component bel: -332.37 vs -363.26  (Δ 30.89, 8.5%)  [mp TA00001]",
+      "n_cells": 25,
+      "n_modelpoints": 25,
+      "source_component": null,
+      "t_first": -1,
+      "t_range": [
+        -1,
+        -1
+      ],
+      "worst": {
+        "a": -192.6536771583269,
+        "abs": 341.6331667041959,
+        "b": -534.2868438625228,
+        "category": "value",
+        "mp_key": "TA00015",
+        "mp_row": 14,
+        "rel": 0.639419013641484,
+        "t": -1
+      }
+    },
+    {
+      "affects_outputs": [
+        "model.bel",
+        "model.profit_margin",
+        "model.pv_premiums",
+        "model.reserve"
+      ],
+      "category": "value",
+      "class": "inherited",
+      "class_basis": "ir_graph",
+      "component": "model.pv_premiums",
+      "contribution": {
+        "method": "delta_sum_ratio",
+        "output": "model.reserve",
+        "share_of_total_delta": -0.08915069976657716
+      },
+      "exemplar": {
+        "a": 1029.6307128156382,
+        "abs": 30.888921384469313,
+        "b": 1060.5196342001075,
+        "category": "value",
+        "mp_key": "TA00001",
+        "mp_row": 0,
+        "rel": 0.029126213592233163,
+        "t": -1
+      },
+      "explain_command": "predictable explain bad/runs/base --component pv_premiums --mp TA00001 --t -1   # a: good/runs/base",
+      "explained_by_model_change": {
+        "changed": true,
+        "what": [
+          "upstream"
+        ]
+      },
+      "hypotheses": [
+        {
+          "code": "H0101",
+          "confidence": "high",
+          "evidence": {
+            "matches": null,
+            "ratio": 1.0300000000000002,
+            "t_tested": 25
+          },
+          "evidence_support": {
+            "held": 24,
+            "tested": 24
+          },
+          "message": "b/a is constant at 1.030000000 across all 25 periods of `pv_premiums`: a scale factor, not a behavioural difference",
+          "suggested_edit": {
+            "byte_end": 4032,
+            "byte_start": 3998,
+            "file": "bad/build/model.pir",
+            "message": "`pv_premiums` on side b is 1.0300000000000002 times side a's; * 0.9708737864077668 restores it",
+            "new": "\"(npv(premium_income, disc_factor)) * 0.9708737864077668\"",
+            "old": "\"npv(premium_income, disc_factor)\""
+          }
+        }
+      ],
+      "id": "F004",
+      "message": "RESERVE diverges at t=-1 in component pv_premiums: 1029.63 vs 1060.52  (Δ 30.89, 2.9%)  [mp TA00001]",
+      "n_cells": 25,
+      "n_modelpoints": 25,
+      "source_component": null,
+      "t_first": -1,
+      "t_range": [
+        -1,
+        -1
+      ],
+      "worst": {
+        "a": 11387.77222347317,
+        "abs": 341.6331667041959,
+        "b": 11729.405390177366,
+        "category": "value",
+        "mp_key": "TA00015",
+        "mp_row": 14,
+        "rel": 0.029126213592233077,
+        "t": -1
+      }
+    },
+    {
+      "affects_outputs": [
+        "model.profit_margin"
+      ],
+      "category": "value",
+      "class": "inherited",
+      "class_basis": "ir_graph",
+      "component": "model.profit_margin",
+      "contribution": null,
+      "exemplar": {
+        "a": 0.3228058014711583,
+        "abs": 0.01972410286977222,
+        "b": 0.3425299043409305,
+        "category": "value",
+        "mp_key": "TA00001",
+        "mp_row": 0,
+        "rel": 0.05758359378204893,
+        "t": -1
+      },
+      "explain_command": "predictable explain bad/runs/base --component profit_margin --mp TA00001 --t -1   # a: good/runs/base",
+      "explained_by_model_change": {
+        "changed": true,
+        "what": [
+          "upstream"
+        ]
+      },
+      "hypotheses": [],
+      "id": "F005",
+      "message": "PROFIT_MARGIN diverges at t=-1 in component profit_margin: 0.32 vs 0.34  (Δ 0.02, 5.8%)  [mp TA00001]",
+      "n_cells": 25,
+      "n_modelpoints": 25,
+      "source_component": null,
+      "t_first": -1,
+      "t_range": [
+        -1,
+        -1
+      ],
+      "worst": {
+        "a": -0.2100176882023149,
+        "abs": 0.03524323363696116,
+        "b": -0.17477445456535373,
+        "category": "value",
+        "mp_key": "TA00024",
+        "mp_row": 23,
+        "rel": 0.16781078745620007,
+        "t": -1
+      }
+    },
+    {
+      "affects_outputs": [
+        "model.net_cashflow"
+      ],
+      "category": "value",
+      "class": "inherited",
+      "class_basis": "ir_graph",
+      "component": "model.net_cashflow",
+      "contribution": null,
+      "exemplar": {
+        "a": 78.48362499999999,
+        "abs": 4.541699999999992,
+        "b": 83.02532499999998,
+        "category": "value",
+        "mp_key": "TA00001",
+        "mp_row": 0,
+        "rel": 0.05470258622896077,
+        "t": 0
+      },
+      "explain_command": "predictable explain bad/runs/base --component net_cashflow --mp TA00001 --t 0   # a: good/runs/base",
+      "explained_by_model_change": {
+        "changed": true,
+        "what": [
+          "upstream"
+        ]
+      },
+      "hypotheses": [],
+      "id": "F006",
+      "message": "NET_CASHFLOW diverges at t=0 in component net_cashflow: 78.48 vs 83.03  (Δ 4.54, 5.5%)  [mp TA00001]",
+      "n_cells": 500,
+      "n_modelpoints": 25,
+      "source_component": null,
+      "t_first": 0,
+      "t_range": [
+        0,
+        29
+      ],
+      "worst": {
+        "a": 584.5449,
+        "abs": 32.555700000000115,
+        "b": 617.1006000000001,
+        "category": "value",
+        "mp_key": "TA00015",
+        "mp_row": 14,
+        "rel": 0.05275590398064774,
+        "t": 0
+      }
+    }
+  ],
+  "format": "pvf/1",
+  "kind": "rundiff",
+  "mapping": null,
+  "structural": {
+    "modelpoints_only_in_a": [],
+    "modelpoints_only_in_b": [],
+    "only_in_a": [],
+    "only_in_b": []
+  },
+  "summary": {
+    "cells": {
+      "absorbed_by_override": 0,
+      "compared": 7325,
+      "diverged": 1575,
+      "max_abs": 341.6331667041959,
+      "max_rel": 1.9394734775756466
+    },
+    "components": {
+      "a": 13,
+      "b": 13,
+      "common": 13,
+      "only_a": 0,
+      "only_b": 0
+    },
+    "emit_mismatch": null,
+    "first_divergence": {
+      "component": "model.premium_income",
+      "mp_key": "TA00001",
+      "t": 0
+    },
+    "graph_available": true,
+    "incomparable": [],
+    "model_attribution_available": true,
+    "modelpoints": {
+      "a": 25,
+      "b": 25,
+      "common": 25,
+      "only_a": 0,
+      "only_b": 0
+    },
+    "outputs": [
+      {
+        "a_total": -9086.458386195227,
+        "abs": 2959.924118915558,
+        "b_total": -12046.382505110785,
+        "component": "model.bel",
+        "rel": 0.24571062040075384,
+        "within_tolerance": false
+      },
+      {
+        "a_total": 102484.45571493501,
+        "abs": 0.0,
+        "b_total": 102484.45571493501,
+        "component": "model.death_claims",
+        "rel": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "a_total": 0.885428668068027,
+        "abs": 0.0,
+        "b_total": 0.885428668068027,
+        "component": "model.deaths",
+        "rel": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "a_total": 13051.935000000003,
+        "abs": 0.0,
+        "b_total": 13051.935000000003,
+        "component": "model.initial_expense",
+        "rel": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "a_total": 13430.607381286838,
+        "abs": 3982.581235028447,
+        "b_total": 17413.188616315285,
+        "component": "model.net_cashflow",
+        "rel": 0.22871062404371867,
+        "within_tolerance": false
+      },
+      {
+        "a_total": 132752.70783428382,
+        "abs": 3982.581235028425,
+        "b_total": 136735.28906931225,
+        "component": "model.premium_income",
+        "rel": 0.029126213592232372,
+        "within_tolerance": false
+      },
+      {
+        "a_total": 3.790183864013108,
+        "abs": 0.6177616350287476,
+        "b_total": 4.407945499041856,
+        "component": "model.profit_margin",
+        "rel": 0.1401472942809817,
+        "within_tolerance": false
+      },
+      {
+        "a_total": 64023.41737141721,
+        "abs": 0.0,
+        "b_total": 64023.41737141721,
+        "component": "model.pv_claims",
+        "rel": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "a_total": 12502.326539572357,
+        "abs": 0.0,
+        "b_total": 12502.326539572357,
+        "component": "model.pv_expenses",
+        "rel": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "a_total": 98664.13729718477,
+        "abs": 2959.924118915602,
+        "b_total": 101624.06141610038,
+        "component": "model.pv_premiums",
+        "rel": 0.02912621359223357,
+        "within_tolerance": false
+      },
+      {
+        "a_total": 16837.644738061954,
+        "abs": 0.0,
+        "b_total": 16837.644738061954,
+        "component": "model.renewal_expenses",
+        "rel": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "a_total": 505507.3878218865,
+        "abs": 33201.355981114146,
+        "b_total": 472306.03184077237,
+        "component": "model.reserve",
+        "rel": 0.06567926954375691,
+        "within_tolerance": false
+      },
+      {
+        "a_total": 15.764103463409837,
+        "abs": 0.0,
+        "b_total": 15.764103463409837,
+        "component": "model.surrenders",
+        "rel": 0.0,
+        "within_tolerance": true
+      }
+    ],
+    "root_divergences": 1,
+    "verdict": "diverged"
+  },
+  "tolerance": {
+    "abs": 0.005,
+    "by_component": {},
+    "by_unit": {
+      "count": {
+        "abs": 1e-6,
+        "rel": 1e-9
+      },
+      "factor": {
+        "abs": 1e-10,
+        "rel": 1e-10
+      },
+      "money": {
+        "abs": 0.005,
+        "rel": 1e-6
+      },
+      "prob": {
+        "abs": 1e-9,
+        "rel": 1e-9
+      }
+    },
+    "loosened": 0,
+    "money_dp": 2,
+    "overrides_applied": [
+      {
+        "abs": 0.005,
+        "component": "model.bel",
+        "looser": false,
+        "note": null,
+        "rel": 1e-6,
+        "rule": "by_unit[money]"
+      },
+      {
+        "abs": 0.005,
+        "component": "model.death_claims",
+        "looser": false,
+        "note": null,
+        "rel": 1e-6,
+        "rule": "by_unit[money]"
+      },
+      {
+        "abs": 1e-6,
+        "component": "model.deaths",
+        "looser": false,
+        "note": null,
+        "rel": 1e-9,
+        "rule": "by_unit[count]"
+      },
+      {
+        "abs": 0.005,
+        "component": "model.initial_expense",
+        "looser": false,
+        "note": null,
+        "rel": 1e-6,
+        "rule": "by_unit[money]"
+      },
+      {
+        "abs": 0.005,
+        "component": "model.net_cashflow",
+        "looser": false,
+        "note": null,
+        "rel": 1e-6,
+        "rule": "by_unit[money]"
+      },
+      {
+        "abs": 0.005,
+        "component": "model.premium_income",
+        "looser": false,
+        "note": null,
+        "rel": 1e-6,
+        "rule": "by_unit[money]"
+      },
+      {
+        "abs": 0.005,
+        "component": "model.pv_claims",
+        "looser": false,
+        "note": null,
+        "rel": 1e-6,
+        "rule": "by_unit[money]"
+      },
+      {
+        "abs": 0.005,
+        "component": "model.pv_expenses",
+        "looser": false,
+        "note": null,
+        "rel": 1e-6,
+        "rule": "by_unit[money]"
+      },
+      {
+        "abs": 0.005,
+        "component": "model.pv_premiums",
+        "looser": false,
+        "note": null,
+        "rel": 1e-6,
+        "rule": "by_unit[money]"
+      },
+      {
+        "abs": 0.005,
+        "component": "model.renewal_expenses",
+        "looser": false,
+        "note": null,
+        "rel": 1e-6,
+        "rule": "by_unit[money]"
+      },
+      {
+        "abs": 0.005,
+        "component": "model.reserve",
+        "looser": false,
+        "note": null,
+        "rel": 1e-6,
+        "rule": "by_unit[money]"
+      },
+      {
+        "abs": 1e-6,
+        "component": "model.surrenders",
+        "looser": false,
+        "note": null,
+        "rel": 1e-9,
+        "rule": "by_unit[count]"
+      }
+    ],
+    "profile": "reconcile",
+    "rel": 1e-6
+  }
+}

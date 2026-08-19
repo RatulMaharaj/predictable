@@ -1,0 +1,303 @@
+# Reading Prophet files
+
+`predictable-prophet` reads the three Prophet artefacts a migration has to consume — model point
+files (`.MPF`), factor tables (`.fac`) and results files (`.rpt`) — and turns each into a value
+plus a list of diagnostics. It is **read-only**: predictable never writes Prophet formats.
+
+Normative source: [`04-verify.md` §4](https://github.com/ratulmaharaj/predictable). Every rule on
+this page is tested in `crates/predictable-prophet/tests/`.
+
+## One shape, three readers
+
+```rust
+read_mpf(bytes, file, &MpfOptions) -> Read<MpfFile>
+read_fac(bytes, file)              -> Read<FacTable>
+read_rpt(bytes, file, &RptOptions) -> Read<RptResults>
+```
+
+Each is a **pure function of the bytes**. No file system, no globals, no `Err`, and no panic: a
+file that cannot be interpreted at all comes back as an empty value with at least one
+`Severity::Error` diagnostic. That totality is enforced by property tests that throw arbitrary
+bytes, Prophet-shaped noise and known-awkward inputs at all three readers
+(`tests/fuzz.rs`); one of them found a real `i64` overflow in a `.fac` dimension extent before this
+page was written.
+
+```rust
+use predictable_prophet::{read_mpf, Cell, MpfOptions};
+
+let read = read_mpf(&bytes, "data/term.mpf", &MpfOptions::default());
+if read.has_errors() {
+    // `read.diagnostics` is the same JSON shape as `predictable check --json`
+}
+for column in &read.value.columns {
+    println!("{} <- {}", column.name, column.source_name);
+}
+```
+
+`Read::diagnostics` uses the standard diagnostic value — `{code, severity, message, spans,
+suggestions, doc_url}` — with codes in the `P0xxx` range and **byte offsets into the original
+file**. The scanners work on raw bytes and decode only field slices, so an offset always points at
+the file the user has on disk, even for a Windows-1252 file.
+
+## What the readers refuse to do
+
+Most of the value here is in the guesses that are declined. Each of these is silent, plausible, and
+wrong often enough to cost a week of reconciliation.
+
+| Refusal | Code | Why |
+|---|---|---|
+| Guess `DD/MM` vs `MM/DD` | `P0109` | `01/02/2024` is two different dates |
+| Pad or truncate a `.fac` value block | `P0203` | A short table is a wrong table, not a small one |
+| Guess a `.rpt` period base | `P0302` | An off-by-one in `t` diffs at *every* timestep |
+| Infer `money` from a column name | `W0102` | The whole point of declared units |
+| Choose between two column-name sources | `P0103` | Both are listed; you decide |
+
+Each refusal is recoverable by *stating* the answer — as an option, or in `migration/mapping.toml`
+— which turns it into a reviewed decision recorded in the run.
+
+## `.MPF` — model points
+
+```text
+! Term assurance model points, 2026-06-30
+MPF_VERSION,3
+OUTPUT_FORMAT, .......
+VARIABLE_TYPES,I,S,N,S,B,N,N,I,T,D
+NUMLINES,4
+SPCODE,POL_NUM,AGE_AT_ENTRY,SEX,SMOKER,SUM_ASSURED,ANN_PREM,POL_TERM,PROD_CD,ENTRY_DATE
+*,1,POL00042,47,M,N,"100,000",540.00,25,TERM01,20240601
+```
+
+**The column-name line is the last non-`*`, non-comment line before the first `*` row that is not
+a recognised header key.** Different Prophet releases either carry the names as the payload of
+`OUTPUT_FORMAT` or put them on a bare line of their own, and none of them says which — so the
+reader positions the names structurally. When both forms are present and disagree, that is
+`P0103` and both are printed.
+
+Reading the file above:
+
+```rust
+let read = read_mpf(&bytes, "data/term10.mpf", &MpfOptions::default());
+
+assert_eq!(read.value.columns.len(), 10);
+assert_eq!(read.value.cell(0, "sum_assured"), Some(&Cell::Float(100_000.0)));  // quotes + separator
+assert_eq!(read.value.cell(0, "smoker"), Some(&Cell::Bool(false)));            // `B`: N -> false
+assert_eq!(read.value.cell(0, "entry_date"), Some(&Cell::Date("2024-06-01".into())));
+```
+
+Other rules worth knowing:
+
+* **Encoding never fails a read.** Invalid UTF-8 is decoded as Windows-1252 with a `P0101` warning
+  naming the first offending byte offset. CRLF, LF and lone CR all work; a UTF-8 BOM is skipped.
+* **Type letters** map `I → i64`, `N → f64`, `S`/`T → str`, `D → date`, `B → bool`. A
+  `VARIABLE_TYPES` line whose length differs from the name line is `P0104`, and every column falls
+  back to `str` rather than being shifted by one.
+* **Rows are checked, never repaired.** A short row is `P0105`, a long row `P0106`, and the row is
+  skipped: no padding, no truncation. `NUMLINES` disagreeing with reality is `P0107` — the data
+  wins.
+* **Numbers** may carry thousands separators, a leading `+`, or a trailing `%` (divided by 100,
+  reported once per column as `P0108`). An empty field is null, not zero; a null in a `required`
+  field is an error at *load* time, not import time.
+* **`unit` is left as `none`** on every numeric column, with one `W0102` lint each. Filling them in
+  is an explicit review step.
+
+The reader emits a modelpoint CSV and a `[[modelpoint_field]]` fragment:
+
+```toml
+# generated by `predictable prophet mpf` from data/term10.mpf
+# review: set `unit` on every numeric field, and mark exactly one field `key = true`.
+
+[[modelpoint_field]]
+name = "sum_assured"
+dtype = "f64"
+unit = "none"
+required = true
+key = false
+meta.source = { file = "data/term10.mpf", column = "SUM_ASSURED", type_letter = "N" }
+```
+
+Every `S`/`T` column also gets its distinct value set (capped at 64) proposed as an `[[enum]]`. The
+one case adopted without asking is a column whose values are exactly `{M, F}`, which becomes
+`enum(Gender)`; everything else is written commented out, for you to accept.
+
+### Dates
+
+`YYYYMMDD` and `YYYY-MM-DD` are unambiguous. For slash dates the reader looks for evidence — a
+first component above 12 can only be a day — and uses `DATE_FORMAT` when the file sets it. When
+neither settles it, no date is guessed:
+
+```rust
+let read = read_mpf(b"VARIABLE_TYPES,S,D\nPOL_NUM,D1\n*,P1,01/02/2024\n", "x.mpf",
+                    &MpfOptions::default());
+assert_eq!(read.value.date_order, DateOrder::Unknown);   // P0109, severity error
+
+let read = read_mpf(src, "x.mpf", &MpfOptions { date_order: Some(DateOrder::DayFirst) });
+assert_eq!(read.value.cell(0, "d1"), Some(&Cell::Date("2024-02-01".into())));
+```
+
+## `.fac` — factor tables
+
+```text
+! Mortality SA8990
+TABLE_NAME, SA8990
+DIMENSIONS, 3
+DIM1, AGE, 40, 42
+DIM2, SEX, 1, 2
+DIM3, SMOKER, 0, 1
+DATA
+0.001000, 0.002500, 0.000700, 0.001750
+...
+```
+
+**Values are row-major with the *last* dimension varying fastest**, extents are inclusive, and the
+value count must equal `∏(HIₖ − LOₖ + 1)` exactly.
+
+```rust
+let read = read_fac(&bytes, "tables/sa8990.fac");
+assert_eq!(read.value.key_at(0), vec![40, 1, 0]);
+assert_eq!(read.value.key_at(1), vec![40, 1, 1]);   // SMOKER moves first
+assert_eq!(read.value.key_at(4), vec![41, 1, 0]);
+assert_eq!(read.value.values_at(1), &[0.0025]);
+```
+
+Because a transposed mortality table is silent, the reader restates the ordering as a `P0202` info
+diagnostic with a corner of the table already resolved:
+
+```text
+info[P0202]: values read row-major with `SMOKER` varying fastest:
+  (age=40, sex=1, smoker=0) -> 0.001; (age=40, sex=1, smoker=1) -> 0.0025;
+  (age=40, sex=2, smoker=0) -> 0.0007; (age=40, sex=2, smoker=1) -> 0.00175
+```
+
+Check those four numbers against the source and the orientation question is closed. A count
+mismatch is `P0203` and states the shortfall exactly:
+
+```text
+error[P0203]: expected 6 value(s) (6 cell(s) × 1 value column(s)) but found 4: 2 missing
+```
+
+Multi-value tables (`VALUES, qx, ix`) split into named value columns. Output is a long-format CSV
+plus a `[[table]]` fragment carrying the digest of that CSV — the table's identity in the IR:
+
+```toml
+[[table]]
+name = "sa8990"
+keys = [
+  { name = "age", dtype = "i64", policy = "clamp" },
+  { name = "sex", dtype = "i64", policy = "exact" },
+  { name = "smoker", dtype = "i64", policy = "exact" },
+]
+values = [
+  { name = "value", dtype = "f64", unit = "none" },
+]
+on_missing = "error"
+source = "tables/sa8990.csv"
+digest = "sha256:…"
+rows = 12
+```
+
+`clamp` is proposed for the first dimension and `exact` for the rest — and each proposal is a
+`P0204` info diagnostic, so a defaulted policy can never disappear into a file unreviewed.
+
+## `.rpt` — the reconciliation target
+
+```text
+! Prophet results
+RUN, TERM_BASE_2026Q2
+PRODUCT, TERM_UK
+TIME_UNITS, MONTHS
+NUM_PERIODS, 3
+SPCODE,POL_NUM,PERIOD,PREM_INC,DTH_CLAIM,BEL_TOT
+1,POL00042,1,540.00,12.50,12744.51
+```
+
+The period column is found by name from `{PERIOD, T, TIME, MONTH, YEAR, DURATION}`; without one the
+file cannot be diffed by timestep and the reader stops with `P0301`. Columns whose values are all
+numeric become components; a single non-numeric column becomes the model point key. Several
+candidates is `P0305` (say which), none is `P0304` (the file is aggregate-level and diffs at group
+level).
+
+Then the expensive question. A 1-based file with no stated base is refused:
+
+```rust
+let read = read_rpt(&bytes, "prophet/term_run.rpt", &RptOptions::default());
+// error[P0302]: period column `PERIOD` runs 1..3; the period base is not stated
+//   help: pass `--period-base 1` … if period 1 is the model's `t = 0`
+assert!(read.value.rows.is_empty());     // nothing is rebased on a guess
+```
+
+State it, and the file reads as a result set:
+
+```rust
+let read = read_rpt(&bytes, "prophet/term_run.rpt", &RptOptions {
+    period_base: Some(1),
+    timeline_basis: Some(Basis::Monthly),
+    component_names: BTreeMap::from([
+        ("PREM_INC".into(), "term_assurance.premium_income".into()),
+        ("BEL_TOT".into(),  "term_assurance.bel".into()),
+    ]),
+    ..RptOptions::default()
+});
+
+assert_eq!(read.value.rows[0].t, 0);                       // period 1 -> t = 0
+assert_eq!(read.value.value(0, "term_assurance.bel"), Some(12_744.51));
+```
+
+Unmapped columns keep their Prophet identity as `prophet.<name>`, so nothing is quietly dropped and
+nothing is quietly renamed. `TIME_UNITS` is checked against the IR timeline basis (`P0303`).
+
+## A Prophet run is a real run directory
+
+The point of all this is that `predictable diff run_prophet/ run/` should be the *same code path*
+as diffing two predictable runs. So the import writes a real run directory:
+
+```rust
+use predictable_prophet::{write_run_dir, ImportOptions};
+
+let manifest = write_run_dir(&read.value, "run_prophet/", &bytes, &ImportOptions {
+    module: Some("term_assurance".into()),
+    ..ImportOptions::default()
+})?;
+
+assert_eq!(manifest.system, "prophet");
+assert!(manifest.verify_digest()?);
+```
+
+That produces `results.parquet` in the standard long-format schema, `results.schema.json`, and a
+`manifest.json` with:
+
+* `system = "prophet"` and `inputs.modelpoints.source = {system, file, digest}` — the `.rpt` and its
+  SHA-256;
+* everything the `.rpt` did not disclose written as an explicit `null` or `"unknown"` (engine git
+  sha, CLI version, the machine that ran Prophet) rather than omitted or invented;
+* component descriptors with `timing = null`, because a `.rpt` never says whether a column is
+  start-, mid- or end-of-period — and inventing one would silently justify a timing shift that the
+  diff should be reporting instead.
+
+An unresolved period base refuses to become a run at all: a `t` axis made of guesses is not
+evidence.
+
+## Diagnostic codes
+
+| Code | Severity | Meaning |
+|---|---|---|
+| `P0101` | warning | not valid UTF-8; decoded as Windows-1252 |
+| `P0102` | info | unrecognised header key retained verbatim |
+| `P0103` | error | `OUTPUT_FORMAT` disagrees with the name line |
+| `P0104` | error | `VARIABLE_TYPES` length differs from the name line |
+| `P0105` / `P0106` | error | short / long data row |
+| `P0107` | warning | `NUMLINES` disagrees with the actual row count |
+| `P0108` | info | percentage column divided by 100 |
+| `P0109` | error | ambiguous date format |
+| `P0110` | error | no column-name line, or no data rows |
+| `P0111` | error | value does not parse as its declared type |
+| `P0201` | error | malformed `.fac` dimension declaration |
+| `P0202` | info | `.fac` key ordering, restated |
+| `P0203` | error | `.fac` value count does not match the extents |
+| `P0204` | info | lookup policy proposed for a dimension |
+| `P0301` | error | `.rpt` has no period axis |
+| `P0302` | error | `.rpt` period base not stated |
+| `P0303` | error | `TIME_UNITS` does not match the timeline basis |
+| `P0304` | info | `.rpt` is aggregate-level |
+| `P0305` | error | `.rpt` model point key column is ambiguous |
+
+Full catalogue, with anchors every `doc_url` resolves to: [diagnostics](../llm/diagnostics.md).

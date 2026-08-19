@@ -1,0 +1,48 @@
+name: wheels
+
+# T17 — `predictable-py`: build the abi3 wheel with maturin and run the Python test
+# suite against the *installed wheel*, not against a source tree. Testing the wheel is
+# the point: the extension module is what users import.
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  test:
+    name: wheel / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          # abi3-py39: one wheel per platform covers every Python >= 3.9, so the
+          # matrix is over platforms, not interpreters.
+          python-version: "3.11"
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install build and test dependencies
+        run: python -m pip install --upgrade pip maturin pytest pyarrow pandas
+
+      - name: Build the abi3 wheel
+        run: maturin build --release -m crates/predictable-py/Cargo.toml --out dist
+
+      - name: Install the wheel
+        shell: bash
+        run: python -m pip install --force-reinstall dist/*.whl
+
+      - name: Test the installed wheel
+        run: python -m pytest crates/predictable-py/tests -q
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wheel-${{ matrix.os }}
+          path: dist/*.whl

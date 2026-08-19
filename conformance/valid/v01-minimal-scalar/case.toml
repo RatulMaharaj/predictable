@@ -1,0 +1,9 @@
+name    = "v01-minimal-scalar"
+kind    = "valid"
+title   = "The smallest well-formed module, product, assumption set and run"
+spec    = ["01-ir.md §2.2", "01-ir.md §2.3", "01-ir.md §5", "01-ir.md §8.4.1", "01-ir.md §8.4.2"]
+entry   = ["model.pir"]
+product = "product.pir"
+run     = "run.pir"
+runtime = false
+fmt     = true

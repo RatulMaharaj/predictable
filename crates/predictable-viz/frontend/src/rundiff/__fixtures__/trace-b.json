@@ -1,0 +1,285 @@
+{
+  "format": "pvf/1",
+  "kind": "trace",
+  "notes": [
+    {
+      "code": "N0302",
+      "component": "model.premium_rate",
+      "message": "`premium_rate` used its `init` at t = 0",
+      "path": "root.children[0].children[0].children[0].children[0]",
+      "severity": "info",
+      "t": 0
+    },
+    {
+      "code": "N0302",
+      "component": "model.num_pols_if",
+      "message": "`num_pols_if` used its `init` at t = 0",
+      "path": "root.children[0].children[0].children[1].children[0]",
+      "severity": "info",
+      "t": 0
+    }
+  ],
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "dtype": "f64",
+                            "kind": "Modelpoint",
+                            "node": "Input",
+                            "path": "root.children[0].children[0].children[0].children[0].children[0].children[0]",
+                            "ref": "annual_premium",
+                            "source": {
+                              "column": "annual_premium",
+                              "file": "bad/data/modelpoints.csv",
+                              "row": 0
+                            },
+                            "unit": "money",
+                            "value": 151.39
+                          },
+                          {
+                            "children": [
+                              {
+                                "dtype": "i64",
+                                "node": "Lit",
+                                "path": "root.children[0].children[0].children[0].children[0].children[0].children[1].children[0]",
+                                "value": 1.0
+                              },
+                              {
+                                "dtype": "f64",
+                                "kind": "Assumption",
+                                "node": "Input",
+                                "path": "root.children[0].children[0].children[0].children[0].children[0].children[1].children[1]",
+                                "ref": "premium_escalation",
+                                "source": {
+                                  "assumption_set": "base",
+                                  "file": "bad/base.pir"
+                                },
+                                "unit": "rate(annual)",
+                                "value": 0.03
+                              }
+                            ],
+                            "node": "Binary",
+                            "op": "+",
+                            "path": "root.children[0].children[0].children[0].children[0].children[0].children[1]",
+                            "value": 1.03
+                          }
+                        ],
+                        "node": "Binary",
+                        "op": "*",
+                        "path": "root.children[0].children[0].children[0].children[0].children[0]",
+                        "value": 155.93169999999998
+                      }
+                    ],
+                    "dtype": "f64",
+                    "expr": "annual_premium * (1 + premium_escalation)",
+                    "id": "model.premium_rate",
+                    "node": "Component",
+                    "note": "N0302",
+                    "path": "root.children[0].children[0].children[0].children[0]",
+                    "resolution": "init",
+                    "shape": "Series",
+                    "stage": 1,
+                    "t": 0,
+                    "timing": "start",
+                    "unit": "money",
+                    "value": 155.93169999999998
+                  }
+                ],
+                "kind": "Derived",
+                "node": "Ref",
+                "path": "root.children[0].children[0].children[0]",
+                "ref": "model.premium_rate",
+                "resolution": "computed",
+                "t": 0,
+                "timing": "start",
+                "unit": "money",
+                "value": 155.93169999999998
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "dtype": "f64",
+                        "node": "Lit",
+                        "path": "root.children[0].children[0].children[1].children[0].children[0]",
+                        "value": 1.0
+                      }
+                    ],
+                    "dtype": "f64",
+                    "expr": "1.0",
+                    "id": "model.num_pols_if",
+                    "node": "Component",
+                    "note": "N0302",
+                    "path": "root.children[0].children[0].children[1].children[0]",
+                    "resolution": "init",
+                    "shape": "Series",
+                    "stage": 1,
+                    "t": 0,
+                    "timing": "start",
+                    "unit": "count",
+                    "value": 1.0
+                  }
+                ],
+                "kind": "Derived",
+                "node": "Ref",
+                "path": "root.children[0].children[0].children[1]",
+                "ref": "model.num_pols_if",
+                "resolution": "computed",
+                "t": 0,
+                "timing": "start",
+                "unit": "count",
+                "value": 1.0
+              }
+            ],
+            "node": "Binary",
+            "op": "*",
+            "path": "root.children[0].children[0]",
+            "value": 155.93169999999998
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "dtype": "i64",
+                                    "kind": "Timeline",
+                                    "node": "Input",
+                                    "path": "root.children[0].children[1].children[0].children[0].children[0].children[0].children[0].children[0]",
+                                    "ref": "t",
+                                    "t": 0,
+                                    "unit": "none",
+                                    "value": 0.0
+                                  },
+                                  {
+                                    "dtype": "i64",
+                                    "kind": "Modelpoint",
+                                    "node": "Input",
+                                    "path": "root.children[0].children[1].children[0].children[0].children[0].children[0].children[0].children[1]",
+                                    "ref": "policy_term",
+                                    "source": {
+                                      "column": "policy_term",
+                                      "file": "bad/data/modelpoints.csv",
+                                      "row": 0
+                                    },
+                                    "unit": "years",
+                                    "value": 10.0
+                                  }
+                                ],
+                                "node": "Binary",
+                                "op": "<",
+                                "path": "root.children[0].children[1].children[0].children[0].children[0].children[0].children[0]",
+                                "value": 1.0
+                              }
+                            ],
+                            "dtype": "bool",
+                            "expr": "t < policy_term",
+                            "id": "model.in_term",
+                            "node": "Component",
+                            "path": "root.children[0].children[1].children[0].children[0].children[0].children[0]",
+                            "shape": "Series",
+                            "stage": 1,
+                            "t": 0,
+                            "timing": "start",
+                            "unit": "none",
+                            "value": 1.0
+                          }
+                        ],
+                        "kind": "Derived",
+                        "node": "Ref",
+                        "path": "root.children[0].children[1].children[0].children[0].children[0]",
+                        "ref": "model.in_term",
+                        "resolution": "computed",
+                        "t": 0,
+                        "timing": "start",
+                        "unit": "none",
+                        "value": 1.0
+                      },
+                      {
+                        "dtype": "f64",
+                        "node": "Lit",
+                        "path": "root.children[0].children[1].children[0].children[0].children[1]",
+                        "value": 1.0
+                      },
+                      {
+                        "dtype": "f64",
+                        "node": "Lit",
+                        "path": "root.children[0].children[1].children[0].children[0].children[2]",
+                        "value": 0.0
+                      }
+                    ],
+                    "node": "If",
+                    "path": "root.children[0].children[1].children[0].children[0]",
+                    "taken": "then",
+                    "value": 1.0
+                  }
+                ],
+                "dtype": "f64",
+                "expr": "if(in_term, 1.0, 0.0)",
+                "id": "model.in_force_factor",
+                "node": "Component",
+                "path": "root.children[0].children[1].children[0]",
+                "shape": "Series",
+                "stage": 1,
+                "t": 0,
+                "timing": "start",
+                "unit": "factor",
+                "value": 1.0
+              }
+            ],
+            "kind": "Derived",
+            "node": "Ref",
+            "path": "root.children[0].children[1]",
+            "ref": "model.in_force_factor",
+            "resolution": "computed",
+            "t": 0,
+            "timing": "start",
+            "unit": "factor",
+            "value": 1.0
+          }
+        ],
+        "node": "Binary",
+        "op": "*",
+        "path": "root.children[0]",
+        "value": 155.93169999999998
+      }
+    ],
+    "dtype": "f64",
+    "expr": "premium_rate * num_pols_if * in_force_factor",
+    "id": "model.premium_income",
+    "modelpoint": {
+      "key": "TA00001",
+      "row": 0
+    },
+    "node": "Component",
+    "path": "root",
+    "shape": "Series",
+    "stage": 1,
+    "t": 0,
+    "timing": "start",
+    "unit": "money",
+    "value": 155.93169999999998
+  },
+  "run": "sha256:14fab3b6371fed98710fa26c4dc33d18db156b302dbba5d6075b2ecbccc1fc3c",
+  "truncated": {
+    "depth": 2,
+    "elided_nodes": 0
+  }
+}

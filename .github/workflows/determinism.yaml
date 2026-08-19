@@ -1,0 +1,52 @@
+# The determinism gate (03-engine.md §7 clause 7).
+#
+# The goldens in crates/predictable-determinism/golden/ were generated on aarch64 macOS and are
+# asserted unchanged on every platform below. There is one golden per case, not one per target:
+# byte-identical output across targets is the requirement, so a per-target golden would encode
+# the divergence the corpus exists to forbid.
+name: determinism
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest    # x86_64-unknown-linux-gnu
+          - os: macos-14         # aarch64-apple-darwin (where the goldens were generated)
+          - os: macos-15-intel   # x86_64-apple-darwin (macos-13 runners are retired)
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Determinism suite
+        run: cargo test -p predictable-determinism -- --nocapture
+      - name: Survey (informational)
+        if: failure()
+        run: cargo run -p predictable-determinism --example divergence_survey
+
+  # wasm32-wasip1 under wasmtime. Kept separate and non-blocking until the engine moves off the
+  # platform libm (§7 clause 4): `exp`/`ln`/`pow` are currently std, so the transcendental golden
+  # is expected to move here, and a red-by-design job teaches people to ignore the gate.
+  wasm:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasip1
+      - uses: bytecodealliance/actions/wasmtime/setup@v1
+      - name: Determinism suite under wasmtime
+        env:
+          # Preopen the workspace root (not `.`): the harness locates the
+          # conformance corpus via the absolute CARGO_MANIFEST_DIR baked in at
+          # compile time, which lives under the workspace.
+          CARGO_TARGET_WASM32_WASIP1_RUNNER: wasmtime run --dir=${{ github.workspace }}
+        run: cargo test -p predictable-determinism --target wasm32-wasip1

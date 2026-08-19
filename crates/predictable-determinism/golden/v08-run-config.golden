@@ -1,0 +1,236 @@
+# predictable determinism golden
+# generated on: aarch64-unix-macos
+# regenerate with: UPDATE_GOLDEN=1 cargo test -p predictable-determinism
+case v08-run-config
+modelpoints <synthetic>
+modelpoint_digest sha256:bb633f101d7049eb39199650a0f5ae1fb824be9580b8671d24c88cfc47ec6595
+model_digest sha256:a78257f5f80c75e8b8592b10bef268e2cc5154ad89cc7a63ef69fa76bfcf3d97
+order_digest a89564eba38654149194e03f273032dddaeb25160bdd407b4ab5fd010f6e7de2
+plan_digest c90897716f2a582f293148ec195c3d408ff5def1047bbc2d3057fc4cca3265d8
+tape_digest 2edcc86c254490ad4ed6a9c904ef6df4c2d70a5452190bb13ffb56ec6e20b16f
+periods 20
+order policy_number product_code gender sum_assured annual_premium in_force valuation_rate qx_flat in_force_at_val t period_start_date period_end_date year_frac month_of_year policy_year policy_month is_anniversary num_pols_if disc_factor premium_income death_claims bel
+assumption qx_flat 0x3f60624dd2f1a9fc 0.002
+assumption valuation_rate 0x3fa1eb851eb851ec 0.035
+outcome Completed exit=0
+projected 4 trapped 0 traps 0
+MP00001 solved.num_pols_if 0 0x3ff0000000000000 1.0
+MP00001 solved.num_pols_if 1 0x3fefef9db22d0e56 0.998
+MP00001 solved.num_pols_if 2 0x3fefdf43c7d5ed07 0.996004
+MP00001 solved.num_pols_if 3 0x3fefcef23caf1919 0.994011992
+MP00001 solved.num_pols_if 4 0x3fefbea90c6f4285 0.992023968016
+MP00001 solved.num_pols_if 5 0x3fefae6832cf4b17 0.990039920079968
+MP00001 solved.num_pols_if 6 0x3fef9e2fab8a454f 0.9880598402398081
+MP00001 solved.num_pols_if 7 0x3fef8dff725d7340 0.9860837205593285
+MP00001 solved.num_pols_if 8 0x3fef7dd783084574 0.9841115531182099
+MP00001 solved.num_pols_if 9 0x3fef6db7d94c59cb 0.9821433300119734
+MP00001 solved.num_pols_if 10 0x3fef5da070ed7a62 0.9801790433519495
+MP00001 solved.num_pols_if 11 0x3fef4d9145b19c71 0.9782186852652456
+MP00001 solved.num_pols_if 12 0x3fef3d8a5360df33 0.976262247894715
+MP00001 solved.num_pols_if 13 0x3fef2d8b95c58ac9 0.9743097233989256
+MP00001 solved.num_pols_if 14 0x3fef1d9508ac0f1e 0.9723611039521278
+MP00001 solved.num_pols_if 15 0x3fef0da6a7e302cd 0.9704163817442236
+MP00001 solved.num_pols_if 16 0x3feefdc06f3b2207 0.9684755489807352
+MP00001 solved.num_pols_if 17 0x3feeede25a874d7b 0.9665385978827737
+MP00001 solved.num_pols_if 18 0x3feede0c659c893b 0.9646055206870082
+MP00001 solved.num_pols_if 19 0x3feece3e8c51fba5 0.9626763096456342
+MP00001 solved.num_pols_if 20 0x3feebe78ca80ec4b 0.9607509570263429
+MP00001 solved.bel . 0xc136c4487b234fe6 -1492040.48100757
+MP00001 solved.disc_factor 0 0x3ff0000000000000 1.0
+MP00001 solved.disc_factor 1 0x3feeeaf9d1013c9a 0.9661835748792271
+MP00001 solved.disc_factor 2 0x3feddf51d51145af 0.933510700366403
+MP00001 solved.disc_factor 3 0x3fecdcb6f2f6b795 0.9019427056680224
+MP00001 solved.disc_factor 4 0x3febe2dacf8a333b 0.8714422276985724
+MP00001 solved.disc_factor 5 0x3feaf171b5f88a8b 0.8419731668585241
+MP00001 solved.disc_factor 6 0x3fea083280d2748c 0.8135006443077528
+MP00001 solved.disc_factor 7 0x3fe926d683e2d605 0.7859909606838192
+MP00001 solved.disc_factor 8 0x3fe84d1976c4e785 0.7594115562162506
+MP00001 solved.disc_factor 9 0x3fe77ab96033bbd4 0.7337309721896141
+MP00001 solved.disc_factor 10 0x3fe6af76820ce200 0.7089188137097722
+MP00001 solved.disc_factor 11 0x3fe5eb134600147c 0.6849457137292485
+MP00001 solved.disc_factor 12 0x3fe52d542ae61b37 0.6617832982891291
+MP00001 solved.disc_factor 13 0x3fe475ffb2b93937 0.6394041529363567
+MP00001 solved.disc_factor 14 0x3fe3c4de5129af3e 0.6177817902766731
+MP00001 solved.disc_factor 15 0x3fe319ba5ac90c41 0.596890618624805
+MP00001 solved.disc_factor 16 0x3fe2745ff4c7322e 0.5767059117147875
+MP00001 solved.disc_factor 17 0x3fe1d49d053c21a5 0.5572037794345773
+MP00001 solved.disc_factor 18 0x3fe13a4123f9c9f0 0.5383611395503163
+MP00001 solved.disc_factor 19 0x3fe0a51d8be143ba 0.520155690386779
+MP00001 solved.disc_factor 20 0x3fe015050cb704d7 0.5025658844316706
+MP00001 solved.in_force_at_val . 0x3ff0000000000000 1.0
+MP00002 solved.num_pols_if 0 0x3ff0000000000000 1.0
+MP00002 solved.num_pols_if 1 0x3fefef9db22d0e56 0.998
+MP00002 solved.num_pols_if 2 0x3fefdf43c7d5ed07 0.996004
+MP00002 solved.num_pols_if 3 0x3fefcef23caf1919 0.994011992
+MP00002 solved.num_pols_if 4 0x3fefbea90c6f4285 0.992023968016
+MP00002 solved.num_pols_if 5 0x3fefae6832cf4b17 0.990039920079968
+MP00002 solved.num_pols_if 6 0x3fef9e2fab8a454f 0.9880598402398081
+MP00002 solved.num_pols_if 7 0x3fef8dff725d7340 0.9860837205593285
+MP00002 solved.num_pols_if 8 0x3fef7dd783084574 0.9841115531182099
+MP00002 solved.num_pols_if 9 0x3fef6db7d94c59cb 0.9821433300119734
+MP00002 solved.num_pols_if 10 0x3fef5da070ed7a62 0.9801790433519495
+MP00002 solved.num_pols_if 11 0x3fef4d9145b19c71 0.9782186852652456
+MP00002 solved.num_pols_if 12 0x3fef3d8a5360df33 0.976262247894715
+MP00002 solved.num_pols_if 13 0x3fef2d8b95c58ac9 0.9743097233989256
+MP00002 solved.num_pols_if 14 0x3fef1d9508ac0f1e 0.9723611039521278
+MP00002 solved.num_pols_if 15 0x3fef0da6a7e302cd 0.9704163817442236
+MP00002 solved.num_pols_if 16 0x3feefdc06f3b2207 0.9684755489807352
+MP00002 solved.num_pols_if 17 0x3feeede25a874d7b 0.9665385978827737
+MP00002 solved.num_pols_if 18 0x3feede0c659c893b 0.9646055206870082
+MP00002 solved.num_pols_if 19 0x3feece3e8c51fba5 0.9626763096456342
+MP00002 solved.num_pols_if 20 0x3feebe78ca80ec4b 0.9607509570263429
+MP00002 solved.bel . 0xc1399cd18a87b9e5 -1678545.5411335167
+MP00002 solved.disc_factor 0 0x3ff0000000000000 1.0
+MP00002 solved.disc_factor 1 0x3feeeaf9d1013c9a 0.9661835748792271
+MP00002 solved.disc_factor 2 0x3feddf51d51145af 0.933510700366403
+MP00002 solved.disc_factor 3 0x3fecdcb6f2f6b795 0.9019427056680224
+MP00002 solved.disc_factor 4 0x3febe2dacf8a333b 0.8714422276985724
+MP00002 solved.disc_factor 5 0x3feaf171b5f88a8b 0.8419731668585241
+MP00002 solved.disc_factor 6 0x3fea083280d2748c 0.8135006443077528
+MP00002 solved.disc_factor 7 0x3fe926d683e2d605 0.7859909606838192
+MP00002 solved.disc_factor 8 0x3fe84d1976c4e785 0.7594115562162506
+MP00002 solved.disc_factor 9 0x3fe77ab96033bbd4 0.7337309721896141
+MP00002 solved.disc_factor 10 0x3fe6af76820ce200 0.7089188137097722
+MP00002 solved.disc_factor 11 0x3fe5eb134600147c 0.6849457137292485
+MP00002 solved.disc_factor 12 0x3fe52d542ae61b37 0.6617832982891291
+MP00002 solved.disc_factor 13 0x3fe475ffb2b93937 0.6394041529363567
+MP00002 solved.disc_factor 14 0x3fe3c4de5129af3e 0.6177817902766731
+MP00002 solved.disc_factor 15 0x3fe319ba5ac90c41 0.596890618624805
+MP00002 solved.disc_factor 16 0x3fe2745ff4c7322e 0.5767059117147875
+MP00002 solved.disc_factor 17 0x3fe1d49d053c21a5 0.5572037794345773
+MP00002 solved.disc_factor 18 0x3fe13a4123f9c9f0 0.5383611395503163
+MP00002 solved.disc_factor 19 0x3fe0a51d8be143ba 0.520155690386779
+MP00002 solved.disc_factor 20 0x3fe015050cb704d7 0.5025658844316706
+MP00002 solved.in_force_at_val . 0x0000000000000000 0.0
+MP00003 solved.num_pols_if 0 0x3ff0000000000000 1.0
+MP00003 solved.num_pols_if 1 0x3fefef9db22d0e56 0.998
+MP00003 solved.num_pols_if 2 0x3fefdf43c7d5ed07 0.996004
+MP00003 solved.num_pols_if 3 0x3fefcef23caf1919 0.994011992
+MP00003 solved.num_pols_if 4 0x3fefbea90c6f4285 0.992023968016
+MP00003 solved.num_pols_if 5 0x3fefae6832cf4b17 0.990039920079968
+MP00003 solved.num_pols_if 6 0x3fef9e2fab8a454f 0.9880598402398081
+MP00003 solved.num_pols_if 7 0x3fef8dff725d7340 0.9860837205593285
+MP00003 solved.num_pols_if 8 0x3fef7dd783084574 0.9841115531182099
+MP00003 solved.num_pols_if 9 0x3fef6db7d94c59cb 0.9821433300119734
+MP00003 solved.num_pols_if 10 0x3fef5da070ed7a62 0.9801790433519495
+MP00003 solved.num_pols_if 11 0x3fef4d9145b19c71 0.9782186852652456
+MP00003 solved.num_pols_if 12 0x3fef3d8a5360df33 0.976262247894715
+MP00003 solved.num_pols_if 13 0x3fef2d8b95c58ac9 0.9743097233989256
+MP00003 solved.num_pols_if 14 0x3fef1d9508ac0f1e 0.9723611039521278
+MP00003 solved.num_pols_if 15 0x3fef0da6a7e302cd 0.9704163817442236
+MP00003 solved.num_pols_if 16 0x3feefdc06f3b2207 0.9684755489807352
+MP00003 solved.num_pols_if 17 0x3feeede25a874d7b 0.9665385978827737
+MP00003 solved.num_pols_if 18 0x3feede0c659c893b 0.9646055206870082
+MP00003 solved.num_pols_if 19 0x3feece3e8c51fba5 0.9626763096456342
+MP00003 solved.num_pols_if 20 0x3feebe78ca80ec4b 0.9607509570263429
+MP00003 solved.bel . 0xc13c755a99ec23e1 -1865050.6012594628
+MP00003 solved.disc_factor 0 0x3ff0000000000000 1.0
+MP00003 solved.disc_factor 1 0x3feeeaf9d1013c9a 0.9661835748792271
+MP00003 solved.disc_factor 2 0x3feddf51d51145af 0.933510700366403
+MP00003 solved.disc_factor 3 0x3fecdcb6f2f6b795 0.9019427056680224
+MP00003 solved.disc_factor 4 0x3febe2dacf8a333b 0.8714422276985724
+MP00003 solved.disc_factor 5 0x3feaf171b5f88a8b 0.8419731668585241
+MP00003 solved.disc_factor 6 0x3fea083280d2748c 0.8135006443077528
+MP00003 solved.disc_factor 7 0x3fe926d683e2d605 0.7859909606838192
+MP00003 solved.disc_factor 8 0x3fe84d1976c4e785 0.7594115562162506
+MP00003 solved.disc_factor 9 0x3fe77ab96033bbd4 0.7337309721896141
+MP00003 solved.disc_factor 10 0x3fe6af76820ce200 0.7089188137097722
+MP00003 solved.disc_factor 11 0x3fe5eb134600147c 0.6849457137292485
+MP00003 solved.disc_factor 12 0x3fe52d542ae61b37 0.6617832982891291
+MP00003 solved.disc_factor 13 0x3fe475ffb2b93937 0.6394041529363567
+MP00003 solved.disc_factor 14 0x3fe3c4de5129af3e 0.6177817902766731
+MP00003 solved.disc_factor 15 0x3fe319ba5ac90c41 0.596890618624805
+MP00003 solved.disc_factor 16 0x3fe2745ff4c7322e 0.5767059117147875
+MP00003 solved.disc_factor 17 0x3fe1d49d053c21a5 0.5572037794345773
+MP00003 solved.disc_factor 18 0x3fe13a4123f9c9f0 0.5383611395503163
+MP00003 solved.disc_factor 19 0x3fe0a51d8be143ba 0.520155690386779
+MP00003 solved.disc_factor 20 0x3fe015050cb704d7 0.5025658844316706
+MP00003 solved.in_force_at_val . 0x3ff0000000000000 1.0
+MP00004 solved.num_pols_if 0 0x3ff0000000000000 1.0
+MP00004 solved.num_pols_if 1 0x3fefef9db22d0e56 0.998
+MP00004 solved.num_pols_if 2 0x3fefdf43c7d5ed07 0.996004
+MP00004 solved.num_pols_if 3 0x3fefcef23caf1919 0.994011992
+MP00004 solved.num_pols_if 4 0x3fefbea90c6f4285 0.992023968016
+MP00004 solved.num_pols_if 5 0x3fefae6832cf4b17 0.990039920079968
+MP00004 solved.num_pols_if 6 0x3fef9e2fab8a454f 0.9880598402398081
+MP00004 solved.num_pols_if 7 0x3fef8dff725d7340 0.9860837205593285
+MP00004 solved.num_pols_if 8 0x3fef7dd783084574 0.9841115531182099
+MP00004 solved.num_pols_if 9 0x3fef6db7d94c59cb 0.9821433300119734
+MP00004 solved.num_pols_if 10 0x3fef5da070ed7a62 0.9801790433519495
+MP00004 solved.num_pols_if 11 0x3fef4d9145b19c71 0.9782186852652456
+MP00004 solved.num_pols_if 12 0x3fef3d8a5360df33 0.976262247894715
+MP00004 solved.num_pols_if 13 0x3fef2d8b95c58ac9 0.9743097233989256
+MP00004 solved.num_pols_if 14 0x3fef1d9508ac0f1e 0.9723611039521278
+MP00004 solved.num_pols_if 15 0x3fef0da6a7e302cd 0.9704163817442236
+MP00004 solved.num_pols_if 16 0x3feefdc06f3b2207 0.9684755489807352
+MP00004 solved.num_pols_if 17 0x3feeede25a874d7b 0.9665385978827737
+MP00004 solved.num_pols_if 18 0x3feede0c659c893b 0.9646055206870082
+MP00004 solved.num_pols_if 19 0x3feece3e8c51fba5 0.9626763096456342
+MP00004 solved.num_pols_if 20 0x3feebe78ca80ec4b 0.9607509570263429
+MP00004 solved.bel . 0xc13f4de3a9508dde -2051555.661385409
+MP00004 solved.disc_factor 0 0x3ff0000000000000 1.0
+MP00004 solved.disc_factor 1 0x3feeeaf9d1013c9a 0.9661835748792271
+MP00004 solved.disc_factor 2 0x3feddf51d51145af 0.933510700366403
+MP00004 solved.disc_factor 3 0x3fecdcb6f2f6b795 0.9019427056680224
+MP00004 solved.disc_factor 4 0x3febe2dacf8a333b 0.8714422276985724
+MP00004 solved.disc_factor 5 0x3feaf171b5f88a8b 0.8419731668585241
+MP00004 solved.disc_factor 6 0x3fea083280d2748c 0.8135006443077528
+MP00004 solved.disc_factor 7 0x3fe926d683e2d605 0.7859909606838192
+MP00004 solved.disc_factor 8 0x3fe84d1976c4e785 0.7594115562162506
+MP00004 solved.disc_factor 9 0x3fe77ab96033bbd4 0.7337309721896141
+MP00004 solved.disc_factor 10 0x3fe6af76820ce200 0.7089188137097722
+MP00004 solved.disc_factor 11 0x3fe5eb134600147c 0.6849457137292485
+MP00004 solved.disc_factor 12 0x3fe52d542ae61b37 0.6617832982891291
+MP00004 solved.disc_factor 13 0x3fe475ffb2b93937 0.6394041529363567
+MP00004 solved.disc_factor 14 0x3fe3c4de5129af3e 0.6177817902766731
+MP00004 solved.disc_factor 15 0x3fe319ba5ac90c41 0.596890618624805
+MP00004 solved.disc_factor 16 0x3fe2745ff4c7322e 0.5767059117147875
+MP00004 solved.disc_factor 17 0x3fe1d49d053c21a5 0.5572037794345773
+MP00004 solved.disc_factor 18 0x3fe13a4123f9c9f0 0.5383611395503163
+MP00004 solved.disc_factor 19 0x3fe0a51d8be143ba 0.520155690386779
+MP00004 solved.disc_factor 20 0x3fe015050cb704d7 0.5025658844316706
+MP00004 solved.in_force_at_val . 0x0000000000000000 0.0
+aggregate AggregateRow { aggregation: "bel_by_product", group_key: "product_code=GRP1", measure: "bel", t: -1, value: -3357091.082267033 }
+aggregate AggregateRow { aggregation: "bel_by_product_gender", group_key: "product_code=GRP1|gender=M", measure: "bel", t: -1, value: -3357091.082267033 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 0, value: 2.0 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 1, value: 1.996 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 2, value: 1.992008 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 3, value: 1.988023984 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 4, value: 1.984047936032 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 5, value: 1.980079840159936 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 6, value: 1.9761196804796162 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 7, value: 1.972167441118657 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 8, value: 1.9682231062364197 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 9, value: 1.9642866600239468 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 10, value: 1.960358086703899 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 11, value: 1.9564373705304912 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 12, value: 1.95252449578943 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 13, value: 1.9486194467978513 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 14, value: 1.9447222079042557 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 15, value: 1.9408327634884472 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 16, value: 1.9369510979614704 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 17, value: 1.9330771957655475 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 18, value: 1.9292110413740164 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 19, value: 1.9253526192912684 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=F", measure: "num_pols_if", t: 20, value: 1.9215019140526859 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 0, value: 2.0 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 1, value: 1.996 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 2, value: 1.992008 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 3, value: 1.988023984 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 4, value: 1.984047936032 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 5, value: 1.980079840159936 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 6, value: 1.9761196804796162 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 7, value: 1.972167441118657 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 8, value: 1.9682231062364197 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 9, value: 1.9642866600239468 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 10, value: 1.960358086703899 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 11, value: 1.9564373705304912 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 12, value: 1.95252449578943 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 13, value: 1.9486194467978513 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 14, value: 1.9447222079042557 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 15, value: 1.9408327634884472 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 16, value: 1.9369510979614704 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 17, value: 1.9330771957655475 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 18, value: 1.9292110413740164 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 19, value: 1.9253526192912684 }
+aggregate AggregateRow { aggregation: "pols_by_gender_each_t", group_key: "gender=M", measure: "num_pols_if", t: 20, value: 1.9215019140526859 }

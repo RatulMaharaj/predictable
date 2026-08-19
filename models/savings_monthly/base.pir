@@ -1,0 +1,16 @@
+format = "pir/1"
+assumption_set = "base"
+model_module = "model"
+alloc_rate_renewal = 1.0
+alloc_rate_year1 = 0.6
+amc_pa = 0.03
+coi_loading = 1.1
+credit_rate = 0.055
+expense_inflation = 0.028
+guarantee_pct = 1.05
+initial_expense_pct = 0.3
+lapse_loading = 1.0
+mortality_loading = 1.05
+policy_fee_pm = 6.0
+renewal_expense_pa = 48.0
+valuation_rate = 0.035

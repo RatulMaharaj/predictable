@@ -1,0 +1,4 @@
+# source resolves relative to the directory of the declaring .pir, sandboxed to
+# the project root. Absolute paths and escaping relative paths are both E0801.
+error E0801 model.pir:28:11 table source escapes the project root
+error E0801 model.pir:36:11 table source escapes the project root

@@ -1,0 +1,23 @@
+[package]
+name = "predictable-tape"
+description = "Tape lowering: the Op set, linear-scan register allocation, static trap masking and three-tape loop peeling (03-engine.md §3.3, §5.2)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_tape"
+path = "src/lib.rs"
+
+[dependencies]
+predictable-ir = { workspace = true }
+predictable-plan = { workspace = true }
+serde = { workspace = true }
+sha2 = "0.10"
+
+[dev-dependencies]
+predictable-check = { workspace = true }
+serde_json = { workspace = true }

@@ -1,0 +1,4 @@
+# G0 (lag = 0, stage = 1) must be acyclic. The primary span is the first edge of
+# the cycle in declaration order; the secondary span on `bel` is not asserted here
+# (see README §3).
+error E0201 model.pir:30:9 cyclic dependency in the same period

@@ -1,0 +1,8 @@
+name    = "v07-lints"
+kind    = "valid"
+title   = "W0101-W0105 on a model that is free of errors"
+spec    = ["01-ir.md §7", "01-ir.md §2.5"]
+entry   = ["model.pir"]
+runtime = false
+fmt     = true
+notes   = "kind = valid: lints never block a run. Each component here exists to fire exactly one lint."

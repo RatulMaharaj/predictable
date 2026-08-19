@@ -1,0 +1,3 @@
+error E0506 model.pir:29:11 `timing` is only meaningful for shape = "Series"
+error E0507 model.pir:34:9 a `Series` component must declare a `timing`
+error E0508 model.pir:48:11 unknown timing tag `average`

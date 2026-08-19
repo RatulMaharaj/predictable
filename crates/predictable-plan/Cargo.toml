@@ -1,0 +1,24 @@
+[package]
+name = "predictable-plan"
+description = "The planner: slot allocation, deterministic ordering, retention, hoisting and IEEE-preserving folding (03-engine.md §3, §4.3)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_plan"
+path = "src/lib.rs"
+
+[dependencies]
+predictable-ir = { workspace = true }
+predictable-check = { workspace = true }
+predictable-syntax = { workspace = true }
+predictable-diagnostics = { workspace = true }
+serde = { workspace = true }
+sha2 = "0.10"
+
+[dev-dependencies]
+serde_json = { workspace = true }

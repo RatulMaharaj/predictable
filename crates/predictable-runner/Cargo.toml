@@ -1,0 +1,34 @@
+[package]
+name = "predictable-runner"
+description = "The runner: chunk pipeline, executors, solves, aggregation and manifest assembly (03-engine.md §5.4, §8.2, §10)."
+version.workspace = true
+edition.workspace = true
+# Inherited from predictable-io's arrow/parquet 55 floor.
+rust-version = "1.82"
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_runner"
+path = "src/lib.rs"
+
+[dependencies]
+predictable-ir = { workspace = true }
+predictable-plan = { workspace = true }
+predictable-tape = { workspace = true }
+predictable-tables = { workspace = true }
+predictable-engine = { workspace = true }
+predictable-io = { workspace = true }
+predictable-diagnostics = { workspace = true }
+predictable-fmt = { workspace = true }
+predictable-syntax = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = "0.10"
+rayon = "1"
+
+[dev-dependencies]
+predictable-check = { workspace = true }
+predictable-io = { workspace = true }
+tempfile = "3"

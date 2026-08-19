@@ -1,0 +1,7 @@
+name    = "v03-monthly"
+kind    = "valid"
+title   = "A monthly-basis model: explicit basis conversion and the monthly timeline inputs"
+spec    = ["01-ir.md §5", "01-ir.md §2.4", "01-ir.md §2.8"]
+entry   = ["model.pir"]
+runtime = false
+fmt     = true

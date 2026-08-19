@@ -1,0 +1,3 @@
+# No diagnostics. This model checks clean: every Series has a timing tag, every
+# unit resolves, the only self-references are lag 1 (IR §3.1), and `reserve`
+# reaches the stage-2 `bel` through `init` only (IR §8.2).

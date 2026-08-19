@@ -1,0 +1,107 @@
+# predictable determinism golden
+# generated on: aarch64-unix-macos
+# regenerate with: UPDATE_GOLDEN=1 cargo test -p predictable-determinism
+case v07-lints
+modelpoints <synthetic>
+modelpoint_digest sha256:d519e65f95d2682d2f59eb7ccffd254be992412f5bda66d845a87c80d5cd8edc
+model_digest sha256:0dc57dd5ca1fd690a80ecd01462aaec99fc8453be87a85f4ef56559a2af2b68b
+order_digest 92f2ae5d22e4c83367046ce67024fa3dcc9ea3f717caa933039a9fde09ae1ace
+plan_digest 1b9bee4c75cb59724623de7cc2f8e94d4be3893afce906b29fd3abe2205190c3
+tape_digest b0ce3cff0344493cb15717a06a71b782c9b5df48de92862acceaf08927cfb94d
+periods 10
+order policy_number sum_assured rate never_used untagged_money t period_start_date period_end_date year_frac month_of_year policy_year policy_month is_anniversary constant_series premium claims mixed_timing pointless_retime
+assumption rate 0x3fa1eb851eb851ec 0.035
+outcome Completed exit=0
+projected 4 trapped 0 traps 0
+MP00001 lints.mixed_timing 0 0x4092c00000000000 1200.0
+MP00001 lints.mixed_timing 1 0x4092c00000000000 1200.0
+MP00001 lints.mixed_timing 2 0x4092c00000000000 1200.0
+MP00001 lints.mixed_timing 3 0x4092c00000000000 1200.0
+MP00001 lints.mixed_timing 4 0x4092c00000000000 1200.0
+MP00001 lints.mixed_timing 5 0x4092c00000000000 1200.0
+MP00001 lints.mixed_timing 6 0x4092c00000000000 1200.0
+MP00001 lints.mixed_timing 7 0x4092c00000000000 1200.0
+MP00001 lints.mixed_timing 8 0x4092c00000000000 1200.0
+MP00001 lints.mixed_timing 9 0x4092c00000000000 1200.0
+MP00001 lints.mixed_timing 10 0x4092c00000000000 1200.0
+MP00001 lints.constant_series 0 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.constant_series 1 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.constant_series 2 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.constant_series 3 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.constant_series 4 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.constant_series 5 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.constant_series 6 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.constant_series 7 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.constant_series 8 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.constant_series 9 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.constant_series 10 0x3ff08f5c28f5c28f 1.035
+MP00001 lints.pointless_retime . 0x40c57c0000000000 11000.0
+MP00002 lints.mixed_timing 0 0x4095180000000000 1350.0
+MP00002 lints.mixed_timing 1 0x4095180000000000 1350.0
+MP00002 lints.mixed_timing 2 0x4095180000000000 1350.0
+MP00002 lints.mixed_timing 3 0x4095180000000000 1350.0
+MP00002 lints.mixed_timing 4 0x4095180000000000 1350.0
+MP00002 lints.mixed_timing 5 0x4095180000000000 1350.0
+MP00002 lints.mixed_timing 6 0x4095180000000000 1350.0
+MP00002 lints.mixed_timing 7 0x4095180000000000 1350.0
+MP00002 lints.mixed_timing 8 0x4095180000000000 1350.0
+MP00002 lints.mixed_timing 9 0x4095180000000000 1350.0
+MP00002 lints.mixed_timing 10 0x4095180000000000 1350.0
+MP00002 lints.constant_series 0 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.constant_series 1 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.constant_series 2 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.constant_series 3 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.constant_series 4 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.constant_series 5 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.constant_series 6 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.constant_series 7 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.constant_series 8 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.constant_series 9 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.constant_series 10 0x3ff08f5c28f5c28f 1.035
+MP00002 lints.pointless_retime . 0x40c82b8000000000 12375.0
+MP00003 lints.mixed_timing 0 0x4097700000000000 1500.0
+MP00003 lints.mixed_timing 1 0x4097700000000000 1500.0
+MP00003 lints.mixed_timing 2 0x4097700000000000 1500.0
+MP00003 lints.mixed_timing 3 0x4097700000000000 1500.0
+MP00003 lints.mixed_timing 4 0x4097700000000000 1500.0
+MP00003 lints.mixed_timing 5 0x4097700000000000 1500.0
+MP00003 lints.mixed_timing 6 0x4097700000000000 1500.0
+MP00003 lints.mixed_timing 7 0x4097700000000000 1500.0
+MP00003 lints.mixed_timing 8 0x4097700000000000 1500.0
+MP00003 lints.mixed_timing 9 0x4097700000000000 1500.0
+MP00003 lints.mixed_timing 10 0x4097700000000000 1500.0
+MP00003 lints.constant_series 0 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.constant_series 1 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.constant_series 2 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.constant_series 3 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.constant_series 4 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.constant_series 5 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.constant_series 6 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.constant_series 7 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.constant_series 8 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.constant_series 9 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.constant_series 10 0x3ff08f5c28f5c28f 1.035
+MP00003 lints.pointless_retime . 0x40cadb0000000000 13750.0
+MP00004 lints.mixed_timing 0 0x4099c80000000000 1650.0
+MP00004 lints.mixed_timing 1 0x4099c80000000000 1650.0
+MP00004 lints.mixed_timing 2 0x4099c80000000000 1650.0
+MP00004 lints.mixed_timing 3 0x4099c80000000000 1650.0
+MP00004 lints.mixed_timing 4 0x4099c80000000000 1650.0
+MP00004 lints.mixed_timing 5 0x4099c80000000000 1650.0
+MP00004 lints.mixed_timing 6 0x4099c80000000000 1650.0
+MP00004 lints.mixed_timing 7 0x4099c80000000000 1650.0
+MP00004 lints.mixed_timing 8 0x4099c80000000000 1650.0
+MP00004 lints.mixed_timing 9 0x4099c80000000000 1650.0
+MP00004 lints.mixed_timing 10 0x4099c80000000000 1650.0
+MP00004 lints.constant_series 0 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.constant_series 1 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.constant_series 2 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.constant_series 3 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.constant_series 4 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.constant_series 5 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.constant_series 6 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.constant_series 7 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.constant_series 8 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.constant_series 9 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.constant_series 10 0x3ff08f5c28f5c28f 1.035
+MP00004 lints.pointless_retime . 0x40cd8a8000000000 15125.0

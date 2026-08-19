@@ -1,0 +1,60 @@
+# The Prophet correspondence, as data rather than as code.
+#
+# Every entry here is a claim about the *Prophet* side, and every `sign`, `scale` or
+# `timing_shift` ends up on a human sign-off sheet. This mapping declares none of them:
+# `TERM_UK` and the migrated model use the same signs, the same units and the same period
+# convention, so the only thing being asserted is the correspondence of names.
+#
+# `period_base = 1` is the one unavoidable declaration. A `.rpt` numbers its periods from
+# 1; the reader refuses to guess that (`P0302`) because an off-by-one in `t` diverges at
+# every timestep and is the most expensive false alarm in a migration.
+
+format = "pvf/1"
+prophet_run = "TERM_BASE_2026Q2"
+model_module = "model"
+period_base = 1
+mp_key = { prophet = "POL_NUM", predictable = "policy_number" }
+
+[[component]]
+prophet = "MORT_RATE"
+predictable = "qx"
+
+[[component]]
+prophet = "LAPSE_RATE"
+predictable = "wx"
+
+[[component]]
+prophet = "POLS_IF"
+predictable = "num_pols_if"
+
+[[component]]
+prophet = "DEATHS"
+predictable = "deaths"
+
+[[component]]
+prophet = "SURRENDERS"
+predictable = "surrenders"
+
+[[component]]
+prophet = "PREM_INC"
+predictable = "premium_income"
+
+[[component]]
+prophet = "DTH_CLAIM"
+predictable = "death_claims"
+
+[[component]]
+prophet = "EXPENSE"
+predictable = "renewal_expenses"
+
+[[component]]
+prophet = "NET_CF"
+predictable = "net_cashflow"
+
+[[component]]
+prophet = "RESERVE"
+predictable = "reserve"
+
+[[unmapped]]
+prophet = "RESERVE_INT"
+reason = "Prophet working variable (RESERVE * VAL_RATE); reported by the run settings, used by nothing downstream, and deliberately not reproduced."

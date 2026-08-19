@@ -1,0 +1,16 @@
+[package]
+name = "predictable-syntax"
+description = "Lexer, parser, source map and expression arena for the predictable `.pir` IR text format."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_syntax"
+path = "src/lib.rs"
+
+[dependencies]
+logos = "0.14"

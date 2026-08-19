@@ -1,0 +1,10 @@
+name    = "e11-lookup-miss-trap"
+kind    = "invalid"
+title   = "on_missing = error: a key outside the table traps at run time"
+spec    = ["01-ir.md §2.9", "01-ir.md §9.3", "01-ir.md §9.3.1"]
+entry   = ["model.pir"]
+product = "product.pir"
+run     = "run.pir"
+runtime = true
+fmt     = true
+notes   = "The model checks clean — a lookup miss is not knowable before the data is read. The failure is the E0902 trap envelope in expected.trap.json, under the default on_trap = abort."

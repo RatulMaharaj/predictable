@@ -1,0 +1,27 @@
+[package]
+name = "predictable-engine"
+description = "The kernel: chunked column-major evaluation of a lowered tape, ChunkBuffers arena reuse, per-lane trap flags with scalar replay (03-engine.md §4, §5.1, §5.5)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "predictable_engine"
+path = "src/lib.rs"
+
+[dependencies]
+predictable-ir = { workspace = true }
+predictable-plan = { workspace = true }
+predictable-tape = { workspace = true }
+predictable-tables = { workspace = true }
+predictable-diagnostics = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+libm = { workspace = true }
+
+[dev-dependencies]
+predictable-check = { workspace = true }

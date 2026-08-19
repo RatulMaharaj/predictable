@@ -1,0 +1,19 @@
+# predictable determinism golden
+# generated on: aarch64-unix-macos
+# regenerate with: UPDATE_GOLDEN=1 cargo test -p predictable-determinism
+case v05-canonical-fmt
+modelpoints <synthetic>
+modelpoint_digest sha256:d519e65f95d2682d2f59eb7ccffd254be992412f5bda66d845a87c80d5cd8edc
+model_digest sha256:6c719ba58798a4f7c4524c682d3f527c8f450b689b6f2809adc9d12fa1bf836d
+order_digest 10c36ac61886b1b7d9fa5843a31500603b15eaa571b4ce5792dd7f094da1ed64
+plan_digest ac5969e1160885d444703b0a3a613f0736b9590bcf8e55687ab6fc55b97ea8e9
+tape_digest 5fa8419f897aa1c9f806b6780883498ec38d1d84901afc71cdd8badcc0676470
+periods 10
+order policy_number sum_assured rate face t period_start_date period_end_date year_frac month_of_year policy_year policy_month is_anniversary escalated interest total
+assumption rate 0x3fa1eb851eb851ec 0.035
+outcome Completed exit=0
+projected 4 trapped 0 traps 0
+MP00001 fmt_case.total . 0x40e8479b5cb7dd31 49724.85506814195
+MP00002 fmt_case.total . 0x40eb508a61e87271 55940.3244516597
+MP00003 fmt_case.total . 0x40ee5979671907b1 62155.79383517744
+MP00004 fmt_case.total . 0x40f0b1343624ce79 68371.2632186952

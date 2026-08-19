@@ -1,0 +1,6 @@
+name  = "e05-unit-rate-basis"
+kind  = "invalid"
+title = "rate(annual) + rate(monthly)"
+spec  = ["01-ir.md §2.4", "01-ir.md §5"]
+entry = ["model.pir"]
+fmt   = true

@@ -5,10 +5,68 @@ repo_name: RatulMaharaj/predictable
 
 nav:
   - Home: index.md
-  - Installation: installation.md
-  - Tutorial: tutorial.md
+  - Getting Started:
+      - Getting started: v2/getting-started.md
+      - Reference models: v2/reference-models.md
+      - The verification loop end to end: v2/verification-walkthrough.md
+  - Concepts:
+      - The IR:
+          - IR concepts: v2/ir-concepts.md
+          - Parsing .pir files: v2/pir-syntax.md
+          - Canonical form and digests: v2/canonical-form.md
+          - Checking a model: v2/checking.md
+          - Conformance corpus: v2/conformance-corpus.md
+      - Authoring:
+          - The DSL tracer: v2/dsl-tracer.md
+          - Declaring a model: v2/dsl-declarations.md
+          - Building a model: v2/building-a-model.md
+          - Loading modelpoints: v2/modelpoint-loading.md
+          - Tables and lookups: v2/tables.md
+      - The engine:
+          - Planning a model: v2/planning.md
+          - Tape lowering: v2/tape-lowering.md
+          - The kernel: v2/kernel.md
+          - Substage levels and terms: v2/substage-levels.md
+          - Running a model: v2/running-a-model.md
+          - Run results and manifests: v2/run-results.md
+          - Determinism and goldens: v2/determinism.md
+          - Byte-deterministic result files: v2/parquet-determinism.md
+          - Benchmarks: v2/benchmarks.md
+      - Verification:
+          - Explaining a number: v2/explain.md
+          - Diffing two models: v2/model-diff.md
+          - Diffing two runs: v2/run-diff.md
+          - Hypotheses and mutation testing: v2/hypotheses.md
+          - Reading Prophet files: v2/prophet-readers.md
+          - The migration skill and llms.txt: v2/migration-skill.md
+      - Visualisation:
+          - The graph document and viz server: v2/viz-server.md
+          - The Model Explorer: v2/model-explorer.md
+          - The modelpoint drill-down: v2/viz-drilldown.md
+          - The Run Diff screen: v2/viz-rundiff.md
+          - The viz data source contract: v2/viz-datasource.md
+          - WASM and governance packs: v2/wasm-and-packs.md
+  - Reference:
+      - The command line: v2/cli.md
+      - The Python API: v2/python-api.md
+      - Diagnostics catalogue: llm/diagnostics.md
+  - Demos:
+      - Migrating a Prophet library: v2/demo-migration.md
+      - Reproducing the benchmarks: v2/demo-benchmarks.md
+      - An IFRS 17 sample valuation: v2/ifrs17-valuation.md
+  - Design specs:
+      - Overview: design/README.md
+      - Build backlog: design/00-backlog.md
+      - IR: design/01-ir.md
+      - DSL: design/02-dsl.md
+      - Engine: design/03-engine.md
+      - Verification: design/04-verify.md
+      - Visualisation: design/05-viz.md
+  - v0 (legacy):
+      - Installation: installation.md
+      - Tutorial: tutorial.md
+      - API reference: reference.md
   - Contributing: contributing.md
-  - Reference: reference.md
 
 extra:
   social:
@@ -48,6 +106,8 @@ plugins:
             show_source: false
 
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - toc:
       toc_depth: 2
       title: On this page
@@ -56,7 +116,13 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  # `mermaid` fences are drawn as diagrams rather than printed as code. The design specs
+  # (docs/design/) and the verification walkthrough both carry them.
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys

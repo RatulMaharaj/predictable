@@ -1,0 +1,7 @@
+name  = "e08-forward-reference"
+kind  = "invalid"
+title = "x[t+1] and x[T] are not in the grammar"
+spec  = ["01-ir.md §2.7", "01-ir.md §4.2"]
+entry = ["model.pir"]
+fmt   = false
+notes = "fmt = false: the input does not parse, so there is no canonical form to compare."

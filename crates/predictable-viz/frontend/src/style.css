@@ -1,0 +1,224 @@
+/* CSS custom properties and a small hand-written system: no Tailwind, no
+   component library (§1.6). The print/export requirement argues for owning the
+   CSS outright, and §5.2 requires light and dark to be defined explicitly and
+   print to force light. */
+:root {
+  color-scheme: light dark;
+  --fg: #16181d;
+  --bg: #fbfbfc;
+  --panel: #ffffff;
+  --dim: #6a707d;
+  --line: #d9dce3;
+  --edge: #8b93a1;
+  --impact: #c07800;
+  --impact-soft: #f6e4c0;
+  --band: #f1f3f6;
+  --accent: #1f4fd8;
+  --code-bg: #f4f5f8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #e7e9ee;
+    --bg: #14161a;
+    --panel: #191c22;
+    --dim: #9aa1ad;
+    --line: #2b2f37;
+    --edge: #6d7581;
+    --impact: #e5a53a;
+    --impact-soft: #443318;
+    --band: #1c1f26;
+    --accent: #7ea2ff;
+    --code-bg: #1d2129;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+.loading, .err { padding: 2rem; }
+.err { color: #c0392b; }
+
+/* ---- the screen grid (§4.1) ---------------------------------------------- */
+.explorer {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) 420px;
+  grid-template-rows: 40px minmax(0, 1fr);
+  grid-template-areas: "top top top" "side canvas inspect";
+  height: 100vh;
+}
+.topbar {
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 0.75rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+.topbar .modules, .topbar .digest { color: var(--dim); font-family: ui-monospace, monospace; }
+.topbar .kbd {
+  margin-left: auto;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--fg);
+  padding: 0.15rem 0.5rem;
+  cursor: pointer;
+}
+
+.sidebar {
+  grid-area: side;
+  border-right: 1px solid var(--line);
+  overflow: auto;
+  padding: 0.75rem;
+  background: var(--panel);
+}
+.sidebar h3 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  margin: 1rem 0 0.35rem;
+}
+.sidebar ul { list-style: none; margin: 0; padding: 0; }
+.sidebar label { display: block; cursor: pointer; }
+.overlays label { display: block; }
+.counts, .impact-count, .renderer { color: var(--dim); margin: 0.6rem 0 0; font-family: ui-monospace, monospace; }
+.impact-count { color: var(--impact); }
+
+.canvas-area { grid-area: canvas; overflow: auto; position: relative; }
+.inspector {
+  grid-area: inspect;
+  border-left: 1px solid var(--line);
+  overflow: auto;
+  padding: 0.75rem 1rem;
+  background: var(--panel);
+  resize: horizontal;
+}
+.inspector h2 { margin: 0; font-size: 1.05rem; font-family: ui-monospace, monospace; }
+.inspector h3 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  margin: 1.1rem 0 0.3rem;
+}
+.inspector .meta { color: var(--dim); margin: 0.15rem 0; font-family: ui-monospace, monospace; }
+.inspector .doc { margin: 0.75rem 0 0; }
+.inspector .code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: ui-monospace, monospace;
+}
+.inspector .ident {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+.inspector .prophet { font-family: ui-monospace, monospace; font-weight: 600; }
+.inspector .lints { list-style: none; margin: 0; padding: 0; }
+.inspector .neighbours { list-style: none; margin: 0; padding: 0; }
+.inspector .neighbours button {
+  border: 0;
+  background: none;
+  padding: 0.1rem 0;
+  font: inherit;
+  font-family: ui-monospace, monospace;
+  color: var(--accent);
+  cursor: pointer;
+}
+.sparkline { width: 100%; height: 26px; }
+.sparkline polyline { fill: none; stroke: var(--accent); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+
+/* ---- the graph (§2.2) ---------------------------------------------------- */
+.graph { display: block; width: 100%; height: 100%; }
+.graph-canvas canvas { display: block; width: 100%; height: 100%; }
+.a11y-nodes {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.band { fill: var(--band); }
+.band-label { fill: var(--dim); font: 9px ui-monospace, monospace; }
+.edge path { fill: none; stroke: var(--edge); }
+.edge .edge-double { stroke: var(--edge); }
+.edge .edge-dot { fill: none; stroke: var(--edge); }
+.edge .edge-label { fill: var(--dim); font: 9px ui-monospace, monospace; text-anchor: middle; }
+.edge.impacted path, .edge.impacted .edge-label { stroke: var(--impact); fill: none; }
+.edge.impacted .edge-label { fill: var(--impact); stroke: none; }
+.node .node-body { stroke: rgba(0, 0, 0, 0.35); stroke-width: 1; }
+.node-output .node-body { stroke-width: 2.5; }
+.node-table .node-body { fill-opacity: 0.4; stroke-dasharray: 4 3; }
+.node .node-label { fill: #fff; font: 11px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
+.node.selected .node-body { stroke: var(--fg); stroke-width: 2.5; }
+.node.impacted .node-body { stroke: var(--impact); stroke-width: 2.5; }
+.node:focus-visible { outline: 2px solid var(--accent); }
+.self-loop path { fill: none; stroke: var(--edge); }
+.self-loop text { fill: var(--dim); font: 9px ui-monospace, monospace; }
+.lint-badge path { fill: #d99a00; stroke: #7a5600; stroke-width: 0.75; }
+
+/* ---- the palette (§2.3) -------------------------------------------------- */
+.palette-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 16, 0.4);
+  display: flex;
+  justify-content: center;
+  padding-top: 12vh;
+  z-index: 20;
+}
+.palette {
+  width: min(620px, 90vw);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+.palette input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg);
+  padding: 0.8rem 1rem;
+  font: 14px ui-monospace, monospace;
+}
+.palette input:focus { outline: none; }
+.palette ul { list-style: none; margin: 0; padding: 0; max-height: 46vh; overflow: auto; }
+.palette li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+.palette li.active { background: var(--band); }
+.palette li.empty { color: var(--dim); display: block; }
+.palette .hit-name { font-family: ui-monospace, monospace; }
+.palette mark { background: transparent; color: var(--accent); font-weight: 700; }
+.palette .hit-why { color: var(--dim); font-size: 0.85em; }
+.palette .hit-prophet { color: var(--impact); font-family: ui-monospace, monospace; }
+.palette .hit-kind { color: var(--dim); font-size: 0.75em; text-transform: uppercase; }
+
+@media print {
+  :root { --fg: #000; --bg: #fff; --panel: #fff; --band: #eee; }
+  .sidebar, .topbar .kbd, .palette-backdrop { display: none; }
+}

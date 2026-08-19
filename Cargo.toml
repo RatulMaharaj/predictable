@@ -1,0 +1,82 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/predictable-check",
+    "crates/predictable-cli",
+    "crates/predictable-determinism",
+    "crates/predictable-diagnostics",
+    "crates/predictable-engine",
+    "crates/predictable-fmt",
+    "crates/predictable-io",
+    "crates/predictable-modeldiff",
+    "crates/predictable-rundiff",
+    "crates/predictable-runner",
+    "crates/predictable-ir",
+    "crates/predictable-plan",
+    "crates/predictable-prophet",
+    "crates/predictable-py",
+    "crates/predictable-syntax",
+    "crates/predictable-tape",
+    "crates/predictable-tables",
+    "crates/predictable-viz",
+    "crates/predictable-wasm",
+]
+# `cargo build` / `cargo test` at the workspace root deliberately skip the PyO3
+# crate: it links against libpython and is built through maturin
+# (`maturin develop -m crates/predictable-py/Cargo.toml`), which supplies the
+# right interpreter and the `extension-module` feature. Build it explicitly with
+# `cargo check -p predictable-py` when a suitable Python is on PATH.
+default-members = ["crates/predictable-determinism", "crates/predictable-check", "crates/predictable-io", "crates/predictable-engine", "crates/predictable-syntax", "crates/predictable-ir", "crates/predictable-diagnostics", "crates/predictable-fmt", "crates/predictable-cli", "crates/predictable-tables", "crates/predictable-plan", "crates/predictable-prophet", "crates/predictable-tape", "crates/predictable-runner", "crates/predictable-rundiff", "crates/predictable-viz", "crates/predictable-modeldiff", "crates/predictable-wasm"]
+
+[workspace.package]
+version = "0.0.1"
+edition = "2021"
+rust-version = "1.78"
+license = "MIT"
+authors = ["Ratul Maharaj"]
+repository = "https://github.com/ratulmaharaj/predictable"
+
+[workspace.dependencies]
+predictable-check = { path = "crates/predictable-check" }
+predictable-determinism = { path = "crates/predictable-determinism" }
+predictable-engine = { path = "crates/predictable-engine" }
+predictable-io = { path = "crates/predictable-io" }
+predictable-ir = { path = "crates/predictable-ir" }
+predictable-syntax = { path = "crates/predictable-syntax" }
+predictable-fmt = { path = "crates/predictable-fmt" }
+predictable-runner = { path = "crates/predictable-runner" }
+predictable-diagnostics = { path = "crates/predictable-diagnostics" }
+predictable-tables = { path = "crates/predictable-tables" }
+predictable-plan = { path = "crates/predictable-plan" }
+predictable-prophet = { path = "crates/predictable-prophet" }
+predictable-tape = { path = "crates/predictable-tape" }
+predictable-modeldiff = { path = "crates/predictable-modeldiff" }
+predictable-rundiff = { path = "crates/predictable-rundiff" }
+predictable-viz = { path = "crates/predictable-viz" }
+predictable-wasm = { path = "crates/predictable-wasm" }
+predictable-cli = { path = "crates/predictable-cli" }
+serde = { version = "1", features = ["derive"] }
+# `float_roundtrip`: without it serde_json's parser is not exactly reversible on
+# f64, and a trace or a diff read back from JSON would differ in the last bits
+# from the run it describes (04-verify.md §3.6).
+serde_json = { version = "1", features = ["float_roundtrip"] }
+thiserror = "1"
+# §7 rule 4 (03-engine.md): transcendentals come from the vendored `libm`, never
+# the platform's — glibc's `pow` and macOS's differ in the last ULP.
+libm = "0.2"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+
+# The wasm artefact's profile (03-engine.md §9): `opt-level = "z"` and
+# `panic = "abort"` are size decisions, and the 1.5 MB gzipped budget is
+# asserted against a build with exactly these settings
+# (`crates/predictable-wasm/tests/wasm_gate.rs`).
+[profile.wasm-release]
+inherits = "release"
+opt-level = "z"
+panic = "abort"
+lto = true
+codegen-units = 1
+strip = true

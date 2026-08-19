@@ -1,0 +1,10 @@
+format = "pir/1"
+assumption_set = "base"
+model_module = "model"
+expense_inflation = 0.028
+initial_expense_pct = 1.35
+lapse_loading = 1.0
+mortality_loading = 1.05
+premium_escalation = 0.0
+renewal_expense_pa = 48.0
+valuation_rate = 0.035
